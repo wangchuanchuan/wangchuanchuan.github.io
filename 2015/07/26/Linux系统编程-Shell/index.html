@@ -231,15 +231,16 @@
     </header>
     <div class="entry">
       
-        <h1 id="1-1_Shell家族">1.1 Shell家族</h1><blockquote>
+        <p><img src="http://pic.ffsky.net/images/2015/07/26/9b9a583553c5ad48409a8bcebd44d46d.jpg" alt=""></p>
+<hr>
+<h1 id="1-1_Shell家族">1.1 Shell家族</h1><blockquote>
 <p><strong>shell：</strong>命令解释器，根据输入的命令执行相应命令。</p>
 <p>察看当前系统下有哪些shell：</p>
 </blockquote>
 <p><a>cat /etc/shells</a></p>
 <blockquote>
-<p>察看当前系统正在使用的shell</p>
+<p>察看当前系统正在使用的shell<br><a id="more"></a><br><a>echo $SHELL</a></p>
 </blockquote>
-<p><a>echo $SHELL</a></p>
 <p>常见shell：</p>
 <p><a>/bin/sh</a> (已经被 /bin/bash 所取代)</p>
 <p><a>/bin/bash</a> (就是 Linux 默认的 shell)</p>
@@ -248,26 +249,24 @@
 <p><a>/bin/csh</a> (已经被 /bin/tcsh 所取代)</p>
 <p><a>/bin/zsh </a>(基于 ksh 发展出来的，功能更强大的 shell)</p>
 <h1 id="1-2_bash简介">1.2 bash简介</h1><blockquote>
-<p><strong>bash</strong>是一个为GNU计划编写的Unix shell。它的名字是一系列缩写：Bourne-Again</p>
-<p>SHell — 这是关于Bourne shell（sh）的一个双关语（Bourne again/ born again）</p>
-<p>bash 是许多Linux平台的内定Shell，事实上，还有许多传统UNIX上用的Shell,像</p>
-<p>tcsh、csh、ash、bsh、ksh等等，Shell Script大致都类同，当您学会一种Shell以</p>
-<p>后，其它的Shell会很快就上手，大多数的时候，一个Shell Script通常可以在很多种</p>
-<p>Shell上使用。bash是大多数Linux系统以及Mac OS X v10.4默认的shell，它能运行于</p>
-<p>大多数Unix风格的操作系统之上，甚至被移植到了Microsoft Windows上的Cygwin系统</p>
-<p>中，以实现windows的POSIX虚拟接口。此外，它也被DJGPP项目移植到了MS-DOS上。</p>
+<p><strong>bash</strong>是一个为GNU计划编写的Unix shell。它的名字是一系列缩写：Bourne-Again SHell这是关于Bourne </p>
+<p>shellsh的一个双关语（Bourne again/ born again）bash是许多Linux平台的内定Shell，事实上，还有许多</p>
+<p>传统UNIX上用的Shell,像tcsh、csh、ash、bsh、ksh等等，Shell Script大致都类同，当您学会一种Shell以</p>
+<p>后，其它的Shell会很快就上手，大多数的时候，一个Shell Script通常可以在很多种hell上使用。bash是大多</p>
+<p>数Linux系统以及Mac OS X v10.4默认的shell，它能运行于大多数Unix风格的操作系统之上，甚至被移植到了</p>
+<p>Microsoft Windows上的Cygwin系统中，以实现windows的POSIX虚拟接口。此外，它也被DJGPP项目移植到了</p>
+<p>MS-DOS上。</p>
 </blockquote>
 <h1 id="1-3_命令和路径补齐">1.3 命令和路径补齐</h1><blockquote>
-<p>在bash下敲命令时，Tab键可以补全已经敲了一部分的文件名和目录名。如果是Ubuntu</p>
-<p>系统，系统默认启用了bash completion，还可以补全命令的某些参数、Makefile目标等</p>
-<p>等。如果是Debian系统，可以用以下命令启用bash completion：</p>
+<p>在bash下敲命令时，Tab键可以补全已经敲了一部分的文件名和目录名。如果是Ubuntu系统，系统默认启用了</p>
+<p>bash completion，还可以补全命令的某些参数、Makefile目标等。如果是Debian系统，可以用以下命令启用</p>
+<p>bash completion：</p>
 </blockquote>
 <p><a>$ source /etc/bash_completion</a></p>
 <blockquote>
-<p>建议将这一行加入∼/.bashrc启动脚本中。比如使用sudo后面接命令，如果没有bash</p>
-<p>completion则只有sudo可以补全，后面的命令不能补全。如果启用了bash ompletion，</p>
-<p>则后面的命令，包括命令的某些参数（比如aptitude命令的install）都可以补全了。</p>
-<p>比如在主目录下要列出桌面目录的内容，输入（不回车）</p>
+<p>建议将这一行加入∼/.bashrc启动脚本中。比如使用<a>sudo</a>后面接命令，如果没有bash completion则只</p>
+<p>有sudo可以补全，后面的命令不能补全。如果启用bashompletion，则后面的命令，包括命令的某些参数（比如</p>
+<p>aptitude命令的install）都可以补全了。比如在主目录下要列出桌面目录的内容，输入（不回车）:</p>
 </blockquote>
 <p><a>$ ls De </a></p>
 <blockquote>
@@ -275,39 +274,35 @@
 </blockquote>
 <p><a>$ ls Desktop</a></p>
 <blockquote>
-<p>否则，再敲一次Tab键，将会把所有以De开头的文件或文件夹列在下面供你选择(在这里</p>
-<p>我们手动创建另外一个以De开头的文件)</p>
+<p>否则，再敲一次Tab键，将会把所有以De开头的文件或文件夹列在下面供你选择(在这里我们手动创建另外一个以</p>
+<p>De开头的文件)</p>
 </blockquote>
 <p><a>$ touch Death<br>$ ls De</a></p>
 <p>Death</p>
 <p>Desktop/<br></p>
 <blockquote>
-<p>可以再补敲一个s再Tab，这次Desktop就会补全到命令后面了。有的人是从DOS时代过来 </p>
-<p>的，留下一个很不好的习惯就是在找一个文件时反复地cd、ls、cd、ls。。。等找到了要</p>
-<p>找的文件时再想回到先前的目录，已经不记得先前是从哪个目录转到这里来的了。</p>
-<p>我们从上面可以看出，Tab补全本身就具备了ls的功能，上面的Tab补全相当于ls -Fd</p>
-<p>De*命令。所以我们完全不必反复地cd到别的目录然后ls去找文件，多按几次Tab就可以一</p>
-<p>条命令完成了，这样的好处是我们的当前目录不用变，不需要找完了文件再cd回来，同时</p>
-<p>省去了大量的按键次数。更重要的是，自动补全同时兼具了检查拼写错误的功能，如果前</p>
-<p>面几个字母拼写错了，就补全不出东西来，用户就知道拼写错了，如果前面几个字母没有</p>
-<p>拼写错，那么由系统补全出来的文件名肯定也不会有拼写错误，避免了用户在敲很长的文</p>
-<p>件名时易犯的拼写错误。</p>
+<p>可以再补敲一个s再Tab，这次Desktop就会补全到命令后面了。有的人是从DOS时代过来 的，留下一个很不好的习</p>
+<p>惯就是在找一个文件时反复地cd、ls、cd、ls。。。等找到了要找的文件时再想回到先前的目录，已经不记得先</p>
+<p>前是从哪个目录转到这里来的了。我们从上面可以看出，Tab补全本身就具备了ls的功能，上面的Tab补全相当于</p>
+<p><a>ls -Fd De*</a>命令。所以我们完全不必反复地cd到别的目录然后ls去找文件，多按几次Tab就可以一条命令</p>
+<p>完成了，这样的好处是我们的当前目录不用变，不需要找完了文件再cd回来，同时省去了大量的按键次数。更重要</p>
+<p>的是，自动补全同时兼具了检查拼写错误的功能，如果前面几个字母拼写错了，就补全不出东西来，用户就知道拼</p>
+<p>写错了，如果前面几个字母没有拼写错，那么由系统补全出来的文件名肯定也不会有拼写错误，避免了用户在敲很</p>
+<p>长的文件名时易犯的拼写错误。</p>
 </blockquote>
 <h1 id="1-4_历史记录">1.4 历史记录</h1><p><a>history</a></p>
 <blockquote>
-<p>历史记录是另外一个非常方便的功能。按上下移动光标键（或者<a>Ctrl-p</a>、</p>
-<p><a>Ctrl-n</a>可以一条一条浏览以前输过的命令。如果有需要重复输入的命令就不用输</p>
-<p>第二次了。如果你能记住以前输过的某条命令中的某个关键字，可以按<a>Ctrl-r</a>，</p>
-<p>然后输入关键字，随着你每输入一个字母，bash会做增量式（increasingly）查找，也可</p>
-<p>以反复按<a>Ctrl-r</a>或<a>Ctrl-s</a>向前向后查找。如果找到了，按左右移动光标</p>
-<p>键或Home键<a>(Ctrl-a)</a>或End键<a>(Ctrl-e)</a>将该命令带回提示符下进一步</p>
-<p>修改，或者直接按Enter键原封不动地执行该命令。</p>
+<p>历史记录是另外一个非常方便的功能。按上下移动光标键（或者<a>Ctrl-p</a>、<a>Ctrl-n</a>可以一条一条</p>
+<p>浏览以前输过的命令。如果有需要重复输入的命令就不用输第二次了。如果你能记住以前输过的某条命令中的某个</p>
+<p>关键字，可以按<a>Ctrl-r</a>，然后输入关键字，随着你每输入一个字母，bash会做增量式（increasingly）</p>
+<p>查找，也可以反复按<a>Ctrl-r</a>或<a>Ctrl-s</a>向前向后查找。如果找到了，按左右移动光标键或Home键</p>
+<p><a>(Ctrl-a)</a>或End键<a>(Ctrl-e)</a>将该命令带回提示符下进一步修改，或者直接按Enter键原封不动地</p>
+<p>执行该命令。</p>
 </blockquote>
 <h1 id="1-5_主键盘快捷键">1.5 主键盘快捷键</h1><blockquote>
-<p>bash的快捷键和emacs保持一致，用惯其中之一再用另一个程序会很顺手的。请记住一</p>
-<p>条<strong>原则：</strong>尽量使用主键盘快捷键而不使用移动光标键和编辑键。因为手不必离开主键</p>
-<p>盘是效率最高的，这样在你一生之中所节省的来回移动手的时间绝对可以用星期来计算，</p>
-<p>是绝对值得你花十分钟的时间记住这些快捷键的。</p>
+<p>bash的快捷键和emacs保持一致，用惯其中之一再用另一个程序会很顺手的。请记住一条<strong>原则：</strong>尽量使用主键</p>
+<p>盘快捷键而不使用移动光标键和编辑键。因为手不必离开主键盘是效率最高的，这样在你一生之中所节省的来回移</p>
+<p>动手的时间绝对可以用星期来计算，是绝对值得你花十分钟的时间记住这些快捷键的。</p>
 </blockquote>
 <p><img src="http://pic.ffsky.net/images/2015/07/26/382b5c388946f6f4aa6bbe9863a60570.png" alt=""></p>
 
