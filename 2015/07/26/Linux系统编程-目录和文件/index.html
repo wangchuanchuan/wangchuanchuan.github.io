@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About me 2011 | 王 传 传</title>
+  <title>Linux系统编程-目录和文件 | 王 传 传</title>
   <meta name="author" content="Chuanchuan Wang">
   
   <meta name="description" content="Walk steps step by step">
@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="About me 2011"/>
+  <meta property="og:title" content="Linux系统编程-目录和文件"/>
   <meta property="og:site_name" content="王 传 传"/>
 
   
@@ -221,24 +221,61 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-24T14:03:51.000Z"><a href="/2015/07/24/About me 2011/">2015-07-24</a></time>
+        <time datetime="2015-07-26T08:16:49.000Z"><a href="/2015/07/26/Linux系统编程-目录和文件/">2015-07-26</a></time>
       
       
   
-    <h1 class="title">About me 2011</h1>
+    <h1 class="title">Linux系统编程-目录和文件</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><img src="http://pic.ffsky.net/images/2015/07/26/6d57c05cffeb35f832a02658502812f7.png" alt="2011"></p>
+        <h1 id="2-1_类Unix系统目录结构">2.1 类Unix系统目录结构</h1><p><strong>ubuntu没有盘符这个概念，只有一个根目录/，所有文件都在它下面</strong></p>
+<blockquote>
+<p>/  根目录</p>
+<p>bin //系统可执行程序，如命令</p>
+<p>boot //内核和启动程序，所有和启动相关的文件都保存在这里</p>
+<p>grub //引导器相关文件</p>
+<p>dev //设备文件</p>
+<p>etc //系统软件的启动和配置文件，系统在启动过程中需要读取的文件都在这个目录。如LILO参数、用户账户和密码。</p>
+<p>home //用户的主目录。下面是自己定义的用户名的文件夹<br>lib  //系统程序库文件,这个目录里存放着系统最基本的动态链接共享库，类似于Windows下的system32目录，几乎所有的应用程序都需要用到这些共享库。</p>
+<p>media //挂载媒体设备，如光驱、U盘等mnt目录。</p>
+<p>opt //目录是让用户临时挂载别的文件系统，如挂载Windows下的某个分区，ubuntu默认还是挂载在/media</p>
+</blockquote>
+<p>proc //可选的应用软件包（很少使用）</p>
+<p>//这个目录是系统内存的映射，我们可以直接访问这个目录来获取系统信息。也就是说，这个目录</p>
+<p>的内容不在硬盘上而是在内存里。</p>
+<p>sbin<br>selinux<br>srv</p>
+<p>//管理员系统程序</p>
+<p>sys</p>
+<p>//udev用到的设备目录树，/sys反映你机器当前所接的设备</p>
+<p>tmp //临时文件夹</p>
+<p>usr</p>
+<p>//这是个最庞大的目录，我们要用到的很多应用程序和文件几乎都存放在这个目录下。]</p>
+<p>bin<br>game</p>
+<p>// 应用程序<br>//游戏程序</p>
+<p>include</p>
+<p>lib<br>lib64<br>local<br>sbin</p>
+<p>//应用程序的库文件</p>
+<p>//包含用户程序等<br>//管理员应用程序</p>
 
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/Linux系统编程/">Linux系统编程</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/Linux学习笔记，目录和文件/">Linux学习笔记，目录和文件</a>
+  </div>
+
 <!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
 <a class="bds_qzone"></a>
@@ -264,10 +301,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 
  <nav id="pagination" >
     
-    <a href="/2015/07/26/Linux系统编程-Shell/" class="alignleft prev" >上一页</a>
     
-    
-    <a href="/2015/07/24/2015爱奇艺暑期实习生面试/" class="alignright next" >下一页</a>
+    <a href="/2015/07/26/Linux系统编程-Shell/" class="alignright next" >下一页</a>
     
     <div class="clearfix"></div>
 </nav>
