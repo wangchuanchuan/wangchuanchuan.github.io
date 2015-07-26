@@ -282,9 +282,163 @@
 <blockquote>
 <p>&#160; ls是英文单词list的简写，其功能为列出目录的内容。这是用户最常用的一个命令，因为用户需要不时地查看某个目录的内容。该命令类似于DOS下的dir命令。 对于每个目录，该命令将列出其中的所有子目录与文件。对于每个文件，ls将输出其文件名以及所要求的其他信息。默认情况下，输出条目按字母顺序排序。当未给出目录名或是文件名时就显示当前目录的信息。<br>&#160; 主要的OPTION有：</p>
 <p><strong>-a</strong> 列出隐藏文件，文件中以“.”开头的均为隐藏文件，如：<a>~/.bashrc</a></p>
-<p><strong>-l </strong>列出文件的详细信息</p>
+<p><strong>-l</strong>列出文件的详细信息</p>
 <p><strong>-R</strong> 连同子目录中的内容一起列出</p>
 </blockquote>
+<p><strong>用ls -l命令显示的信息中，开头是由10个字符构成的字符串，其中第一个字符表示文件类型，它可以是下述类型之一： </strong></p>
+<blockquote>
+<p><strong>-</strong> 普通文件</p>
+<p><strong>d</strong> 目录</p>
+<p><strong>l</strong> 符号链接</p>
+<p><strong>b</strong> 块设备文件</p>
+<p><strong>c</strong> 字符设备文件</p>
+<p><strong>s</strong> socket文件，网络套接字</p>
+<p><strong>p</strong> 管道</p>
+</blockquote>
+<p><strong>后面的9个字符表示文件的访问权限，分为3组，每组3位。第一组表示文件属主的限，第二组表示同组用户的权限，第三组表示其他用户的权限。每一组的三个字符分别表示对文件的读、写和执行权限。各权限如下所示：</strong></p>
+<blockquote>
+<p><strong>r</strong> 读</p>
+<p><strong>w</strong> 写</p>
+<p><strong>x</strong> 可执行。对于目录，表示进入权限。</p>
+<p><strong>s</strong> 当文件被执行时，把该文件的UID或GID赋予执行进程的UID（用户ID）或GID（组 ID）。</p>
+<p><strong>&gt;t </strong>设置标志位（sticky bit）。如果是有sticky bit的目录，在该目录下任何用户只要有适当的权限即可创建文<br>件，但文件只能被超级用户、目录拥有者或文件属主删除。如果是有sticky bit的可执行文件，在该文件执行后，<br>指向其正文段的指针仍留在内存。这样再次执行它时，系统就能更快地装入该文件。</p>
+<p><strong>访问权限后面的数字表示与该文件共享inode的文件总数，即硬链接数(ln命令)</strong></p>
+</blockquote>
+<h1 id="2-4_cd">2.4 cd</h1><blockquote>
+<p>change dir 改变当前所在路径</p>
+</blockquote>
+<p><a>cd ~</a></p>
+<p><a>cd dir1/dir2</a></p>
+<p><a>cd ..</a></p>
+<h1 id="2-5_which">2.5 which</h1><blockquote>
+<p>查看指定命令所在路径</p>
+</blockquote>
+<p><a>which ls</a></p>
+<h1 id="2-6_pwd">2.6 pwd</h1><blockquote>
+<p>查看当前所在路径 </p>
+</blockquote>
+<p><a>pwd</a></p>
+<h1 id="2-7_mkdir">2.7 mkdir</h1><p><a>rmdir [OPTION]… DIRECTORY…</a></p>
+<blockquote>
+<p>删除空目录，可以一次删除多个。OPTION如果是-p，表示可以连同空的父目录一起删除。mkdir和rmdir的用法举例：</p>
+<p>$ mkdir a</p>
+<p>$ mkdir a/b</p>
+<p>$ ls a</p>
+<p>b</p>
+<p>$ rmdir a/b</p>
+<p>$ ls a</p>
+<p>$ rmdir a</p>
+<p>$ mkdir a/b</p>
+<p>mkdir: cannot create directory `a/b’: No such file or directory</p>
+<p>$ mkdir -p a/b</p>
+<p>$ rmdir -p a/b</p>
+</blockquote>
+<h1 id="2-9_touch">2.9 touch</h1><p><a>touch [OPTION]… FILE…</a></p>
+<blockquote>
+<ul>
+<li>将每个文件的访问及修改时间都更新为目前的时间。</li>
+<li>如果文件不存在，则创建一个字节数为0的文件。</li>
+</ul>
+</blockquote>
+<h1 id="2-10_rm">2.10 rm</h1><blockquote>
+<p><strong>删除文件：</strong></p>
+</blockquote>
+<p><a>rm file</a></p>
+<blockquote>
+<p><strong>删除目录：</strong></p>
+</blockquote>
+<p><a>rm dir -rf</a></p>
+<h1 id="2-11_mv">2.11 mv</h1><blockquote>
+<p><strong>重命名：</strong></p>
+</blockquote>
+<p><a>mv file1 file2</a></p>
+<blockquote>
+<p><strong>移动文件:</strong></p>
+</blockquote>
+<p><a>mv file1 ~/</a></p>
+<h1 id="2-12_cp">2.12 cp</h1><blockquote>
+<p><strong>拷贝文件：</strong></p>
+</blockquote>
+<p><a>cp file1 file2</a></p>
+<p><a>cp file1 dir/</a></p>
+<p><a>cp file1 ../</a></p>
+<blockquote>
+<p><strong>拷贝目录:</strong></p>
+</blockquote>
+<p><a>cp dir1 dir2 -r</a></p>
+<p><a>cp dir1 ~/ -r</a></p>
+<h1 id="2-13_cat">2.13 cat</h1><blockquote>
+<p>&#160;查看文件里内容，输出到终端，如果cat时没跟文件名，则读标准输入，遇到\n后，输出到标准输出，终端下输入Ctrl-d表示结束</p>
+</blockquote>
+<h1 id="2-14_more">2.14 more</h1><p><a>more [OPTION] FILE…</a></p>
+<blockquote>
+<p>&#160;查看文本文件的内容，屏幕显示完一屏就等待用户按下任意键再滚动到下一屏，如果中途不想继续看下去了，可以按Ctrl+C或q终止显示。 </p>
+</blockquote>
+<h1 id="2-15_less">2.15 less</h1><p><a>less [OPTION] FILE…</a></p>
+<blockquote>
+<p>&#160;查看文本文件的内容，屏幕显示完一屏就等待用户按键，用户可以向上或向下查看，如<br>果中途不想继续看下去了，可以按Ctrl+C或q终止显示。</p>
+</blockquote>
+<h1 id="2-16_head">2.16 head</h1><p><a>head [OPTION]… FILE…</a></p>
+<blockquote>
+<p>&#160;显示指定文件的前面几行。如果没有指定文件，将从标准输入（键盘）上读取。如果没<br>有指定要显示的行数，则默认显示前10行。如果要显示文件的前5行：</p>
+</blockquote>
+<p><a>$ head -5 file1</a></p>
+<h1 id="2-17_tail">2.17 tail</h1><p><a>tail [OPTION]… FILE…</a></p>
+<blockquote>
+<p>&3160;显示文件的最后几行。若没有指定显示的行或字符数，则默认显示末尾10行。如果要显示文件末5行：</p>
+</blockquote>
+<p><a>$ tail -5 file1</a></p>
+<h1 id="2-18_ln">2.18 ln</h1><blockquote>
+<p>&#160;链接有两种，一种被称为<strong>硬链接（Hard Link）</strong>，另一种被称为<strong>符号链接（SymbolicLink）</strong>。建立硬链接时，链接文件和被链接文件必须位于同一个文件系统中，并且不能建立指向目录的硬链接。而对符号链接，则不存在这个问题。默认情况下，ln产生硬链接。如果给ln命令加上-s选项，则建立符号链接。举例如下，注意ls -l列出文件的硬链接数和字节数：</p>
+<p><strong>硬链接：</strong></p>
+<p><a>touch hello</a></p>
+</blockquote>
+<p><a>ln hello word_h</a></p>
+<p><strong>软链接：</strong></p>
+<p><a>ln -s hello word_s </a></p>
+<h1 id="2-19节_tree">2.19节 tree</h1><blockquote>
+<p>这个命令需要下载安装，ubuntu下</p>
+</blockquote>
+<p><a>sudo apt-get install tree</a></p>
+<blockquote>
+<p>按结构树的形状显示目录和文件</p>
+</blockquote>
+<h1 id="2-20_wc">2.20 wc</h1><blockquote>
+<p>&#160;利用 wc 指令我们可以计算文件的 Byte 数、字数、或是列数,若不指定文件名称、或是所给予的文件名为“-”,则 wc 指令会从标准输入设备读取数据。</p>
+</blockquote>
+<p><a>wc -l ./*</a></p>
+<blockquote>
+<p><strong>-c</strong> 或–bytes 或–chars 只显示 Bytes 数。</p>
+<p><strong>-l</strong> 或–lines 只显示列数。</p>
+<p><strong>-w</strong> 或–words 只显示字数。</p>
+</blockquote>
+<h1 id="2-21_od">2.21 od</h1><p><a>od -tcx file1</a></p>
+<blockquote>
+<p><strong>-t</strong> 指定数据的显示格式，主要的参数有：</p>
+<p><strong>c</strong> ASCII字符或反斜杠序列</p>
+<p>d[SIZE] 有符号十进制数,每个整数SIZE字节。</p>
+<p>f[SIZE] 浮点数,每个整数SIZE字节。</p>
+<p>o[SIZE] 八进制（系统默认值为02）,每个整数SIZE字节。</p>
+<p>u[SIZE] 无符号十进制数,每个整数SIZE字节。</p>
+<p>x[SIZE] 十六进制数,每个整数SIZE字节。</p>
+</blockquote>
+<h1 id="2-22_du">2.22 du</h1><blockquote>
+<p>查看某个目录的大小： 以M为单位 </p>
+</blockquote>
+<p><a>du -hm /home/xingwenpeng/test</a></p>
+<blockquote>
+<p>以B为单位</p>
+</blockquote>
+<p><a>du -hb ./*</a></p>
+<blockquote>
+<p>以K为单位,4k的整数倍</p>
+</blockquote>
+<p><a>du -hk ./*</a></p>
+<h1 id="2-23_df">2.23 df</h1><blockquote>
+<p><strong>df</strong>查看磁盘使用情况</p>
+</blockquote>
+<p><a>df —block-size=GB</a></p>
+<p><a>df —block-size=MB </a></p>
 
       
     </div>
