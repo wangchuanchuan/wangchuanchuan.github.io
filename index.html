@@ -236,87 +236,15 @@
         <h1 id="3-1_whoami">3.1 whoami</h1><blockquote>
 <p>查看当前登陆用户</p>
 </blockquote>
-<h1 id="3-2_chmod">3.2 chmod</h1><blockquote>
-<ul>
-<li>文字设定法</li>
-</ul>
-</blockquote>
-<p><a>chmod [who] [+|-|=] [mode] 文件名</a></p>
-<p><strong>操作对象who可是下述字母中的任一个或者它们的组合：</strong></p>
-<blockquote>
-<p>u 表示“用户（user）”，即文件或目录的所有者。</p>
-<p>g 表示“同组（group）用户”，即与文件属主有相同组ID的所有用户。</p>
-<p>o 表示“其他（others）用户”。</p>
-<p>a 表示“所有（all）用户”。它是系统默认值。</p>
-</blockquote>
-<p><strong>操作符号可以是：</strong></p>
-<blockquote>
-<p><strong>+</strong> 添加某个权限。</p>
-<p><strong>-</strong> 取消某个权限。</p>
-<p><strong>=</strong>赋予给定权限并取消其他所有权限（如果有的话）。</p>
-</blockquote>
-<p><strong>设置mode所表示的权限可用下述字母的任意组合：</strong></p>
-<blockquote>
-<p>r 可读。</p>
-<p>w 可写。</p>
-<p>x 可执行。</p>
-<ul>
-<li>数字设定法</li>
-</ul>
-</blockquote>
-<p><a>chmod [mode] 文件名</a></p>
-<p><strong>我们必须首先了解用数字表示的属性的含义：</strong></p>
-<blockquote>
-<p>0 表示没有权限，</p>
-<p>1 表示可执行权限，</p>
-<p>2 表示可写权限，</p>
-<p>4 表示可读权限，</p>
-</blockquote>
-<p>然后将其相加。所以数字属性的格式应为3个从0到7的八进制数，其顺序是（u）（g）（o）。例如，如果想让某个</p>
-<p>文件的属主有“读/写”二种权限，需要把4（可读）+2（可写）＝6（读/写）。比如设置一个文件允许所有用户可写</p>
-<p><a>$ chmod a+w file1</a></p>
-<p><strong>设置一个文件允许所有用户可读、可写、不可执行</strong></p>
-<p><a>$ chmod 666 file1</a></p>
-<p>|user     |   group   |  other |</p>
-<p>| ——  |——: | :——: | </p>
-<p>|  rwx    |   rwx    |   rwx   |</p>
-<p>|  421    |   421    |   421   |</p>
-<p>|  5      |    6     |    3    |</p>
-<h1 id="3-3_chown">3.3 chown</h1><p><a>chown [OPTION]… [OWNER:GROUP] FILE…</a></p>
-<p><a>chown [OPTION]… –reference=RFILE FILE…</a></p>
-<blockquote>
-<p>更改某个文件或目录的属主和属组。这个命令也很常用。例如root用户把自己的一个文件拷贝给用户A, 为了让用户A能够存取这个文件，root用户应该把这个文件的属主设为A，否则，用户A无法存取这个文件。</p>
-</blockquote>
-<p><strong>OPTION的主要参数：</strong></p>
-<blockquote>
-<ul>
-<li>-R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。</li>
-<li>-v 显示chown命令所做的工作。</li>
-</ul>
-</blockquote>
-<p><strong>比如把一个文件改为itcast用户和nogroup用户组所有</strong></p>
-<p><a>$ sudo chown itcast:nogroup file1</a></p>
-<p><strong>注意：</strong></p>
-<blockquote>
-<ul>
-<li>chown需要特权用户才能执行</li>
-<li>一个文件的owner和owning group是没有关联的。一个文件属于用户A，也属于用户组B，并不表示用户A属于用户组B。</li>
-</ul>
-</blockquote>
-<h1 id="3-4_chgrp">3.4 chgrp</h1><p><a>chgrp [OPTION]… GROUP FILE…</a></p>
-<p><a>chgrp [OPTION]… –reference=RFILE FILE…</a></p>
-<blockquote>
-<p>该命令改变（指定）指定文件所属的用户组。其中group可以是用户组ID，也可以是/etc/group文件中用户组的组名。文件名是以空格分开的要改变属组的文件列表，支持通配符。如果用户不是该文件的属主或超级用户，则不能改变该文件的组。</p>
-</blockquote>
-<p><strong>OPTION的主要参数：</strong></p>
-<blockquote>
-<p><strong>-R</strong> 递归式地改变指定目录及其下的所有子目录和文件的属组。 </p>
-</blockquote>
-
+<h1 id="3-2_chmod">3.2 chmod</h1>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/27/Linux系统编程-文件属性和用户用户组/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
