@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档 | 王 传 传</title>
+  <title>Linux系统编程-查找与检索 | 王 传 传</title>
   <meta name="author" content="Chuanchuan Wang">
   
   <meta name="description" content="Walk steps step by step">
@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Linux系统编程-查找与检索"/>
   <meta property="og:site_name" content="王 传 传"/>
 
   
@@ -204,73 +204,128 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">归档</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-07-27T07:31:36.000Z"><a href="/2015/07/27/Linux系统编程-查找与检索/">2015-07-27</a></time>
-            
-              <h1 class="title"><a href="/2015/07/27/Linux系统编程-查找与检索/">Linux系统编程-查找与检索</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-07-27T06:37:10.000Z"><a href="/2015/07/27/Linux系统编程-文件属性和用户用户组/">2015-07-27</a></time>
-            
-              <h1 class="title"><a href="/2015/07/27/Linux系统编程-文件属性和用户用户组/">Linux系统编程-文件属性和用户用户组</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-07-26T08:16:49.000Z"><a href="/2015/07/26/Linux系统编程-目录和文件/">2015-07-26</a></time>
-            
-              <h1 class="title"><a href="/2015/07/26/Linux系统编程-目录和文件/">Linux系统编程-目录和文件</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-07-26T07:10:46.000Z"><a href="/2015/07/26/Linux系统编程-Shell/">2015-07-26</a></time>
-            
-              <h1 class="title"><a href="/2015/07/26/Linux系统编程-Shell/">Linux系统编程-Shell</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-07-24T14:03:51.000Z"><a href="/2015/07/24/About me 2011/">2015-07-24</a></time>
-            
-              <h1 class="title"><a href="/2015/07/24/About me 2011/">About me 2011</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-27T07:31:36.000Z"><a href="/2015/07/27/Linux系统编程-查找与检索/">2015-07-27</a></time>
+      
+      
+  
+    <h1 class="title">Linux系统编程-查找与检索</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="4-1_find">4.1 find</h1><p><strong>根据文件名查找</strong></p>
+<p><a>find [OPTION] path… [expression]</a></p>
+<blockquote>
+<p>在目录中搜索文件，path指定目录路径，系统从这里开始沿着目录树向下查找文件。它<br>是一个路径列表，相互用空格分离，如果不写path，那么默认为当前目录。Expression 是<br>find命令接受的表达式，find命令的所有操作都是针对表达式的。<br>一条最常用的find命令－－在当前目录及子目录下查找所有以file开头的文件名。<br><a id="more"></a><br><a>$ find . -name ‘file*’</a></p>
+</blockquote>
+<p><a>$ find / -name ‘vimrc’</a></p>
+<p><a>$ find ~ -name ‘*.c’</a></p>
+<h1 id="4-2_grep">4.2 grep</h1><p><strong>根据内容检索</strong></p>
+<p><a>grep [options] PATTERN [FILE…]</a></p>
+<blockquote>
+<p>在指定文件中搜索特定的内容，并将含有这些内容的行输出到标准输出。若不指定文件名，则从标准输入读取。<br>[options]部分包含的主要参数：</p>
+<p><strong>-c</strong>：只输出匹配行的计数。</p>
+<p><strong>-I</strong>：不区分大小写（只适用于单字符）。</p>
+<p><strong>-h</strong>：查询多文件时不显示文件名。 </p>
+<p><strong>-l</strong>：查询多文件时只输出包含匹配字符的文件名。</p>
+<p><strong>-n</strong>：显示匹配行及行号。</p>
+<p><strong>-s</strong>：不显示不存在或无匹配文本的错误信息。</p>
+<p><strong>-v</strong>：显示不包含匹配文本的所有行。</p>
+<p><strong>-R</strong>: 连同子目录中所有文件一起查找。</p>
+<p><strong>比如到系统头文件目录下查找所有包含printf的文件</strong></p>
+</blockquote>
+<p><a>$ grep ‘printf’ /usr/include -R </a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Linux系统编程/">Linux系统编程</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux学习笔记，查找与检索/">Linux学习笔记，查找与检索</a>
+  </div>
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/07/27/Linux系统编程-文件属性和用户用户组/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+<!-- 多说评论框 start -->
+	<!-- <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div> -->
+	<div class="ds-thread" data-thread-key="post.path" data-title="post.title" data-url="post.permalink"></div> 
+<!-- 多说评论框 end -->
+<ul class="ds-recent-visitors"></ul>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wangchuanchuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
