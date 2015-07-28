@@ -238,82 +238,15 @@
 </blockquote>
 <p><a>sudo vi /etc/apt/sources.list</a></p>
 <blockquote>
-<p><strong>更新完服务器列表后需要更新下源</strong></p>
-</blockquote>
-<p><a>sudo apt-get update </a>更新源</p>
-<p><a>sudo apt-get install package</a> 安装包</p>
-<p><a>sudo apt-get remove package </a>删除包</p>
-<p><a>sudo apt-cache search package</a> 搜索软件包</p>
-<p><a>sudo apt-cache show package</a></p>
-<blockquote>
-<p>获取包的相关信息，如说明、大小、版本等</p>
-</blockquote>
-<p><a>sudo apt-get install package —reinstall</a></p>
-<blockquote>
-<p><strong>重新安装包</strong></p>
-</blockquote>
-<p><a>sudo apt-get -f install</a> </p>
-<blockquote>
-<p><strong>修复安装</strong></p>
-</blockquote>
-<p><a>sudo apt-get remove package —purge</a>  删除包，包括配置文件等</p>
-<p><a>sudo apt-get build-dep package </a> 安装相关的编译环境</p>
-<p><a>sudo apt-get upgrade</a>  更新已安装的包</p>
-<p><a>sudo apt-get dist-upgrade </a> 升级系统</p>
-<p><a>sudo apt-cache depends package </a> 了解使用该包依赖那些包</p>
-<p><a>sudo apt-cache rdepends package</a>  查看该包被哪些包依赖</p>
-<p>sudo apt-get source package</p>
-<blockquote>
-<p><strong>下载该包的源代码 </strong></p>
-</blockquote>
-<p><a>sudo apt-get clean &amp;&amp; sudo apt-get autoclean </a> 清理无用的包</p>
-<p><a>sudo apt-get check</a>  检查是否有损坏的依赖</p>
-<h1 id="5-2_deb包安装">5.2 deb包安装</h1><blockquote>
-<p><strong>安装deb软件包命令：</strong></p>
-</blockquote>
-<p> <a>sudo dpkg -i xxx.deb</a></p>
-<blockquote>
-<p><strong>删除软件包命令：</strong></p>
-</blockquote>
-<p> <a>sudo dpkg -r xxx.deb</a></p>
-<blockquote>
-<p><strong>连同配置文件一起删除命令：</strong></p>
-</blockquote>
-<p> <a>sudo dpkg -r —purge xxx.deb</a></p>
-<blockquote>
-<p><strong>查看软件包信息命令：</strong></p>
-</blockquote>
-<p> <a>sudo dpkg -info xxx.deb</a></p>
-<blockquote>
-<p><strong>查看文件拷贝详情命令：</strong></p>
-</blockquote>
-<p> <a>sudo dpkg -L xxx.deb</a></p>
-<blockquote>
-<p><strong>查看系统中已安装软件包信息命令：</strong></p>
-</blockquote>
-<p><a>sudo dpkg -l</a></p>
-<blockquote>
-<p><strong>重新配置软件包命令：</strong></p>
-</blockquote>
-<p><a>sudo dpkg-reconfigure xxx</a></p>
-<h1 id="5-3_原码安装">5.3 原码安装</h1><blockquote>
-<ul>
-<li><p>解压缩源代码包</p>
-</li>
-<li><p><a>cd dir</a></p>
-<p><a> ./configure</a>检测文件是否缺失，创建Makefile,检测编译环境</p>
-</li>
-<li><p><a>make</a>  编译源码，生成库和可执行程序</p>
-</li>
-<li><p><a>sudo make install</a>  把库和可执行程序，安装到系统路径下 </p>
-</li>
-</ul>
-</blockquote>
-
+<p><strong>更新完服务器列表后需要更新下源</strong><br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/28/Linux系统编程-安装卸载软件/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
