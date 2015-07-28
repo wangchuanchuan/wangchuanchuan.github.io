@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Markdown指南 | 王传传</title>
+  <title>Linux系统编程-安装卸载软件 | 王传传</title>
   <meta name="author" content="Chuanchuan Wang">
   
   <meta name="description" content="Walk steps step by step">
@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Markdown指南"/>
+  <meta property="og:title" content="Linux系统编程-安装卸载软件"/>
   <meta property="og:site_name" content="王传传"/>
 
   
@@ -222,125 +222,91 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-24T13:30:45.000Z"><a href="/2015/07/24/Markdown指南/">2015-07-24</a></time>
+        <time datetime="2015-07-28T04:17:17.000Z"><a href="/2015/07/28/Linux系统编程-安装卸载软件/">2015-07-28</a></time>
       
       
   
-    <h1 class="title">Markdown指南</h1>
+    <h1 class="title">Linux系统编程-安装卸载软件</h1>
   
 
     </header>
     <div class="entry">
       
-        <ul>
-<li><strong>Markdown和扩展Markdown简洁的语法</strong></li>
-<li><strong>代码块高亮</strong></li>
-<li><strong>图片链接和图片上传</strong></li>
-<li><strong><em>LaTex</em>数学公式</strong></li>
-<li><strong>UML序列图和流程图</strong></li>
-<li><strong>丰富的快捷键</strong><a id="more"></a>
+        <h1 id="5-1_apt-get">5.1 apt-get</h1><blockquote>
+<p><strong>更新源服务器列表</strong></p>
+</blockquote>
+<p><a>sudo vi /etc/apt/sources.list</a></p>
+<blockquote>
+<p><strong>更新完服务器列表后需要更新下源</strong></p>
+</blockquote>
+<p><a>sudo apt-get update </a>更新源</p>
+<p><a>sudo apt-get install package</a> 安装包</p>
+<p><a>sudo apt-get remove package </a>删除包</p>
+<p><a>sudo apt-cache search package</a> 搜索软件包</p>
+<p><a>sudo apt-cache show package</a></p>
+<blockquote>
+<p>获取包的相关信息，如说明、大小、版本等</p>
+</blockquote>
+<p><a>sudo apt-get install package —reinstall</a></p>
+<blockquote>
+<p><strong>重新安装包</strong></p>
+</blockquote>
+<p><a>sudo apt-get -f install</a> </p>
+<blockquote>
+<p><strong>修复安装</strong></p>
+</blockquote>
+<p><a>sudo apt-get remove package —purge</a>  删除包，包括配置文件等</p>
+<p><a>sudo apt-get build-dep package </a> 安装相关的编译环境</p>
+<p><a>sudo apt-get upgrade</a>  更新已安装的包</p>
+<p><a>sudo apt-get dist-upgrade </a> 升级系统</p>
+<p><a>sudo apt-cache depends package </a> 了解使用该包依赖那些包</p>
+<p><a>sudo apt-cache rdepends package</a>  查看该包被哪些包依赖</p>
+<p>sudo apt-get source package</p>
+<blockquote>
+<p><strong>下载该包的源代码 </strong></p>
+</blockquote>
+<p><a>sudo apt-get clean &amp;&amp; sudo apt-get autoclean </a> 清理无用的包</p>
+<p><a>sudo apt-get check</a>  检查是否有损坏的依赖</p>
+<h1 id="5-2_deb包安装">5.2 deb包安装</h1><blockquote>
+<p><strong>安装deb软件包命令：</strong></p>
+</blockquote>
+<p> <a>sudo dpkg -i xxx.deb</a></p>
+<blockquote>
+<p><strong>删除软件包命令：</strong></p>
+</blockquote>
+<p> <a>sudo dpkg -r xxx.deb</a></p>
+<blockquote>
+<p><strong>连同配置文件一起删除命令：</strong></p>
+</blockquote>
+<p> <a>sudo dpkg -r —purge xxx.deb</a></p>
+<blockquote>
+<p><strong>查看软件包信息命令：</strong></p>
+</blockquote>
+<p> <a>sudo dpkg -info xxx.deb</a></p>
+<blockquote>
+<p><strong>查看文件拷贝详情命令：</strong></p>
+</blockquote>
+<p> <a>sudo dpkg -L xxx.deb</a></p>
+<blockquote>
+<p><strong>查看系统中已安装软件包信息命令：</strong></p>
+</blockquote>
+<p><a>sudo dpkg -l</a></p>
+<blockquote>
+<p><strong>重新配置软件包命令：</strong></p>
+</blockquote>
+<p><a>sudo dpkg-reconfigure xxx</a></p>
+<h1 id="5-3_原码安装">5.3 原码安装</h1><blockquote>
+<ul>
+<li><p>解压缩源代码包</p>
+</li>
+<li><p><a>cd dir</a></p>
+<p><a> ./configure</a>检测文件是否缺失，创建Makefile,检测编译环境</p>
+</li>
+<li><p><a>make</a>  编译源码，生成库和可执行程序</p>
+</li>
+<li><p><a>sudo make install</a>  把库和可执行程序，安装到系统路径下 </p>
 </li>
 </ul>
-<hr>
-<h2 id="快捷键">快捷键</h2><ul>
-<li>加粗    <code>Ctrl + B</code> </li>
-<li>斜体    <code>Ctrl + I</code> </li>
-<li>引用    <code>Ctrl + Q</code></li>
-<li>插入链接    <code>Ctrl + L</code></li>
-<li>插入代码    <code>Ctrl + K</code></li>
-<li>插入图片    <code>Ctrl + G</code></li>
-<li>提升标题    <code>Ctrl + H</code></li>
-<li>有序列表    <code>Ctrl + O</code></li>
-<li>无序列表    <code>Ctrl + U</code></li>
-<li>横线    <code>Ctrl + R</code></li>
-<li>撤销    <code>Ctrl + Z</code></li>
-<li>重做    <code>Ctrl + Y</code></li>
-</ul>
-<h2 id="Markdown及扩展">Markdown及扩展</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]</a></p>
-</blockquote>
-<p>使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.csdn.net" target="_blank" rel="external">链接</a>等，详细语法参考帮助？。</p>
-<p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考[Github][2].  </p>
-<h3 id="表格">表格</h3><p><strong>Markdown　Extra</strong>　表格语法：</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>价格</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>$1600</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>$12</td>
-</tr>
-<tr>
-<td>Pipe</td>
-<td>$1</td>
-</tr>
-</tbody>
-</table>
-<p>可以使用冒号来定义对齐方式：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 元</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 元</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 元</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<h3 id="定义列表">定义列表</h3><p><strong>Markdown　Extra</strong>　定义列表语法：<br>项目１<br>项目２<br>:   定义 A<br>:   定义 B</p>
-<p>项目３<br>:   定义 C</p>
-<p>:   定义 D</p>
-<pre><code><span class="blockquote">&gt; 定义D内容</span>
-</code></pre><h3 id="代码块">代码块</h3><p>代码块语法遵循标准markdown代码，例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="decorator">@requires_authorization</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></span><br><span class="line">    <span class="string">'''A docstring'''</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span><br><span class="line"><span class="prompt">... </span>prompt'''</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="脚注">脚注</h3><p>生成一个脚注[^footnote].<br>  [^footnote]: 这里是 <strong>脚注</strong> 的 <em>内容</em>.</p>
-<h3 id="目录">目录</h3><p>用 <code>[TOC]</code>来生成目录：</p>
-<p>[TOC]</p>
-<h3 id="数学公式">数学公式</h3><p>使用MathJax渲染<em>LaTex</em> 数学公式，详见[math.stackexchange.com][1].</p>
-<ul>
-<li>行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。</li>
-<li>块级公式：</li>
-</ul>
-<p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<p>更多LaTex语法请参考 [这儿][3].</p>
-<h3 id="UML_图:">UML 图:</h3><p>可以渲染序列图：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#24352;&#19977;-&#62;&#26446;&#22235;: &#22079;&#65292;&#23567;&#22235;&#20799;, &#20889;&#21338;&#23458;&#20102;&#27809;?&#10;Note right of &#26446;&#22235;: &#26446;&#22235;&#24867;&#20102;&#19968;&#19979;&#65292;&#35828;&#65306;&#10;&#26446;&#22235;--&#62;&#24352;&#19977;: &#24537;&#24471;&#21520;&#34880;&#65292;&#21738;&#26377;&#26102;&#38388;&#20889;&#12290;</span><br></pre></td></tr></table></figure>
-<p>或者流程图：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">st=&#62;start: &#24320;&#22987;&#10;e=&#62;end: &#32467;&#26463;&#10;op=&#62;operation: &#25105;&#30340;&#25805;&#20316;&#10;cond=&#62;condition: &#30830;&#35748;&#65311;&#10;&#10;st-&#62;op-&#62;cond&#10;cond(yes)-&#62;e&#10;cond(no)-&#62;op</span><br></pre></td></tr></table></figure>
-<ul>
-<li>关于 <strong>序列图</strong> 语法，参考 [这儿][4],</li>
-<li>关于 <strong>流程图</strong> 语法，参考 [这儿][5].</li>
-</ul>
-<hr>
-<blockquote>
-<p>[1]: <a href="http://math.stackexchange.com/" target="_blank" rel="external">http://math.stackexchange.com/</a></p>
-<p>[2]: <a href="https://github.com/jmcmanus/pagedown-extra" target="_blank" rel="external">https://github.com/jmcmanus/pagedown-extra</a> “Pagedown Extra”<br>[3]: <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-&gt;tutorial-and-quick-reference" target="_blank" rel="external">http://meta.math.stackexchange.com/questions/5020/mathjax-basic-&gt;tutorial-and-quick-reference</a></p>
-<p>[4]: <a href="http://bramp.github.io/js-sequence-diagrams/&gt;" target="_blank" rel="external">http://bramp.github.io/js-sequence-diagrams/&gt;</a></p>
-<p>[5]: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">http://adrai.github.io/flowchart.js/</a></p>
-<p>[6]: <a href="https://github.com/benweet/stackedit" target="_blank" rel="external">https://github.com/benweet/stackedit</a></p>
 </blockquote>
 
       
@@ -350,13 +316,13 @@
         
   
   <div class="categories">
-    <a href="/categories/Markdown/">Markdown</a>
+    <a href="/categories/Linux系统编程/">Linux系统编程</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/Markdown指南/">Markdown指南</a>, <a href="/tags/技术杂谈/">技术杂谈</a>
+    <a href="/tags/Linux学习笔记，安装卸载软件/">Linux学习笔记，安装卸载软件</a>
   </div>
 
 <!-- Baidu Button BEGIN -->
@@ -384,10 +350,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 
  <nav id="pagination" >
     
-    <a href="/2015/07/24/2015爱奇艺暑期实习生面试/" class="alignleft prev" >上一页</a>
     
-    
-    <a href="/2015/07/24/计算机软件求职/" class="alignright next" >下一页</a>
+    <a href="/2015/07/27/Linux系统编程-查找与检索/" class="alignright next" >下一页</a>
     
     <div class="clearfix"></div>
 </nav>
