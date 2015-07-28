@@ -243,91 +243,14 @@
 <ul>
 <li>-t vfstype 指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型。常用类型有：</li>
 </ul>
-<blockquote>
-<p>光盘或光盘镜像：iso9660</p>
-<p>DOS fat16文件系统：msdos</p>
-<p>Windows 9x fat32文件系统：vfat</p>
-<p>Windows NT ntfs文件系统：ntfs</p>
-<p>Mount Windows文件网络共享：smbfs</p>
-<p>UNIX(LINUX) 文件网络共享：nfs</p>
-</blockquote>
-<ul>
-<li>-o options 主要用来描述设备或档案的挂接方式。常用的参数有：</li>
-</ul>
-<blockquote>
-<p>loop：用来把一个文件当成硬盘分区挂接上系统</p>
-<p>ro：采用只读方式挂接设备</p>
-<p>rw：采用读写方式挂接设备</p>
-<p>iocharset：指定访问文件系统所用字符集</p>
-</blockquote>
-<ul>
-<li><p>device 要挂接(mount)的设备。</p>
-</li>
-<li><p>dir设备在系统上的挂接点(mount point)。</p>
-</li>
-</ul>
-<h2 id="6-1-1_挂接光盘镜像文件">6.1.1 挂接光盘镜像文件</h2><p>由于近年来磁盘技术的巨大进步,新的电脑系统都配备了大容量的磁盘系统，在Windows下许多人都习惯把软件和资料做成光盘镜像文件通过虚拟 光驱来使用。这样做有许多好处：一、减轻了光驱的磨损;二、现在硬盘容量巨大存放几十个光盘镜像文件不成问题，随用随调十分方便;三、硬盘的读取速度要远 远高于光盘的读取速度，CPU占用率大大降低。其实linux系统下制作和使用光盘镜像比Windows系统更方便，不必借用任何第三方软件包。</p>
-<blockquote>
-<p>1.从光盘制作光盘镜像文件。将光盘放入光驱，执行下面的命令。 </p>
-</blockquote>
-<p><a>#cp /dev/cdrom /home/sunky/mydisk.iso </a>  或</p>
-<p><a>#dd if=/dev/cdrom of=/home/sunky/mydisk.iso</a></p>
-<blockquote>
-<p><strong>注：</strong>执行上面的任何一条命令都可将当前光驱里的光盘制作成光盘镜像文件<a>/home/sunky/mydisk.iso</a></p>
-<p>2.文件和目录制作成光盘镜像文件，执行下面的命令。</p>
-</blockquote>
-<p><a>#mkisofs -r -J -V mydisk -o /home/sunky/mydisk.iso /home/sunky/ mydir</a></p>
-<blockquote>
-<p><strong>注：</strong>这条命令将/home/sunky/mydir目录下所有的目录和文件制作成光盘镜像文件/home/sunky/mydisk.iso，光盘卷标为：mydisk</p>
-<p>3.光盘镜像文件的挂接(mount)</p>
-</blockquote>
-<p><a>#mkdir /mnt/vcdrom</a></p>
-<blockquote>
-<p><strong>注：</strong>建立一个目录用来作挂接点(mount point)</p>
-</blockquote>
-<p><a>#mount -o loop -t iso9660 /home/sunky/mydisk.iso /mnt/vcdrom</a></p>
-<blockquote>
-<p><strong>注：</strong>使用/mnt/vcdrom就可以访问盘镜像文件mydisk.iso里的所有文件了。　　　</p>
-</blockquote>
-<h2 id="6-1-2_挂载U盘">6.1.2 挂载U盘</h2><blockquote>
-<p>1.检测存储设备名称</p>
-</blockquote>
-<p><a>sudo fdisk -l</a></p>
-<blockquote>
-<p>2.挂载存储设备sdb1到挂载点/mnt目录</p>
-</blockquote>
-<p><a>sudo mount /dev/sdb1 /mnt</a></p>
-<blockquote>
-<p>3.访问/mnt</p>
-<p>4.卸载/mnt</p>
-</blockquote>
-<p><a>sudo umount /mnt </a></p>
-<h1 id="6-2_umount">6.2 umount</h1><blockquote>
-<p>卸载命令</p>
-</blockquote>
-<p><a>sudo umount 挂在点</a></p>
-<h1 id="6-3_dd">6.3 dd</h1><blockquote>
-<p><strong>dd:</strong>拷贝</p>
-<p>例1：拷贝光碟(注意，你的光碟是标准的 iso9660格式才可以这么做)</p>
-</blockquote>
-<p><a>dd if=/dev/cdrom of=cdrom.iso</a></p>
-<blockquote>
-<p>例2：将文件sfile拷贝到文件 dfile中。</p>
-</blockquote>
-<p><a>$ dd if=sfile of=dfile</a></p>
-<blockquote>
-<p>例3：创建一个100M的空文件</p>
-</blockquote>
-<p><a>dd if=/dev/zero of=hello.txt bs=100M count=1</a></p>
-<blockquote>
-<p><a>/dev/null</a>，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！</p>
-<p><a>/dev/zero</a>,是一个输入设备，你可你用它来初始化文件,从里面读出来的数据都是0。 </p>
-</blockquote>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/28/Linux系统编程-磁盘管理/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
