@@ -227,7 +227,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/07/29/压缩包打包/">压缩包管理</a></h1>
+    <h1 class="title"><a href="/2015/07/29/压缩包打包/">Linux系统编程-压缩包管理</a></h1>
   
 
     </header>
@@ -238,48 +238,15 @@
 <p>tar可以为文件和目录创建档案。利用tar命令用户可以为某一特定文件创建档案（备份文件），也可以在档案中改</p>
 <p>变文件，或者向档案中加入新的文件。使用该命令时，主选项是必须要有的，辅选项是辅助使用的，可以选用。</p>
 </blockquote>
-<p><strong>主选项</strong>包括：</p>
-<blockquote>
-<p><strong>c</strong>创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。</p>
-<p><strong>r</strong> 把要存档的文件追加到档案文件的未尾。</p>
-<p><strong>t</strong>列出档案文件的内容，查看已经备份了哪些文件。</p>
-<p><strong>u</strong>更新文件。用新增的文件取代原备份文件，如果在备份文件中找不到要更新的文件，则把它追加到备份文件的最后。</p>
-<p><strong>x</strong> 从档案文件中释放文件。（常用）</p>
-</blockquote>
-<p><strong>辅选项</strong>包括：</p>
-<p><strong>f</strong> 使用档案文件或设备，这个选项通常是必选的。（常用）</p>
-<p><strong>k</strong> 保存已经存在的文件。</p>
-<p><strong>m</strong> 在还原文件时，把所有文件的修改时间设定为现在。</p>
-<p><strong>M</strong> 创建多卷的档案文件，以便在几个磁盘中存放。</p>
-<p><strong>v</strong> 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。（常用）</p>
-<p><strong>w</strong> 每一步都要求确认。</p>
-<p><strong>z</strong> 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解<br>压缩。（常用） </p>
-<p><strong>j</strong> 用bzip2来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。（常用）</p>
-<p><strong>要将文件备份到一个特定的设备，只需把设备名作为备份文件名。</strong></p>
-<p><strong>打包：</strong></p>
-<p><a>tar cvf dir.tar dir</a></p>
-<p><a>tar xvf dir.tar dir</a></p>
-<p><strong>打gz压缩包：</strong></p>
-<p><a>tar zcvf dir.tar.gz dir</a></p>
-<p><a>tar zxvf dir.tar.gz</a></p>
-<p><strong>打bz2压缩包:</strong></p>
-<p><a>tar jcvf dir.tar.bz2 dir</a></p>
-<p><a>tar jxvf dir.tar.bz2</a></p>
-<p><strong>指定目录解压缩：</strong></p>
-<p><a>tar zxvf dir.tar.gz -C ~/test</a></p>
-<h1 id="7-2_rar">7.2 rar</h1><p><strong>打包：</strong>把dir压缩成newdir.rar</p>
-<p><a>rar a -r newdir dir</a></p>
-<p><strong>解包：</strong>把newdir.rar解压缩到当前目录</p>
-<p><a>unrar x newdir.rar </a></p>
-<h1 id="7-3_zip">7.3 zip</h1><p><strong>打包：</strong></p>
-<p><a>zip -r dir.zip dir</a></p>
-<p><strong>解包：</strong></p>
-<p><a>unzip dir.zip</a></p>
-
+<p><strong>主选项</strong>包括：<br>
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/07/29/压缩包打包/#more" class="more-link">阅读全文</a>
+          </div>
         
         
       
