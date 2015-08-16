@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About me 2011 | 王传传</title>
+  <title>重要算法题目 | 王传传</title>
   <meta name="author" content="Chuanchuan Wang">
   
   <meta name="description" content="Walk steps step by step">
@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="About me 2011"/>
+  <meta property="og:title" content="重要算法题目"/>
   <meta property="og:site_name" content="王传传"/>
 
   
@@ -222,24 +222,179 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-24T14:03:51.000Z"><a href="/2015/07/24/About me 2011/">2015-07-24</a></time>
+        <time datetime="2015-08-16T13:37:27.000Z"><a href="/2015/08/16/重要算法题目/">2015-08-16</a></time>
       
       
   
-    <h1 class="title">About me 2011</h1>
+    <h1 class="title">重要算法题目</h1>
   
 
     </header>
     <div class="entry">
       
-        <p><img src="http://pic.ffsky.net/images/2015/08/08/d5b9d3e6f57eb541649d0c5a9c8df687.jpg" alt="2015"><br><img src="http://pic.ffsky.net/images/2015/07/26/6d57c05cffeb35f832a02658502812f7.png" alt="2011"></p>
+        <h1 id="1、递归输出序列的全排列">1、递归输出序列的全排列</h1><blockquote>
+<p><1>.一个数的全排列就是本身，比如5</1></p>
+<p><2>.首先看最后两个数4, 5。 它们的全排列为4 5和5 4, 即以4开头4和自己交换的5的全排列和4和5交换以5开头的4的全排列。</2></p>
+<p><3>.再看后三个数3, 4, 5。它们的全排列为3 4 5、3 5 4、 4 3 5、 4 5 3、 5 3 4、 5 4 3 六组数。即以3开头的和4,5的全排列的组合、3和4交换以4开头的和3,5的全排列的组合和3和5交换以5开头的和3,4的全排列的组合.求全排列,代码如下：</3></p>
+</blockquote>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">FullArray</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">array</span>, size_t array_size, <span class="keyword">unsigned</span> <span class="keyword">int</span> index)</span><span class="comment">// index子全排列的起点</span>
+</span>{
+    <span class="keyword">if</span>(index &gt;= array_size)
+    {
+        <span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array_size; ++i)
+        {
+        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">array</span>[i] &lt;&lt; <span class="string">' '</span>;
+    }
+
+    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;
+
+    <span class="keyword">return</span>;
+}
+
+    <span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i = index; i &lt; array_size; ++i)
+    {
+        swap(<span class="built_in">array</span>, i, index);
+
+        FullArray(<span class="built_in">array</span>, array_size, index + <span class="number">1</span>);
+
+        swap(<span class="built_in">array</span>, i, index);<span class="comment">//还原便于下一次全排列</span>
+    }
+}
+</code></pre><h1 id="2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。">2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。</h1><blockquote>
+<p>要和求一个字符串中的最长重复子串区分开来，还是上面的字符串，那么最长的重复子串为abab。两个题目的解法有些类似，都用到了后缀数组这个数据结构。求一个字符串中连续出现的次数最多的子串，首先生成后缀数组例如上面的字符串为:</p>
+</blockquote>
+<pre><code><span class="label">abababc</span>
+
+<span class="keyword">bababc
+</span>
+<span class="label">ababc</span>
+
+<span class="keyword">babc
+</span>
+<span class="label">abc</span>
+
+<span class="keyword">bc
+</span>
+c
+</code></pre><blockquote>
+<p>可以看出第一个后缀数组和第三个后缀数组的起始都为ab，第5个后缀数组也为ab。可以看出规律来，一个字符串s，如果第一次出现在后缀数组i的前面，那么如果它重复出现，下一次出现应该在第i+len(s)个后缀数组的前面。这个规律也不难看出。那么从头到尾按照这个规律搜索下不难得出结果。</p>
+</blockquote>
+<pre><code><span class="function"><span class="keyword">int</span> <span class="title">con_sub</span><span class="params">(<span class="keyword">char</span> *str,<span class="keyword">char</span> *ret)</span>
+</span>{
+    <span class="keyword">int</span> <span class="keyword">max_t</span>ime=<span class="number">0</span>;    <span class="comment">//记录最大次数</span>
+    <span class="keyword">int</span> <span class="keyword">temp_t</span>ime = <span class="number">1</span>; 
+    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);
+    <span class="keyword">char</span>** next=(<span class="keyword">char</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span> *)*len);
+    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)   <span class="comment">//后缀数组</span>
+    {
+        next[i]=str+i;
+    }
+    <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;(len+<span class="number">1</span>)/<span class="number">2</span>;k++)   <span class="comment">//对称大小不会大于一半</span>
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)
+        {
+            <span class="keyword">int</span> start=i;   <span class="comment">//记录相等的初始位置</span>
+            <span class="keyword">temp_t</span>ime=<span class="number">1</span>;
+            <span class="keyword">while</span> ((start+k&lt;=len-<span class="number">1</span>)&amp;&amp;<span class="built_in">strncmp</span>(next[start],next[start+k],k)==<span class="number">0</span>)<span class="comment">//跨度为k进行比较前k个字符</span>
+            {
+                 start+=k;
+                 <span class="keyword">temp_t</span>ime++;
+            }
+           <span class="keyword">if</span> (<span class="keyword">temp_t</span>ime&gt;<span class="keyword">max_t</span>ime)
+           {
+               <span class="keyword">max_t</span>ime=<span class="keyword">temp_t</span>ime;
+               <span class="built_in">strncpy</span>(ret,str+i,<span class="keyword">max_t</span>ime*k);<span class="comment">//把最大的对称字符串保存起来</span>
+           }
+        }
+    } 
+   <span class="keyword">return</span> <span class="keyword">max_t</span>ime;
+}
+</code></pre><h1 id="3、利用后缀数组找字符串中相同且长度最长的字符串">3、利用后缀数组找字符串中相同且长度最长的字符串</h1><pre><code><span class="function"><span class="keyword">int</span> <span class="title">con_sub</span><span class="params">(<span class="keyword">char</span> *str,<span class="keyword">char</span> *ret)</span>
+</span>{
+    <span class="keyword">int</span> max_len=<span class="number">0</span>;<span class="comment">//记录最大长度</span>
+    <span class="keyword">int</span> temp_len=<span class="number">1</span>;
+    <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str);
+    <span class="keyword">char</span>** next=(<span class="keyword">char</span>**)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span> *)*len);
+    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)<span class="comment">//后缀数组</span>
+    {
+        next[i]=str+i;
+    }
+    <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;(len+<span class="number">1</span>)/<span class="number">2</span>;k++)<span class="comment">//相等大小不会大于一半，相等大小的控制</span>
+    {
+        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++)<span class="comment">//从头开始比较，控制第i个子串与后面的比较</span>
+        {
+            temp_len=<span class="number">1</span>;
+            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;i+k+j&lt;=len-<span class="number">1</span>;j++)<span class="comment">//用于比较不相邻的字串是否相等，控制后面被比较的子串</span>
+            {
+                <span class="keyword">if</span> (<span class="built_in">strncmp</span>(next[i],next[i+k+j],k)==<span class="number">0</span>)<span class="comment">//跨度为k进行比较前k个字符,找到一个相等的，立即进入下一个k值比较，如果不等next[i+k+j]往下移动一位，由j控制</span>
+                {
+                    temp_len=k;
+                    <span class="keyword">break</span>;
+                }
+            }
+       <span class="keyword">if</span> (temp_len&gt;max_len)
+            {
+                max_len=temp_len;
+                <span class="built_in">strncpy</span>(ret,str+i,max_len);<span class="comment">//把最大的重复字符串保存起来</span>
+                <span class="keyword">break</span>;
+            }
+        }
+    } 
+    <span class="keyword">return</span> max_len;
+}
+</code></pre><h1 id="4、字符串的朴素匹配与KMP匹配">4、字符串的朴素匹配与KMP匹配</h1><blockquote>
+<p>以“串的整体”作为操作对象，例如查找子串，在主串某位置插入字符等，这些操作均涉及到定位问题，叫KMP</p>
+</blockquote>
+<pre><code>//朴素匹配
+<span class="keyword">int</span> StrIndex (const char*str,const char* <span class="sub"><span class="keyword">sub</span>)
+{</span>
+    <span class="keyword">int</span> i=<span class="number">0</span>;
+    <span class="keyword">int</span> j=<span class="number">0</span>;
+    <span class="keyword">while</span> (str[i]!=<span class="string">'\0'</span>&amp;&amp;<span class="sub"><span class="keyword">sub</span>[j]!='\0')
+    {</span>
+        <span class="keyword">if</span> (str[i]==<span class="sub"><span class="keyword">sub</span>[j])
+        {</span>
+            i++;
+            j++;
+        } 
+        //如果不等<span class="sub"><span class="keyword">sub</span>的指针退到最开始处j=0，str退到i=i-j+1，即每趟匹配str右移动一个位置，这样的算法时间复杂度是O(n*m)
+        //n是str的长度，m是<span class="keyword">sub</span>的长度。
+        else
+        {</span>
+            i=i-j+<span class="number">1</span>;
+            j=<span class="number">0</span>;
+        }
+    }
+    <span class="keyword">if</span> (<span class="sub"><span class="keyword">sub</span>[j]=='\0')
+    {</span>
+        <span class="keyword">return</span>(i-j+<span class="number">1</span>);
+    } 
+    <span class="keyword">else</span>
+    {
+        <span class="keyword">return</span> <span class="number">0</span>;
+    }
+}
+</code></pre><p><strong>KMP匹配算法</strong></p>
+<blockquote>
+<p>参考July的博文 从头到尾彻底理解KMP <a href="http://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="external">http://blog.csdn.net/v_july_v/article/details/7041827</a>这篇文章写的非常详细，非常好！在此就不再重复。</p>
+</blockquote>
 
       
     </div>
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/算法（Algorithm）/">算法（Algorithm）</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/算法总结，技术杂谈/">算法总结，技术杂谈</a>
+  </div>
+
 <!-- Baidu Button BEGIN -->
 <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
 <a class="bds_qzone"></a>
@@ -265,10 +420,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 
  <nav id="pagination" >
     
-    <a href="/2015/07/26/Linux系统编程-Shell/" class="alignleft prev" >上一页</a>
     
-    
-    <a href="/2015/07/24/2015爱奇艺暑期实习生面试/" class="alignright next" >下一页</a>
+    <a href="/2015/08/13/C-知识点大纲/" class="alignright next" >下一页</a>
     
     <div class="clearfix"></div>
 </nav>
