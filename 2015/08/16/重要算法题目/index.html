@@ -235,18 +235,9 @@
         <h1 id="1、递归输出序列的全排列">1、递归输出序列的全排列</h1><blockquote>
 <p><1>.一个数的全排列就是本身，比如5</1></p>
 <p><2>.首先看最后两个数4, 5。 它们的全排列为4 5和5 4, 即以4开头4和自己交换的5的全排列和4和5交换以5开头的4的全排列。</2></p>
-<p><3>.再看后三个数3, 4, 5。它们的全排列为3 4 5、3 5 4、 4 3 5、 4 5 3、 5 3 4、 5 4 3 六组数。即以3开头的和4,5的全排列的组合、3和4交换以4开头的和3,5的全排列的组合和3和5交换以5开头的和3,4的全排列的组合.求全排列,代码如下：</3></p>
+<p><3>.再看后三个数3, 4, 5。它们的全排列为3 4 5、3 5 4、 4 3 5、 4 5 3、 5 3 4、 5 4 3 六组<br>数。即以3开头的和4,5的全排列的组合、3和4交换以4开头的和3,5的全排列的组合和3和5交换以5开头的和3,4的全排列的组合.求全排列,代码如下：<br><a id="more"></a><br>    void FullArray(char* array, size_t array_size, unsigned int index)// index子全排列的起点<br>    {<br>        if(index &gt;= array_size)<br>        {<br>            for(unsigned int i = 0; i &lt; array_size; ++i)<br>            {<br>            cout &lt;&lt; array[i] &lt;&lt; ‘ ‘;<br>        }</3></p>
 </blockquote>
-<pre><code><span class="function"><span class="keyword">void</span> <span class="title">FullArray</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">array</span>, size_t array_size, <span class="keyword">unsigned</span> <span class="keyword">int</span> index)</span><span class="comment">// index子全排列的起点</span>
-</span>{
-    <span class="keyword">if</span>(index &gt;= array_size)
-    {
-        <span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array_size; ++i)
-        {
-        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">array</span>[i] &lt;&lt; <span class="string">' '</span>;
-    }
-
-    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;
+<pre><code>    <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;
 
     <span class="keyword">return</span>;
 }
@@ -260,8 +251,7 @@
         swap(<span class="built_in">array</span>, i, index);<span class="comment">//还原便于下一次全排列</span>
     }
 }
-</code></pre><a id="more"></a>    
-<h1 id="2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。">2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。</h1><blockquote>
+</code></pre><h1 id="2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。">2、求一个字符串中连续出现的次数最多的子串。例如字符串“abababc”,最多连续出现的为ab，连续出现三次。</h1><blockquote>
 <p>要和求一个字符串中的最长重复子串区分开来，还是上面的字符串，那么最长的重复子串为abab。两个题目的解法有些类似，都用到了后缀数组这个数据结构。求一个字符串中连续出现的次数最多的子串，首先生成后缀数组例如上面的字符串为:</p>
 </blockquote>
 <pre><code><span class="label">abababc</span>
@@ -377,7 +367,7 @@ c
 }
 </code></pre><p><strong>KMP匹配算法</strong></p>
 <blockquote>
-<p>参考July的博文 <strong>《从头到尾彻底理解KMP》</strong> <a href="http://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="external">http://blog.csdn.net/v_july_v/article/details/7041827</a></p>
+<p>参考July的博文《从头到尾彻底理解KMP》 <a href="http://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="external">http://blog.csdn.net/v_july_v/article/details/7041827</a></p>
 <p>这篇文章写的非常详细，非常好！在此就不再重复。</p>
 </blockquote>
 
