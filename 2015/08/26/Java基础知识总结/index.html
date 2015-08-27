@@ -780,15 +780,63 @@ Collection <span class="function"><span class="title">values</span><span class="
 <h2 id="Collection是个java-util下的接口，它是各种集合结构的父接口，继承于它的接口主要有Set和List,提供了关于集合的一些操作,如插入、删除、判断一个元素是否其成员、遍历等。">Collection是个java.util下的接口，它是各种集合结构的父接口，继承于它的接口主要有Set和List,提供了关于集合的一些操作,如插入、删除、判断一个元素是否其成员、遍历等。</h2><p>Arrays：<br>用于操作数组对象的工具类，里面都是静态方法。<br>asList方法：将数组转换成list集合。<br>String[] arr = {“abc”,”kk”,”qq”};<br>List<string> list = Arrays.asList(arr);//将arr数组转成list集合。<br>将数组转换成集合，有什么好处呢？用aslist方法，将数组变成集合；<br>可以通过list集合中的方法来操作数组中的元素：isEmpty()、contains、indexOf、set；<br>注意（局限性）：数组是固定长度，不可以使用集合对象增加或者删除等，会改变数组长度的功能方法。比如add、remove、clear。（会报不支持操作异常UnsupportedOperationException）；<br>如果数组中存储的引用数据类型，直接作为集合的元素可以直接用集合方法操作。<br>如果数组中存储的是基本数据类型，asList会将数组实体作为集合元素存在。</string></p>
 <p>集合变数组：用的是Collection接口中的方法：toArray();<br>如果给toArray传递的指定类型的数据长度小于了集合的size，那么toArray方法，会自定再创建一个该类型的数据，长度为集合的size。<br>    如果传递的指定的类型的数组的长度大于了集合的size，那么toArray方法，就不会创建新数组，直接使用该数组即可，并将集合中的元素存储到数组中，其他为存储元素的位置默认值null。<br>    所以，在传递指定类型数组时，最好的方式就是指定的长度和size相等的数组。</p>
 <h2 id="将集合变成数组后有什么好处？限定了对集合中的元素进行增删操作，只要获取这些元素即可。">将集合变成数组后有什么好处？限定了对集合中的元素进行增删操作，只要获取这些元素即可。</h2><p>Jdk5.0新特性：</p>
-<h2 id="Collection在jdk1-5以后，有了一个父接口Iterable，这个接口的出现的将iterator方法进行抽取，提高了扩展性。">Collection在jdk1.5以后，有了一个父接口Iterable，这个接口的出现的将iterator方法进行抽取，提高了扩展性。</h2><p>增强for循环：foreach语句，foreach简化了迭代器。<br>格式：// 增强for循环括号里写两个参数，第一个是声明一个变量，第二个就是需要迭代的容器<br>for( 元素类型 变量名 : Collection集合 &amp; 数组 ) {<br>    …<br>}</p>
-<h2 id="高级for循环和传统for循环的区别：">高级for循环和传统for循环的区别：</h2><p>高级for循环在使用时，必须要明确被遍历的目标。这个目标，可以是Collection集合或者数组，如果遍历Collection集合，在遍历过程中还需要对元素进行操作，比如删除，需要使用迭代器。<br>如果遍历数组，还需要对数组元素进行操作，建议用传统for循环因为可以定义角标通过角标操作元素。如果只为遍历获取，可以简化成高级for循环，它的出现为了简化书写。</p>
+<h2 id="Collection在jdk1-5以后，有了一个父接口Iterable，这个接口的出现的将iterator方法进行抽取，提高了扩展性。">Collection在jdk1.5以后，有了一个父接口Iterable，这个接口的出现的将iterator方法进行抽取，提高了扩展性。</h2><p>增强for循环：foreach语句，foreach简化了迭代器。</p>
+<p>格式：// 增强for循环括号里写两个参数，第一个是声明一个变量，第二个就是需要迭代的容器</p>
+<pre><code><span class="tag">for</span>( 元素类型 变量名 : Collection集合 &amp; 数组 ) {
+    …
+}
+</code></pre><h2 id="高级for循环和传统for循环的区别：">高级for循环和传统for循环的区别：</h2><p>高级for循环在使用时，必须要明确被遍历的目标。这个目标，可以是Collection集合或者数组，如果遍历Collection集合，在遍历过程中还需要对元素进行操作，比如删除，需要使用迭代器。</p>
+<p>如果遍历数组，还需要对数组元素进行操作，建议用传统for循环因为可以定义角标通过角标操作元素。如果只为遍历获取，可以简化成高级for循环，它的出现为了简化书写。</p>
 <p>高级for循环可以遍历map集合吗？不可以。但是可以将map转成set后再使用foreach语句。</p>
-<p>1)、作用：对存储对象的容器进行迭代： 数组  collection   map<br>2)、增强for循环迭代数组：<br>String [] arr = {“a”, “b”, “c”};//数组的静态定义方式，只试用于数组首次定义的时候<br>for(String s : arr) {<br>    System.out.println(s);<br>}<br>3)、单列集合 Collection：<br>List list = new ArrayList();<br>list.add(“aaa”);<br>// 增强for循环, 没有使用泛型的集合能不能使用增强for循环迭代？能<br>for(Object obj : list) {<br>    String s = (String) obj;<br>    System.out.println(s);<br>}<br>4)、双列集合 Map：<br>Map map = new HashMap();<br>map.put(“a”, “aaa”);<br>// 传统方式：必须掌握这种方式<br>Set entrys = map.entrySet(); // 1.获得所有的键值对Entry对象<br>iter = entrys.iterator(); // 2.迭代出所有的entry<br>while(iter.hasNext()) {<br>    Map.Entry entry = (Entry) iter.next();<br>    String key = (String) entry.getKey(); // 分别获得key和value<br>    String value = (String) entry.getValue();<br>    System.out.println(key + “=” + value);<br>}<br>// 增强for循环迭代：原则上map集合是无法使用增强for循环来迭代的，因为增强for循环只能针对实现了Iterable接口的集合进行迭代；Iterable是jdk5中新定义的接口，就一个方法iterator方法，只有实现了Iterable接口的类，才能保证一定有iterator方法，java有这样的限定是因为增强for循环内部还是用迭代器实现的，而实际上，我们可以通过某种方式来使用增强for循环。<br>for(Object obj : map.entrySet()) {<br>    Map.Entry entry = (Entry) obj;  // obj 依次表示Entry<br>    System.out.println(entry.getKey() + “=” + entry.getValue());<br>}<br>5）、集合迭代注意问题：在迭代集合的过程中，不能对集合进行增删操作（会报并发访问异常）；可以用迭代器的方法进行操作（子类listIterator：有增删的方法）。<br>6)、增强for循环注意问题：在使用增强for循环时，不能对元素进行赋值；<br>int[] arr = {1,2,3};<br>for(int num : arr) {<br>    num = 0; //不能改变数组的值<br>}</p>
-<h2 id="System-out-println(arr[1]);_//2">System.out.println(arr[1]); //2</h2><p>可变参数（…）：用到函数的参数上，当要操作的同一个类型元素个数不确定的时候，可是用这个方式，这个参数可以接受任意个数的同一类型的数据。</p>
-<p>和以前接收数组不一样的是：<br>以前定义数组类型，需要先创建一个数组对象，再将这个数组对象作为参数传递给函数。现在，直接将数组中的元素作为参数传递即可。底层其实是将这些元素进行数组的封装，而这个封装动作，是在底层完成的，被隐藏了。所以简化了用户的书写，少了调用者定义数组的动作。<br>如果在参数列表中使用了可变参数，可变参数必须定义在参数列表结尾(也就是必须是最后一个参数，否则编译会失败。)。</p>
-<h2 id="如果要获取多个int数的和呢？可以使用将多个int数封装到数组中，直接对数组求和即可。">如果要获取多个int数的和呢？可以使用将多个int数封装到数组中，直接对数组求和即可。</h2><p>静态导入：导入了类中的所有静态成员，简化静态成员的书写。</p>
-<h2 id="import_static_java-util-Collections-*;_//导入了Collections类中的所有静态成员">import static java.util.Collections.*;  //导入了Collections类中的所有静态成员</h2><h1 id="枚举：关键字_enum">枚举：关键字 enum</h1><p>问题：对象的某个属性的值不能是任意的，必须为固定的一组取值其中的某一个；<br>解决办法：<br>1）、在setGrade方法中做判断，不符合格式要求就抛出异常；<br>2）、直接限定用户的选择，通过自定义类模拟枚举的方式来限定用户的输入，写一个Grade类，私有构造函数，对外提供5个静态的常量表示类的实例；<br>3)、jdk5中新定义了枚举类型，专门用于解决此类问题；</p>
-<h2 id="4)、枚举就是一个特殊的java类，可以定义属性、方法、构造函数、实现接口、继承类；">4)、枚举就是一个特殊的java类，可以定义属性、方法、构造函数、实现接口、继承类；</h2><p>自动拆装箱：java中数据类型分为两种 ： 基本数据类型   引用数据类型(对象)<br>在 java程序中所有的数据都需要当做对象来处理，针对8种基本数据类型提供了包装类，如下：<br>int —&gt; Integer<br>byte —&gt; Byte<br>short —&gt; Short<br>long —&gt; Long<br>char —&gt; Character<br>double —&gt; Double<br>float —&gt; Float<br>boolean —&gt; Boolean</p>
+<pre><code><span class="number">1</span>)、作用：对存储对象的容器进行迭代： 数组  collection   map
+<span class="number">2</span>)、增强<span class="keyword">for</span>循环迭代数组：
+<span class="type">String</span> [] arr = {<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>};//数组的静态定义方式，只试用于数组首次定义的时候
+<span class="keyword">for</span>(<span class="type">String</span> s : arr) {
+    <span class="type">System</span>.<span class="keyword">out</span>.println(s);    
+}
+<span class="number">3</span>)、单列集合 <span class="type">Collection</span>：
+<span class="type">List</span> list = new <span class="type">ArrayList</span>();
+list.add(<span class="string">"aaa"</span>);
+// 增强<span class="keyword">for</span>循环, 没有使用泛型的集合能不能使用增强<span class="keyword">for</span>循环迭代？能
+<span class="keyword">for</span>(<span class="type">Object</span> obj : list) {
+    <span class="type">String</span> s = (<span class="type">String</span>) obj;
+    <span class="type">System</span>.<span class="keyword">out</span>.println(s);
+}
+<span class="number">4</span>)、双列集合 <span class="type">Map</span>：
+<span class="type">Map</span> map = new <span class="type">HashMap</span>();
+map.put(<span class="string">"a"</span>, <span class="string">"aaa"</span>);
+// 传统方式：必须掌握这种方式
+<span class="type">Set</span> entrys = map.entrySet(); // <span class="number">1</span>.获得所有的键值对<span class="type">Entry</span>对象
+iter = entrys.<span class="keyword">iterator</span>(); // <span class="number">2</span>.迭代出所有的entry
+<span class="keyword">while</span>(iter.hasNext()) {
+    <span class="type">Map</span>.<span class="type">Entry</span> entry = (<span class="type">Entry</span>) iter.next();
+    <span class="type">String</span> key = (<span class="type">String</span>) entry.getKey(); // 分别获得key和value
+    <span class="type">String</span> value = (<span class="type">String</span>) entry.getValue();
+    <span class="type">System</span>.<span class="keyword">out</span>.println(key + <span class="string">"="</span> + value);
+}
+// 增强<span class="keyword">for</span>循环迭代：原则上map集合是无法使用增强<span class="keyword">for</span>循环来迭代的，因为增强<span class="keyword">for</span>循环只能针对实现了<span class="type">Iterable</span>接口的集合进行迭代；<span class="type">Iterable</span>是jdk5中新定义的接口，就一个方法<span class="keyword">iterator</span>方法，只有实现了<span class="type">Iterable</span>接口的类，才能保证一定有<span class="keyword">iterator</span>方法，java有这样的限定是因为增强<span class="keyword">for</span>循环内部还是用迭代器实现的，而实际上，我们可以通过某种方式来使用增强<span class="keyword">for</span>循环。
+<span class="keyword">for</span>(<span class="type">Object</span> obj : map.entrySet()) {
+    <span class="type">Map</span>.<span class="type">Entry</span> entry = (<span class="type">Entry</span>) obj;  // obj 依次表示<span class="type">Entry</span>
+    <span class="type">System</span>.<span class="keyword">out</span>.println(entry.getKey() + <span class="string">"="</span> + entry.getValue());
+}
+<span class="number">5</span>）、集合迭代注意问题：在迭代集合的过程中，不能对集合进行增删操作（会报并发访问异常）；可以用迭代器的方法进行操作（子类listIterator：有增删的方法）。
+<span class="number">6</span>)、增强<span class="keyword">for</span>循环注意问题：在使用增强<span class="keyword">for</span>循环时，不能对元素进行赋值；
+<span class="type">int</span>[] arr = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>};
+<span class="keyword">for</span>(<span class="type">int</span> num : arr) {
+    num = <span class="number">0</span>; //不能改变数组的值
+}
+<span class="type">System</span>.<span class="keyword">out</span>.println(arr[<span class="number">1</span>]); //<span class="number">2</span>
+</code></pre><hr>
+<p>可变参数（…）：用到函数的参数上，当要操作的同一个类型元素个数不确定的时候，可是用这个方式，这个参数可以接受任意个数的同一类型的数据。</p>
+<p>和以前接收数组不一样的是：<br>以前定义数组类型，需要先创建一个数组对象，再将这个数组对象作为参数传递给函数。现在，直接将数组中的元素作为参数传递即可。底层其实是将这些元素进行数组的封装，而这个封装动作，是在底层完成的，被隐藏了。所以简化了用户的书写，少了调用者定义数组的动作。</p>
+<p>如果在参数列表中使用了可变参数，可变参数必须定义在参数列表结尾(也就是必须是最后一个参数，否则编译会失败。)<br>如果要获取多个int数的和呢？可以使用将多个int数封装到数组中，直接对数组求和即可。</p>
+<hr>
+<p>静态导入：导入了类中的所有静态成员，简化静态成员的书写。</p>
+<h2 id="import_static_java-util-Collections-*;_//导入了Collections类中的所有静态成员">import static java.util.Collections.*;  //导入了Collections类中的所有静态成员</h2><h1 id="枚举：关键字_enum">枚举：关键字 enum</h1><p>问题：对象的某个属性的值不能是任意的，必须为固定的一组取值其中的某一个；</p>
+<p>解决办法：<br>        1）、在setGrade方法中做判断，不符合格式要求就抛出异常；<br>        2）、直接限定用户的选择，通过自定义类模拟枚举的方式来限定用户的输入，写一个Grade类，私有构造函数，对外提供5个静态的常量表示类的实例；<br>        3)、jdk5中新定义了枚举类型，专门用于解决此类问题；</p>
+<pre><code>4)、枚举就是一个特殊的java类，可以定义属性、方法、构造函数、实现接口、继承类；
+</code></pre><hr>
+<p>自动拆装箱：java中数据类型分为两种 ： 基本数据类型   引用数据类型(对象)<br>在 java程序中所有的数据都需要当做对象来处理，针对8种基本数据类型提供了包装类，如下：<br>int —&gt; Integer<br>byte —&gt; Byte<br>short —&gt; Short<br>long —&gt; Long<br>char —&gt; Character<br>double —&gt; Double<br>float —&gt; Float<br>boolean —&gt; Boolean</p>
 <p>jdk5以前基本数据类型和包装类之间需要互转：<br>基本—-引用   Integer x = new Integer(x);<br>引用—-基本   int num = x.intValue();<br>1)、Integer x = 1; x = x + 1;  经历了什么过程？装箱  拆箱  装箱；<br>2)、为了优化，虚拟机为包装类提供了缓冲池，Integer池的大小 -128~127 一个字节的大小；</p>
 <h2 id="3)、String池：Java为了优化字符串操作_提供了一个缓冲池；">3)、String池：Java为了优化字符串操作 提供了一个缓冲池；</h2><h1 id="泛型：jdk1-5版本以后出现的一个安全机制。表现格式：&lt;_&gt;">泛型：jdk1.5版本以后出现的一个安全机制。表现格式：&lt; &gt;</h1><p>好处：<br>1：将运行时期的问题ClassCastException问题转换成了编译失败，体现在编译时期，程序员就可以解决问题。<br>2：避免了强制转换的麻烦。</p>
 <p>只要带有&lt;&gt;的类或者接口，都属于带有类型参数的类或者接口，在使用这些类或者接口时，必须给&lt;&gt;中传递一个具体的引用数据类型。</p>
@@ -809,10 +857,23 @@ Collection <span class="function"><span class="title">values</span><span class="
 </code></pre><hr>
 <p>API—- java.lang.Runtime: 类中没有构造方法，不能创建对象。<br>但是有非静态方法。说明该类中应该定义好了对象，并可以通过一个static方法获取这个对象。用这个对象来调用非静态方法。这个方法就是 static Runtime getRuntime();</p>
 <p>这个Runtime其实使用单例设计模式进行设计。</p>
-<p>class  RuntimeDemo {<br>    public static void main(String[] args) throws Exception {<br>        Runtime r = Runtime.getRuntime();<br>        Process p = r.exec(“notepad.exe SystemDemo.java”);    //运行指定的程序<br>        Thread.sleep(4000);<br>        p.destroy();  //杀掉进程<br>    }</p>
-<h2 id="}-16">}</h2><p>API—- java.util.Math: 用于数学运算的工具类，属性和行为都是静态的。该类是final不允许继承。</p>
-<p>static double ceil(double a) ; //返回大于指定数值的最小整数<br>static double floor(double a) ; //返回小于指定数值的最大整数<br>static long round(double a) ; //四舍五入成整数<br>static double pow(double a, double b) ; //a的b次幂<br>static double random(); //返回0~1的伪随机数</p>
-<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+<pre><code><span class="keyword">class</span>  RuntimeDemo {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> Exception {
+        <span class="keyword">Runtime</span> r = <span class="keyword">Runtime</span>.getRuntime();
+        Process p = r.exec(<span class="string">"notepad.exe SystemDemo.java"</span>);    <span class="comment">//运行指定的程序</span>
+        Thread.sleep(<span class="number">4000</span>);
+        p.destroy();  <span class="comment">//杀掉进程</span>
+    }
+}
+</code></pre><hr>
+<p>API—- java.util.Math: 用于数学运算的工具类，属性和行为都是静态的。该类是final不允许继承。</p>
+<pre><code><span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">ceil</span>(<span class="params"><span class="keyword">double</span> a</span>) </span>; <span class="comment">//返回大于指定数值的最小整数</span>
+<span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">floor</span>(<span class="params"><span class="keyword">double</span> a</span>) </span>; <span class="comment">//返回小于指定数值的最大整数</span>
+<span class="function"><span class="keyword">static</span> <span class="keyword">long</span> <span class="title">round</span>(<span class="params"><span class="keyword">double</span> a</span>) </span>; <span class="comment">//四舍五入成整数</span>
+<span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">pow</span>(<span class="params"><span class="keyword">double</span> a, <span class="keyword">double</span> b</span>) </span>; <span class="comment">//a的b次幂</span>
+<span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">random</span>(<span class="params"></span>)</span>; <span class="comment">//返回0~1的伪随机数</span>
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
     Random r = <span class="keyword">new</span> Random();
     <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;<span class="number">10</span>; x++) {
         <span class="comment">//double d = Math.floor(Math.random()*10+1);</span>
@@ -823,15 +884,28 @@ Collection <span class="function"><span class="title">values</span><span class="
 }
 </code></pre><hr>
 <p>API—- java.util.Date：日期类，月份从0-11；<br>    /<em><br>    日期对象和毫秒值之间的转换。<br>    1，日期对象转成毫秒值。Date类中的getTime方法。<br>    2，如何将获取到的毫秒值转成具体的日期呢？<br>        Date类中的setTime方法。也可以通过构造函数。 
-    </em>/<br>        //日期对象转成毫秒值<br>        Date d = new Date();<br>        long time1 = d.getTime();<br>        long time2 = System.currentTimeMillis(); / /毫秒值。</p>
-<pre><code><span class="comment">//毫秒值转成具体的日期</span>
-<span class="keyword">long</span> time = <span class="number">1322709921312l</span>;
-Date d = <span class="keyword">new</span> Date();
-d.setTime(time);
-</code></pre><p>/<em><br>    将日期字符串转换成日期对象：使用的就是DateFormat方法中的  Date parse(String source) ；
-    </em>/<br>    public static void method() throws Exception {<br>        String str_time = “2011/10/25”;<br>        DateFormat df = new SimpleDateFormat(“yyyy/MM/dd”); //SimpleDateFormat作为可以指定用户自定义的格式来完成格式化。<br>        Date d = df.parse(str_time);<br>    }<br>    /<em><br>    如果不需要使用特定的格式化风格，完全可以使用DateFormat类中的静态工厂方法获取具体的已经封装好风格的对象。getDateInstance();getDateTimeInstance();
-    </em>/<br>        Date d = new Date();<br>        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);<br>        df = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);<br>        String str_time = df.format(d);</p>
-<pre><code><span class="comment">//将日期对象转换成字符串的方式：DateFormat类中的format方法。</span>
+        </em>/<br>        //日期对象转成毫秒值<br>        Date d = new Date();<br>        long time1 = d.getTime();<br>        long time2 = System.currentTimeMillis(); / /毫秒值。</p>
+<pre><code>    <span class="comment">//毫秒值转成具体的日期</span>
+    <span class="keyword">long</span> time = <span class="number">1322709921312l</span>;
+    Date d = <span class="keyword">new</span> Date();
+    d.setTime(time);
+<span class="comment">/*
+将日期字符串转换成日期对象：使用的就是DateFormat方法中的  Date parse(String source) ；
+    */</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> throws Exception </span>{
+    String <span class="keyword">str_t</span>ime = <span class="string">"2011/10/25"</span>;
+    DateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd"</span>); <span class="comment">//SimpleDateFormat作为可以指定用户自定义的格式来完成格式化。</span>
+    Date d = df.parse(<span class="keyword">str_t</span>ime);
+}
+<span class="comment">/*
+如果不需要使用特定的格式化风格，完全可以使用DateFormat类中的静态工厂方法获取具体的已经封装好风格的对象。getDateInstance();getDateTimeInstance();
+    */</span>
+    Date d = <span class="keyword">new</span> Date();
+    DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
+    df = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);
+    String <span class="keyword">str_t</span>ime = df.format(d);
+
+<span class="comment">//将日期对象转换成字符串的方式：DateFormat类中的format方法。</span>
     <span class="comment">//创建日期格式对象。 </span>
     DateFormat df = <span class="keyword">new</span> SimpleDateFormat(); <span class="comment">//该对象的建立内部会封装一个默认的日期格式。11-12-1 下午1:48</span>
     <span class="comment">//如果想要自定义日期格式的话。可使用SimpleDateFormat的构造函数。将具体的格式作为参数传入到构造函数中。如何表示日期中年的部分呢？可以必须要参与格式对象文档。 </span>
@@ -843,7 +917,7 @@ d.setTime(time);
     </em>/<br>        String[] weeks = {“”,”日”,”一”,”二”,”三”,”四”,”五”,”六”};<br>        return weeks[index];</p>
 <pre><code>}
 </code></pre><hr>
-<h1 id="IO流：★★★★★，用于处理设备上数据。">IO流：★★★★★，用于处理设备上数据。</h1><p>流：可以理解数据的流动，就是一个数据流。IO流最终要以对象来体现，对象都存在IO包中。<br>流也进行分类：<br>1：输入流（读）和输出流（写）。<br>2：因为处理的数据不同，分为字节流和字符流。 </p>
+<h1 id="IO流：★★★★★，用于处理设备上数据。">IO流：★★★★★，用于处理设备上数据。</h1><p>流：可以理解数据的流动，就是一个数据流。IO流最终要以对象来体现，对象都存在IO包中。<br>流也进行分类：<br>    1：输入流（读）和输出流（写）。<br>    2：因为处理的数据不同，分为字节流和字符流。 </p>
 <p>字节流：处理字节数据的流对象。设备上的数据无论是图片或者dvd，文字，它们都以二进制存储的。二进制的最终都是以一个8位为数据单元进行体现，所以计算机中的最小数据单元就是字节。意味着，字节流可以处理设备上的所有数据，所以字节流一样可以处理字符数据。</p>
 <p>那么为什么要有字符流呢？因为字符每个国家都不一样，所以涉及到了字符编码问题，那么GBK编码的中文用unicode编码解析是有问题的，所以需要获取中文字节数据的同时+ 指定的编码表才可以解析正确数据。为了方便于文字的解析，所以将字节流和编码表封装成对象，这个对象就是字符流。只要操作字符数据，优先考虑使用字符流体系。</p>
 <p>注意：流的操作只有两种：读和写。</p>
@@ -855,10 +929,32 @@ d.setTime(time);
 <p>close()和flush()的区别：<br>flush()：将缓冲区的数据刷到目的地中后，流可以使用。</p>
 <h2 id="close()：将缓冲区的数据刷到目的地中后，流就关闭了，该方法主要用于结束调用的底层资源。这个动作一定做。">close()：将缓冲区的数据刷到目的地中后，流就关闭了，该方法主要用于结束调用的底层资源。这个动作一定做。</h2><p>io异常的处理方式：io一定要写finally；</p>
 <p>FileWriter写入数据的细节：<br>1：window中的换行符：\r\n两个符号组成。 linux：\n。<br>2：续写数据，只要在构造函数中传入新的参数true。<br>3：目录分割符：window \  /</p>
-<p>public static void main(String[] args) {<br>        FileWriter fw = null;<br>        try {<br>            fw = new FileWriter(“demo.txt”,true);<br>            fw.write(“abcde”);<br>        }<br>        catch (IOException e ){<br>            System.out.println(e.toString()+”….”);<br>        }<br>        finally{<br>            if(fw!=null)<br>                try{<br>                    fw.close();<br>                }<br>                catch (IOException e){<br>                    System.out.println(“close:”+e.toString());<br>                }<br>        }</p>
-<h2 id="}-17">}</h2><p>FileReader：使用Reader体系，读取一个文本文件中的数据。返回 -1 ，标志读到结尾。<br>import java.io.<em>;<br>class  FileReaderDemo {<br>    public static void main(String[] args) throws IOException {<br>        /</em><br>        创建可以读取文本文件的流对象，FileReader让创建好的流对象和指定的文件相关联。<br>        */<br>        FileReader fr = new FileReader(“demo.txt”);<br>        int ch = 0;<br>        while((ch = fr.read())!= -1) { //条件是没有读到结尾<br>            System.out.println((char)ch); //调用读取流的read方法，读取一个字符。<br>        }<br>        fr.close();<br>    }</p>
-<h2 id="}-18">}</h2><p>读取数据的第二种方式：第二种方式较为高效，自定义缓冲区。<br>import java.io.*;<br>class FileReaderDemo2 {<br>    public static void main(String[] args) throws IOException {<br>        FileReader fr = new FileReader(“demo.txt”); //创建读取流对象和指定文件关联。<br>        //因为要使用read(char[])方法，将读取到字符存入数组。所以要创建一个字符数组，一般数组的长度都是1024的整数倍。<br>        char[] buf = new char[1024];<br>        int len = 0;<br>        while(( len=fr.read(buf)) != -1) {<br>            System.out.println(new String(buf,0,len));<br>        }<br>        fr.close();<br>    }</p>
-<h2 id="}-19">}</h2><p>IO中的使用到了一个设计模式：装饰设计模式。<br>装饰设计模式解决：对一组类进行功能的增强。<br>包装：写一个类(包装类)对被包装对象进行包装；</p>
+<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+        FileWriter fw = <span class="keyword">null</span>;
+        <span class="keyword">try</span> {
+            fw = <span class="keyword">new</span> FileWriter(<span class="string">"demo.txt"</span>,<span class="keyword">true</span>);
+            fw.write(<span class="string">"abcde"</span>);
+        }
+        <span class="keyword">catch</span> (IOException e ){
+            System.<span class="keyword">out</span>.println(e.toString()+<span class="string">"...."</span>);
+        }
+        <span class="keyword">finally</span>{
+            <span class="keyword">if</span>(fw!=<span class="keyword">null</span>)
+                <span class="keyword">try</span>{
+                    fw.close();
+                }
+                <span class="keyword">catch</span> (IOException e){
+                    System.<span class="keyword">out</span>.println(<span class="string">"close:"</span>+e.toString());
+                }
+        }
+}
+</code></pre><hr>
+<p>FileReader：使用Reader体系，读取一个文本文件中的数据。返回 -1 ，标志读到结尾。<br>    import java.io.<em>;<br>    class  FileReaderDemo {<br>        public static void main(String[] args) throws IOException {<br>            /</em><br>            创建可以读取文本文件的流对象，FileReader让创建好的流对象和指定的文件相关联。<br>            */<br>            FileReader fr = new FileReader(“demo.txt”);<br>            int ch = 0;<br>            while((ch = fr.read())!= -1) { //条件是没有读到结尾<br>                System.out.println((char)ch); //调用读取流的read方法，读取一个字符。<br>            }<br>            fr.close();<br>        }</p>
+<pre><code>}
+</code></pre><hr>
+<p>读取数据的第二种方式：第二种方式较为高效，自定义缓冲区。<br>import java.io.*;<br>class FileReaderDemo2 {<br>    public static void main(String[] args) throws IOException {<br>        FileReader fr = new FileReader(“demo.txt”); //创建读取流对象和指定文件关联。<br>        //因为要使用read(char[])方法，将读取到字符存入数组。所以要创建一个字符数组，一般数组的长度都是1024的整数倍。<br>        char[] buf = new char[1024];<br>        int len = 0;<br>        while(( len=fr.read(buf)) != -1) {<br>            System.out.println(new String(buf,0,len));<br>        }<br>        fr.close();<br>    }</p>
+<h2 id="}-16">}</h2><p>IO中的使用到了一个设计模式：装饰设计模式。<br>装饰设计模式解决：对一组类进行功能的增强。</p>
+<p>包装：写一个类(包装类)对被包装对象进行包装；</p>
 <ul>
 <li>1、包装类和被包装对象要实现同样的接口；</li>
 <li>2、包装类要持有一个被包装对象；</li>
@@ -880,11 +976,19 @@ d.setTime(time);
 <p>缓冲区是提高效率用的，给谁提高呢？<br>BufferedWriter：是给字符输出流提高效率用的，那就意味着，缓冲区对象建立时，必须要先有流对象。明确要提高具体的流对象的效率。<br>    FileWriter fw = new FileWriter(“bufdemo.txt”);<br>    BufferedWriter bufw = new BufferedWriter(fw);//让缓冲区和指定流相关联。<br>    for(int x=0; x&lt;4; x++){<br>        bufw.write(x+”abc”);<br>        bufw.newLine(); //写入一个换行符，这个换行符可以依据平台的不同写入不同的换行符。<br>        bufw.flush();//对缓冲区进行刷新，可以让数据到目的地中。<br>    }</p>
 <pre><code>bufw.close<span class="comment">()</span>;<span class="comment">//关闭缓冲区，其实就是在关闭具体的流。</span>
 </code></pre><hr>
-<p>BufferedReader：<br>    FileReader fr = new FileReader(“bufdemo.txt”);<br>    BufferedReader bufr  = new BufferedReader(fr);<br>    String line = null;<br>    while((line=bufr.readLine())!=null){  //readLine方法返回的时候是不带换行符的。<br>        System.out.println(line);<br>    }</p>
+<pre><code><span class="keyword">BufferedReader</span>：
+    FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">"bufdemo.txt"</span>);
+    <span class="keyword">BufferedReader</span> bufr  = <span class="keyword">new</span> <span class="keyword">BufferedReader</span>(fr);
+    <span class="keyword">String</span> <span class="built_in">line</span> = <span class="keyword">null</span>;
+    <span class="keyword">while</span>((<span class="built_in">line</span>=bufr.readLine())!=<span class="keyword">null</span>){  <span class="comment">//readLine方法返回的时候是不带换行符的。</span>
+        System.out.<span class="built_in">println</span>(<span class="built_in">line</span>);
+    }
+    bufr.close();
+</code></pre><hr>
+<p>//记住，只要一读取键盘录入，就用这句话。<br>    BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));<br>    BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));//输出到控制台<br>    String line = null;<br>    while((line=bufr.readLine())!=null){<br>        if(“over”.equals(line))<br>            break;<br>        bufw.write(line.toUpperCase());//将输入的字符转成大写字符输出<br>        bufw.newLine();<br>        bufw.flush();<br>        }<br>    bufw.close();</p>
 <pre><code><span class="tag">bufr</span><span class="class">.close</span>();
 </code></pre><hr>
-<p>//记住，只要一读取键盘录入，就用这句话。<br>BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));<br>BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));//输出到控制台<br>String line = null;<br>while((line=bufr.readLine())!=null){<br>    if(“over”.equals(line))<br>        break;<br>    bufw.write(line.toUpperCase());//将输入的字符转成大写字符输出<br>    bufw.newLine();<br>    bufw.flush();<br>    }<br>bufw.close();</p>
-<h2 id="bufr-close();">bufr.close();</h2><p>流对象：其实很简单，就是读取和写入。但是因为功能的不同，流的体系中提供N多的对象。那么开始时，到底该用哪个对象更为合适呢？这就需要明确流的操作规律。</p>
+<p>流对象：其实很简单，就是读取和写入。但是因为功能的不同，流的体系中提供N多的对象。那么开始时，到底该用哪个对象更为合适呢？这就需要明确流的操作规律。</p>
 <p>流的操作规律：<br>1，明确源和目的。<br>    数据源：就是需要读取，可以使用两个体系：InputStream、Reader；<br>    数据汇：就是需要写入，可以使用两个体系：OutputStream、Writer；<br>2，操作的数据是否是纯文本数据？<br>    如果是：数据源：Reader<br>            数据汇：Writer<br>    如果不是：数据源：InputStream<br>              数据汇：OutputStream<br>3，虽然确定了一个体系，但是该体系中有太多的对象，到底用哪个呢？<br>    明确操作的数据设备。<br>    数据源对应的设备：硬盘(File)，内存(数组)，键盘(System.in)<br>    数据汇对应的设备：硬盘(File)，内存(数组)，控制台(System.out)。<br>4，需要在基本操作上附加其他功能吗？比如缓冲。<br>    如果需要就进行装饰。</p>
 <p>转换流特有功能：转换流可以将字节转成字符，原因在于，将获取到的字节通过查编码表获取到指定对应字符。</p>
 <p>转换流的最强功能就是基于 字节流 + 编码表 。没有转换，没有字符流。</p>
@@ -898,63 +1002,340 @@ d.setTime(time);
 <h2 id="如果调用list方法的File_对象中封装的是一个文件，那么list方法返回数组为null。如果封装的对象不存在也会返回null。只有封装的对象存在并且是文件夹时，这个方法才有效。">如果调用list方法的File 对象中封装的是一个文件，那么list方法返回数组为null。如果封装的对象不存在也会返回null。只有封装的对象存在并且是文件夹时，这个方法才有效。</h2><h1 id="递归：就是函数自身调用自身。">递归：就是函数自身调用自身。</h1><p>什么时候用递归呢？<br>当一个功能被重复使用，而每一次使用该功能时的参数不确定，都由上次的功能元素结果来确定。<br>简单说：功能内部又用到该功能，但是传递的参数值不确定。(每次功能参与运算的未知内容不确定)。</p>
 <p>递归的注意事项：<br>1：一定要定义递归的条件。<br>2：递归的次数不要过多。容易出现 StackOverflowError 栈内存溢出错误。</p>
 <h2 id="其实递归就是在栈内存中不断的加载同一个函数。">其实递归就是在栈内存中不断的加载同一个函数。</h2><p>Java.util.Properties：一个可以将键值进行持久化存储的对象。Map—Hashtable的子类。<br>Map<br>    |—Hashtable<br>        |—Properties：用于属性配置文件，键和值都是字符串类型。<br>特点：1：可以持久化存储数据。2：键值都是字符串。3：一般用于配置文件。</p>
-<p>|— load()：将流中的数据加载进集合。<br>原理：其实就是将读取流和指定文件相关联，并读取一行数据，因为数据是规则的key=value，所以获取一行后，通过 = 对该行数据进行切割，左边就是键，右边就是值，将键、值存储到properties集合中。<br>|— store()：写入各个项后，刷新输出流。</p>
-<h2 id="|—_list()：将集合的键值数据列出到指定的目的地。">|— list()：将集合的键值数据列出到指定的目的地。</h2><p>以下介绍IO包中扩展功能的流对象：基本都是装饰设计模式。<br>Java.io.outputstream.PrintStream：打印流<br>1：提供了更多的功能，比如打印方法。可以直接打印任意类型的数据。<br>2：它有一个自动刷新机制，创建该对象，指定参数，对于指定方法可以自动刷新。<br>3：它使用的本机默认的字符编码.<br>4：该流的print方法不抛出IOException。</p>
+<p>|— load()：将流中的数据加载进集合。</p>
+<p>原理：其实就是将读取流和指定文件相关联，并读取一行数据，因为数据是规则的key=value，所以获取一行后，通过 = 对该行数据进行切割，左边就是键，右边就是值，将键、值存储到properties集合中。</p>
+<p>|— store()：写入各个项后，刷新输出流。</p>
+<h2 id="|—_list()：将集合的键值数据列出到指定的目的地。">|— list()：将集合的键值数据列出到指定的目的地。</h2><p>以下介绍IO包中扩展功能的流对象：基本都是装饰设计模式。<br>Java.io.outputstream.PrintStream：打印流<br>1：提供了更多的功能，比如打印方法。可以直接打印任意类型的数据。</p>
+<p>2：它有一个自动刷新机制，创建该对象，指定参数，对于指定方法可以自动刷新。</p>
+<p>3：它使用的本机默认的字符编码。</p>
+<p>4：该流的print方法不抛出IOException。</p>
 <p>该对象的构造函数。<br>PrintStream(File file)  ：创建具有指定文件且不带自动行刷新的新打印流。<br>PrintStream(File file, String csn) ：创建具有指定文件名称和字符集且不带自动行刷新的新打印流。<br>PrintStream(OutputStream out) ：创建新的打印流。<br>PrintStream(OutputStream out, boolean autoFlush) ：创建新的打印流。<br>PrintStream(OutputStream out, boolean autoFlush, String encoding) ：创建新的打印流。<br>PrintStream(String fileName) ：创建具有指定文件名称且不带自动行刷新的新打印流。<br>PrintStream(String fileName, String csn) </p>
 <p>PrintStream可以操作目的：1：File对象。2：字符串路径。3：字节输出流。<br>前两个都JDK1.5版本才出现。而且在操作文本文件时，可指定字符编码了。</p>
 <p>当目的是一个字节输出流时，如果使用的println方法，可以在printStream对象上加入一个true参数。这样对于println方法可以进行自动的刷新，而不是等待缓冲区满了再刷新。最终print方法都将具体的数据转成字符串，而且都对IO异常进行了内部处理。</p>
 <h2 id="既然操作的数据都转成了字符串，那么使用PrintWriter更好一些。因为PrintWrite是字符流的子类，可以直接操作字符数据，同时也可以指定具体的编码。">既然操作的数据都转成了字符串，那么使用PrintWriter更好一些。因为PrintWrite是字符流的子类，可以直接操作字符数据，同时也可以指定具体的编码。</h2><p>PrintWriter：具备了PrintStream的特点同时，还有自身特点：<br>该对象的目的地有四个：1：File对象。2：字符串路径。3：字节输出流。4：字符输出流。</p>
 <p>开发时尽量使用PrintWriter。</p>
 <p>方法中直接操作文件的第二参数是编码表。<br>直接操作输出流的，第二参数是自动刷新。</p>
-<p>//读取键盘录入将数据转成大写显示在控制台.<br>BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));//源：键盘输入<br>//目的：把数据写到文件中，还想自动刷新。<br>PrintWriter out = new PrintWriter(new FileWriter(“out.txt”),true);//设置true后自动刷新<br>String line = null;<br>while((line=bufr.readLine())!=null){<br>    if(“over”.equals(line))<br>        break;<br>    out.println(line.toUpperCase());//转大写输出<br>}<br>    //注意：System.in，System.out这两个标准的输入输出流，在jvm启动时已经存在了。随时可以使用。当jvm结束了，这两个流就结束了。但是，当使用了显示的close方法关闭时，这两个流在提前结束了。<br>out.close();</p>
-<h2 id="bufr-close();-1">bufr.close();</h2><p>SequenceInputStream：序列流，作用就是将多个读取流合并成一个读取流。实现数据合并。<br>表示其他输入流的逻辑串联。它从输入流的有序集合开始，并从第一个输入流开始读取，直到到达文件末尾，接着从第二个输入流读取，依次类推，直到到达包含的最后一个输入流的文件末尾为止。<br>这样做，可以更方便的操作多个读取流，其实这个序列流内部会有一个有序的集合容器，用于存储多个读取流对象。<br>该对象的构造函数参数是枚举，想要获取枚举，需要有Vector集合，但不高效。需用ArrayList，但ArrayList中没有枚举，只有自己去创建枚举对象。<br>但是方法怎么实现呢？因为枚举操作的是具体集合中的元素，所以无法具体实现，但是枚举和迭代器是功能一样的，所以，可以用迭代替代枚举。</p>
+<p>//读取键盘录入将数据转成大写显示在控制台.<br>BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));//源：键盘输入<br>//目的：把数据写到文件中，还想自动刷新。<br>    PrintWriter out = new PrintWriter(new FileWriter(“out.txt”),true);//设置true后自动刷新<br>    String line = null;<br>    while((line=bufr.readLine())!=null){<br>        if(“over”.equals(line))<br>            break;<br>        out.println(line.toUpperCase());//转大写输出<br>    }<br>        //注意：System.in，System.out这两个标准的输入输出流，在jvm启动时已经存在了。随时可以使用。当jvm结束了，这两个流就结束了。但是，当使用了显示的close方法关闭时，这两个流在提前结束了。<br>    out.close();</p>
+<pre><code><span class="tag">bufr</span><span class="class">.close</span>();
+</code></pre><hr>
+<p>SequenceInputStream：序列流，作用就是将多个读取流合并成一个读取流。实现数据合并。<br>表示其他输入流的逻辑串联。它从输入流的有序集合开始，并从第一个输入流开始读取，直到到达文件末尾，接着从第二个输入流读取，依次类推，直到到达包含的最后一个输入流的文件末尾为止。<br>这样做，可以更方便的操作多个读取流，其实这个序列流内部会有一个有序的集合容器，用于存储多个读取流对象。<br>该对象的构造函数参数是枚举，想要获取枚举，需要有Vector集合，但不高效。需用ArrayList，但ArrayList中没有枚举，只有自己去创建枚举对象。<br>但是方法怎么实现呢？因为枚举操作的是具体集合中的元素，所以无法具体实现，但是枚举和迭代器是功能一样的，所以，可以用迭代替代枚举。</p>
 <p>合并原理：多个读取流对应一个输出流。<br>切割原理：一个读取流对应多个输出流。</p>
-<p>import java.io.<em>;<br>import java.util.</em>;<br>class  SplitFileDemo{<br>    private static final String CFG = “.properties”;<br>    private static final String SP = “.part”;<br>    public static void main(String[] args) throws IOException{<br>        File file = new File(“c:\0.bmp”);<br>        File dir = new File(“c:\partfiles”);<br>        meger(dir);<br>    }<br>    //数据的合并。<br>    public static void meger(File dir)throws IOException{<br>        if(!(dir.exists() &amp;&amp; dir.isDirectory()))<br>            throw new RuntimeException(“指定的目录不存在，或者不是正确的目录”);<br>        File[] files = dir.listFiles(new SuffixFilter(CFG));<br>        if(files.length==0)<br>            throw new RuntimeException(“扩展名.proerpties的文件不存在”);<br>        //获取到配置文件<br>        File config = files[0];<br>        //获取配置文件的信息。<br>        Properties prop = new Properties();<br>        FileInputStream fis = new FileInputStream(config);<br>        prop.load(fis);<br>        String fileName = prop.getProperty(“filename”);<br>        int partcount = Integer.parseInt(prop.getProperty(“partcount”));<br>        //—————————————<br>        File[] partFiles = dir.listFiles(new SuffixFilter(SP));<br>        if(partFiles.length!=partcount)<br>            throw new RuntimeException(“缺少碎片文件”);<br>        //——————————-<br>        ArrayList<fileinputstream> al = new ArrayList<fileinputstream>();<br>        for(int x=0; x<partcount; x++){="" al.add(new="" fileinputstream(new="" file(dir,x+sp)));="" }="" enumeration<fileinputstream=""> en = Collections.enumeration(al);<br>        SequenceInputStream sis = new SequenceInputStream(en);<br>        File file = new File(dir,fileName);<br>        FileOutputStream fos = new FileOutputStream(file);<br>        byte[] buf = new byte[1024];<br>        int len = 0;<br>        while((len=sis.read(buf))!=-1){<br>            fos.write(buf,0,len);<br>        }<br>        fos.close();<br>        sis.close();<br>    }<br>    //带有配置信息的数据切割。<br>    public static void splitFile(File file)throws IOException{<br>        //用一个读取流和文件关联。<br>        FileInputStream fis = new FileInputStream(file);<br>        //创建目的地。因为有多个。所以先创建引用。<br>        FileOutputStream fos = null;<br>        //指定碎片的位置。<br>        File dir = new File(“c:\partfiles”);<br>        if(!dir.exists())<br>            dir.mkdir();<br>        //碎片文件大小引用。<br>        File f = null;<br>        byte[] buf = new byte[1024*1024];<br>        //因为切割完的文件通常都有规律的。为了简单标记规律使用计数器。<br>        int count = 0;<br>        int len = 0;<br>        while((len=fis.read(buf))!=-1){<br>            f = new File(dir,(count++)+”.part”);<br>            fos = new FileOutputStream(f);<br>            fos.write(buf,0,len);<br>            fos.close();<br>        }<br>        //碎片文件生成后，还需要定义配置文件记录生成的碎片文件个数。以及被切割文件的名称。<br>        //定义简单的键值信息，可是用Properties。<br>        String filename = file.getName();<br>        Properties prop = new Properties();<br>        prop.setProperty(“filename”,filename);<br>        prop.setProperty(“partcount”,count+””);<br>        File config = new File(dir,count+”.properties”);<br>        fos = new FileOutputStream(config);<br>        prop.store(fos,””);<br>        fos.close();<br>        fis.close();<br>    }<br>}<br>class SuffixFilter implements FileFilter{<br>    private String suffix;<br>    SuffixFilter(String suffix){<br>        this.suffix  = suffix;<br>    }<br>    public boolean accept(File file){<br>        return  file.getName().endsWith(suffix);<br>    }</partcount;></fileinputstream></fileinputstream></p>
-<h2 id="}-20">}</h2><p>RandomAccessFile:<br>特点：<br>1：该对象即可读取，又可写入。<br>2：该对象中的定义了一个大型的byte数组，通过定义指针来操作这个数组。<br>3：可以通过该对象的getFilePointer()获取指针的位置，通过seek()方法设置指针的位置。<br>4：该对象操作的源和目的必须是文件。<br>5：其实该对象内部封装了字节读取流和字节写入流。<br>注意：实现随机访问，最好是数据有规律。</p>
-<p>class RandomAccessFileDemo{<br>    public static void main(String[] args) throws IOException{<br>        write();<br>        read();<br>        randomWrite();<br>    }<br>    //随机写入数据，可以实现已有数据的修改。<br>    public static void randomWrite()throws IOException{<br>        RandomAccessFile raf = new RandomAccessFile(“random.txt”,”rw”);<br>        raf.seek(8<em>4);<br>        System.out.println(“pos :”+raf.getFilePointer());<br>        raf.write(“王武”.getBytes());<br>        raf.writeInt(102);<br>        raf.close();<br>    }<br>    public static void read()throws IOException{<br>        RandomAccessFile raf = new RandomAccessFile(“random.txt”,”r”);//只读模式。<br>        //指定指针的位置。<br>        raf.seek(8</em>1);//实现随机读取文件中的数据。注意：数据最好有规律。<br>        System.out.println(“pos1 :”+raf.getFilePointer());<br>        byte[] buf = new byte[4];<br>        raf.read(buf);<br>        String name = new String(buf);<br>        int age = raf.readInt();<br>        System.out.println(name+”::”+age);<br>        System.out.println(“pos2 :”+raf.getFilePointer());<br>        raf.close();<br>    }<br>    public static void write()throws IOException{<br>        //rw：当这个文件不存在，会创建该文件。当文件已存在，不会创建。所以不会像输出流一样覆盖。<br>        RandomAccessFile raf = new RandomAccessFile(“random.txt”,”rw”);//rw读写模式<br>        //往文件中写入人的基本信息，姓名，年龄。<br>        raf.write(“张三”.getBytes());<br>        raf.writeInt(97);<br>        raf.close();<br>    }</p>
-<h2 id="}-21">}</h2><p>管道流：管道读取流和管道写入流可以像管道一样对接上，管道读取流就可以读取管道写入流写入的数据。<br>注意：需要加入多线程技术，因为单线程，先执行read，会发生死锁，因为read方法是阻塞式的，没有数据的read方法会让线程等待。<br>public static void main(String[] args) throws IOException{<br>    PipedInputStream pipin = new PipedInputStream();<br>    PipedOutputStream pipout = new PipedOutputStream();<br>    pipin.connect(pipout);<br>    new Thread(new Input(pipin)).start();<br>    new Thread(new Output(pipout)).start();</p>
-<h2 id="}-22">}</h2><p>对象的序列化：目的：将一个具体的对象进行持久化，写入到硬盘上。<br>注意：静态数据不能被序列化，因为静态数据不在堆内存中，是存储在静态方法区中。</p>
+<pre><code><span class="keyword">import</span> java.io.*;
+<span class="keyword">import</span> java.util.*;
+<span class="keyword">class</span>  SplitFileDemo{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String CFG = <span class="string">".properties"</span>;
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String SP = <span class="string">".part"</span>;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> IOException{
+        <span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(<span class="string">"c:\\0.bmp"</span>);
+        <span class="keyword">File</span> dir = <span class="keyword">new</span> <span class="keyword">File</span>(<span class="string">"c:\\partfiles"</span>);
+        meger(dir);
+    }
+    <span class="comment">//数据的合并。</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> meger(<span class="keyword">File</span> dir)<span class="keyword">throws</span> IOException{
+        <span class="keyword">if</span>(!(dir.exists() &amp;&amp; dir.isDirectory()))
+            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"指定的目录不存在，或者不是正确的目录"</span>);
+        <span class="keyword">File</span>[] files = dir.listFiles(<span class="keyword">new</span> SuffixFilter(CFG));
+        <span class="keyword">if</span>(files.length==<span class="number">0</span>)
+            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"扩展名.proerpties的文件不存在"</span>);
+        <span class="comment">//获取到配置文件</span>
+        <span class="keyword">File</span> config = files[<span class="number">0</span>];
+        <span class="comment">//获取配置文件的信息。</span>
+        Properties prop = <span class="keyword">new</span> Properties();
+        FileInputStream fis = <span class="keyword">new</span> FileInputStream(config);
+        prop.load(fis);
+        String fileName = prop.getProperty(<span class="string">"filename"</span>);
+        <span class="keyword">int</span> partcount = Integer.parseInt(prop.getProperty(<span class="string">"partcount"</span>));
+        <span class="comment">//--------------------------</span>
+        <span class="keyword">File</span>[] partFiles = dir.listFiles(<span class="keyword">new</span> SuffixFilter(SP));
+        <span class="keyword">if</span>(partFiles.length!=partcount)
+            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"缺少碎片文件"</span>);
+        <span class="comment">//---------------------</span>
+        ArrayList&lt;FileInputStream&gt; al = <span class="keyword">new</span> ArrayList&lt;FileInputStream&gt;();
+        <span class="keyword">for</span>(<span class="keyword">int</span> x=<span class="number">0</span>; x&lt;partcount; x++){
+            al.add(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> <span class="keyword">File</span>(dir,x+SP)));
+        }
+        Enumeration&lt;FileInputStream&gt; en = Collections.enumeration(al);
+        SequenceInputStream sis = <span class="keyword">new</span> SequenceInputStream(en);
+        <span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(dir,fileName);
+        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="keyword">file</span>);
+        <span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];
+        <span class="keyword">int</span> len = <span class="number">0</span>;
+        <span class="keyword">while</span>((len=sis.<span class="keyword">read</span>(buf))!=-<span class="number">1</span>){
+            fos.<span class="keyword">write</span>(buf,<span class="number">0</span>,len);
+        }
+        fos.close();
+        sis.close();
+    }
+    <span class="comment">//带有配置信息的数据切割。</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> splitFile(<span class="keyword">File</span> <span class="keyword">file</span>)<span class="keyword">throws</span> IOException{
+        <span class="comment">//用一个读取流和文件关联。</span>
+        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="keyword">file</span>);
+        <span class="comment">//创建目的地。因为有多个。所以先创建引用。</span>
+        FileOutputStream fos = <span class="keyword">null</span>;
+        <span class="comment">//指定碎片的位置。</span>
+        <span class="keyword">File</span> dir = <span class="keyword">new</span> <span class="keyword">File</span>(<span class="string">"c:\\partfiles"</span>);
+        <span class="keyword">if</span>(!dir.exists())
+            dir.mkdir();
+        <span class="comment">//碎片文件大小引用。</span>
+        <span class="keyword">File</span> f = <span class="keyword">null</span>;
+        <span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>*<span class="number">1024</span>];
+        <span class="comment">//因为切割完的文件通常都有规律的。为了简单标记规律使用计数器。</span>
+        <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;
+        <span class="keyword">int</span> len = <span class="number">0</span>;
+        <span class="keyword">while</span>((len=fis.<span class="keyword">read</span>(buf))!=-<span class="number">1</span>){
+            f = <span class="keyword">new</span> <span class="keyword">File</span>(dir,(<span class="keyword">count</span>++)+<span class="string">".part"</span>);
+            fos = <span class="keyword">new</span> FileOutputStream(f);
+            fos.<span class="keyword">write</span>(buf,<span class="number">0</span>,len);
+            fos.close();
+        }
+        <span class="comment">//碎片文件生成后，还需要定义配置文件记录生成的碎片文件个数。以及被切割文件的名称。</span>
+        <span class="comment">//定义简单的键值信息，可是用Properties。</span>
+        String filename = <span class="keyword">file</span>.getName();
+        Properties prop = <span class="keyword">new</span> Properties();
+        prop.setProperty(<span class="string">"filename"</span>,filename);
+        prop.setProperty(<span class="string">"partcount"</span>,<span class="keyword">count</span>+<span class="string">""</span>);
+        <span class="keyword">File</span> config = <span class="keyword">new</span> <span class="keyword">File</span>(dir,<span class="keyword">count</span>+<span class="string">".properties"</span>);
+        fos = <span class="keyword">new</span> FileOutputStream(config);
+        prop.store(fos,<span class="string">""</span>);
+        fos.close();
+        fis.close();
+    }
+}
+<span class="keyword">class</span> SuffixFilter <span class="keyword">implements</span> FileFilter{
+    <span class="keyword">private</span> String suffix;
+    SuffixFilter(String suffix){
+        <span class="keyword">this</span>.suffix  = suffix;
+    }
+    <span class="keyword">public</span> <span class="keyword">boolean</span> accept(<span class="keyword">File</span> <span class="keyword">file</span>){
+        <span class="keyword">return</span>  <span class="keyword">file</span>.getName().endsWith(suffix);
+    }
+}
+</code></pre><hr>
+<p>RandomAccessFile:<br>特点：<br>1：该对象即可读取，又可写入。<br>2：该对象中的定义了一个大型的byte数组，通过定义指针来操作这个数组。<br>3：可以通过该对象的getFilePointer()获取指针的位置，通过seek()方法设置指针的位置。<br>4：该对象操作的源和目的必须是文件。<br>5：其实该对象内部封装了字节读取流和字节写入流。<br>注意：实现随机访问，最好是数据有规律。</p>
+<pre><code><span class="keyword">class</span> RandomAccessFileDemo{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> IOException{
+        <span class="keyword">write</span>();
+        <span class="keyword">read</span>();
+        randomWrite();
+    }
+    <span class="comment">//随机写入数据，可以实现已有数据的修改。</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> randomWrite()<span class="keyword">throws</span> IOException{
+        RandomAccessFile raf = <span class="keyword">new</span> RandomAccessFile(<span class="string">"random.txt"</span>,<span class="string">"rw"</span>);
+        raf.seek(<span class="number">8</span>*<span class="number">4</span>);
+        System.out.<span class="keyword">println</span>(<span class="string">"pos :"</span>+raf.getFilePointer());
+        raf.<span class="keyword">write</span>(<span class="string">"王武"</span>.getBytes());
+        raf.writeInt(<span class="number">102</span>);
+        raf.close();
+    }
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">read</span>()<span class="keyword">throws</span> IOException{
+        RandomAccessFile raf = <span class="keyword">new</span> RandomAccessFile(<span class="string">"random.txt"</span>,<span class="string">"r"</span>);<span class="comment">//只读模式。</span>
+        <span class="comment">//指定指针的位置。</span>
+        raf.seek(<span class="number">8</span>*<span class="number">1</span>);<span class="comment">//实现随机读取文件中的数据。注意：数据最好有规律。</span>
+        System.out.<span class="keyword">println</span>(<span class="string">"pos1 :"</span>+raf.getFilePointer());
+        <span class="keyword">byte</span>[] buf = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];
+        raf.<span class="keyword">read</span>(buf);
+        String name = <span class="keyword">new</span> String(buf);
+        <span class="keyword">int</span> age = raf.readInt();
+        System.out.<span class="keyword">println</span>(name+<span class="string">"::"</span>+age);
+        System.out.<span class="keyword">println</span>(<span class="string">"pos2 :"</span>+raf.getFilePointer());
+        raf.close();
+    }
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">write</span>()<span class="keyword">throws</span> IOException{
+        <span class="comment">//rw：当这个文件不存在，会创建该文件。当文件已存在，不会创建。所以不会像输出流一样覆盖。</span>
+        RandomAccessFile raf = <span class="keyword">new</span> RandomAccessFile(<span class="string">"random.txt"</span>,<span class="string">"rw"</span>);<span class="comment">//rw读写模式</span>
+        <span class="comment">//往文件中写入人的基本信息，姓名，年龄。</span>
+        raf.<span class="keyword">write</span>(<span class="string">"张三"</span>.getBytes());
+        raf.writeInt(<span class="number">97</span>);
+        raf.close();
+    }
+}
+</code></pre><hr>
+<p>管道流：管道读取流和管道写入流可以像管道一样对接上，管道读取流就可以读取管道写入流写入的数据。<br>注意：需要加入多线程技术，因为单线程，先执行read，会发生死锁，因为read方法是阻塞式的，没有数据的read方法会让线程等待。<br>    public static void main(String[] args) throws IOException{<br>        PipedInputStream pipin = new PipedInputStream();<br>        PipedOutputStream pipout = new PipedOutputStream();<br>        pipin.connect(pipout);<br>        new Thread(new Input(pipin)).start();<br>        new Thread(new Output(pipout)).start();</p>
+<pre><code>}
+</code></pre><hr>
+<p>对象的序列化：目的：将一个具体的对象进行持久化，写入到硬盘上。<br>注意：静态数据不能被序列化，因为静态数据不在堆内存中，是存储在静态方法区中。</p>
 <p>如何将非静态的数据不进行序列化？用transient 关键字修饰此变量即可。</p>
 <p>Serializable：用于启动对象的序列化功能，可以强制让指定类具备序列化功能，该接口中没有成员，这是一个标记接口。这个标记接口用于给序列化类提供UID。这个uid是依据类中的成员的数字签名进行运行获取的。如果不需要自动获取一个uid，可以在类中，手动指定一个名称为serialVersionUID id号。依据编译器的不同，或者对信息的高度敏感性。最好每一个序列化的类都进行手动显示的UID的指定。</p>
-<p>import java.io.*;<br>class ObjectStreamDemo {<br>    public static void main(String[] args) throws Exception{<br>        writeObj();<br>        readObj();<br>    }<br>    public static void readObj()throws Exception{<br>        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(“obj.txt”));<br>        Object obj = ois.readObject();//读取一个对象。<br>        System.out.println(obj.toString());<br>    }<br>    public static void writeObj()throws IOException{<br>        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(“obj.txt”));<br>        oos.writeObject(new Person(“lisi”,25)); //写入一个对象。<br>        oos.close();<br>    }<br>}<br>class Person implements Serializable{<br>    private static final long serialVersionUID = 42L;<br>    private transient String name;//用transient修饰后name将不会进行序列化<br>    public int age;<br>    Person(String name,int age){<br>        this.name = name;<br>        this.age = age;<br>    }<br>    public String toString(){<br>        return name+”::”+age;<br>    }</p>
-<h2 id="}-23">}</h2><p>DataOutputStream、DataInputStream：专门用于操作基本数据类型数据的对象。<br>DataOutputStream dos =  new DataOutputStream(new FileOutputStream(“data.txt”));<br>    dos.writeInt(256);<br>    dos.close();</p>
-<pre><code>DataInputStream dis = <span class="keyword">new</span> DataInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"data.txt"</span>));
-<span class="built_in">int</span> <span class="built_in">num</span> = dis.readInt();
-System.out.println(<span class="built_in">num</span>);
-dis.close();
+<pre><code><span class="keyword">import</span> java.io.*;
+<span class="class"><span class="keyword">class</span> <span class="title">ObjectStreamDemo</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>{
+        writeObj();
+        readObj();
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readObj</span><span class="params">()</span><span class="keyword">throws</span> Exception</span>{
+        ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"obj.txt"</span>));
+        Object obj = ois.readObject();<span class="comment">//读取一个对象。</span>
+        System.out.println(obj.toString());
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeObj</span><span class="params">()</span><span class="keyword">throws</span> IOException</span>{
+        ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"obj.txt"</span>));
+        oos.writeObject(<span class="keyword">new</span> Person(<span class="string">"lisi"</span>,<span class="number">25</span>)); <span class="comment">//写入一个对象。</span>
+        oos.close();
+    }
+}
+<span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>{
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">42L</span>;
+    <span class="keyword">private</span> <span class="keyword">transient</span> String name;<span class="comment">//用transient修饰后name将不会进行序列化</span>
+    <span class="keyword">public</span> <span class="keyword">int</span> age;
+    Person(String name,<span class="keyword">int</span> age){
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> name+<span class="string">"::"</span>+age;
+    }
+}
+</code></pre><hr>
+<pre><code>DataOutputStream、DataInputStream：专门用于操作基本数据类型数据的对象。
+DataOutputStream dos =  new DataOutputStream<span class="params">(new FileOutputStream<span class="params">(<span class="string">"data.txt"</span>)</span>)</span>;
+    dos.writeInt<span class="params">(<span class="number">256</span>)</span>;
+    dos.close<span class="params">()</span>;
+
+    DataInputStream dis = new DataInputStream<span class="params">(new FileInputStream<span class="params">(<span class="string">"data.txt"</span>)</span>)</span>;
+    int num = dis.readInt<span class="params">()</span>;
+    System.out.println<span class="params">(num)</span>;
+    dis.close<span class="params">()</span>;
 </code></pre><hr>
 <p>ByteArrayInputStream：源：内存<br>ByteArrayOutputStream：目的：内存。<br>这两个流对象不涉及底层资源调用，操作的都是内存中数组，所以不需要关闭。<br>直接操作字节数组就可以了，为什么还要把数组封装到流对象中呢？因为数组本身没有方法，只有一个length属性。为了便于数组的操作，将数组进行封装，对外提供方法操作数组中的元素。</p>
 <p>对于数组元素操作无非两种操作：设置（写）和获取（读），而这两操作正好对应流的读写操作。这两个对象就是使用了流的读写思想来操作数组。<br>//创建源：<br>    ByteArrayInputStream bis = new ByteArrayInputStream(“abcdef”.getBytes());<br>    //创建目的：<br>    ByteArrayOutputStream bos = new ByteArrayOutputStream();<br>    int ch = 0;<br>    while((ch=bis.read())!=-1){<br>        bos.write(ch);<br>    }</p>
 <pre><code><span class="tag">System</span><span class="class">.out</span><span class="class">.println</span>(<span class="tag">bos</span><span class="class">.toString</span>());
 </code></pre><hr>
 <h1 id="网络编程：">网络编程：</h1><p>端口：<br>物理端口：<br>逻辑端口：用于标识进程的逻辑地址，不同进程的标识；有效端口：0~65535，其中0~1024系统使用或保留端口。</p>
-<p>java 中ip对象：InetAddress.<br>import java.net.*;<br>class  IPDemo{<br>    public static void main(String[] args) throws UnknownHostException{<br>        //通过名称(ip字符串or主机名)来获取一个ip对象。<br>        InetAddress ip = InetAddress.getByName(“www.baidu.com”);//java.net.UnknownHostException<br>        System.out.println(“addr:”+ip.getHostAddress());<br>        System.out.println(“name:”+ip.getHostName());<br>    }<br>}</p>
+<p>java 中ip对象：InetAddress.<br>    import java.net.*;<br>    class  IPDemo{<br>        public static void main(String[] args) throws UnknownHostException{<br>            //通过名称(ip字符串or主机名)来获取一个ip对象。<br>            InetAddress ip = InetAddress.getByName(“www.baidu.com”);//java.net.UnknownHostException<br>            System.out.println(“addr:”+ip.getHostAddress());<br>            System.out.println(“name:”+ip.getHostName());<br>        }<br>    }</p>
 <h1 id="Socket：★★★★，套接字，通信的端点。">Socket：★★★★，套接字，通信的端点。</h1><p>就是为网络服务提供的一种机制，通信的两端都有Socket，网络通信其实就是Socket间的通信，数据在两个Socket间通过IO传输。</p>
 <p>UDP传输：<br>1，只要是网络传输，必须有socket 。<br>2，数据一定要封装到数据包中，数据包中包括目的地址、端口、数据等信息。</p>
 <p>直接操作udp不可能，对于java语言应该将udp封装成对象，易于我们的使用，这个对象就是DatagramSocket. 封装了udp传输协议的socket对象。</p>
 <p>因为数据包中包含的信息较多，为了操作这些信息方便，也一样会将其封装成对象。这个数据包对象就是：DatagramPacket.通过这个对象中的方法，就可以获取到数据包中的各种信息。</p>
 <p>DatagramSocket具备发送和接受功能，在进行udp传输时，需要明确一个是发送端，一个是接收端。</p>
-<h2 id="udp的发送端：">udp的发送端：</h2><p>1，建立udp的socket服务，创建对象时如果没有明确端口，系统会自动分配一个未被使用的端口。<br>2，明确要发送的具体数据。<br>3，将数据封装成了数据包。<br>4，用socket服务的send方法将数据包发送出去。</p>
-<h2 id="5，关闭资源。">5，关闭资源。</h2><p>import java.net.*;<br>class  UdpSend{<br>    public static void main(String[] args)throws Exception {<br>//        1，建立udp的socket服务。<br>        DatagramSocket ds = new DatagramSocket(8888);//指定发送端口，不指定系统会随机分配。<br>//        2，明确要发送的具体数据。<br>        String text = “udp传输演示 哥们来了”;<br>        byte[] buf = text.getBytes();<br>//        3，将数据封装成了数据包。<br>        DatagramPacket dp = new DatagramPacket(buf,<br>buf.length,InetAddress.getByName(“10.1.31.127”),10000);<br>//        4，用socket服务的send方法将数据包发送出去。<br>        ds.send(dp);<br>//        5，关闭资源。<br>        ds.close();<br>    }</p>
-<h2 id="}-24">}</h2><h2 id="udp的接收端：">udp的接收端：</h2><p>1，创建udp的socket服务，必须要明确一个端口，作用在于，只有发送到这个端口的数据才是这个接收端可以处理的数据。<br>2，定义数据包，用于存储接收到数据。<br>3，通过socket服务的接收方法将收到的数据存储到数据包中。<br>4，通过数据包的方法获取数据包中的具体数据内容，比如ip、端口、数据等等。</p>
-<h2 id="5，关闭资源。-1">5，关闭资源。</h2><p>class UdpRece {<br>    public static void main(String[] args) throws Exception{<br>//        1，创建udp的socket服务。<br>        DatagramSocket ds = new DatagramSocket(10000);<br>//        2，定义数据包，用于存储接收到数据。先定义字节数组，数据包会把数据存储到字节数组中。<br>        byte[] buf = new byte[1024];<br>        DatagramPacket dp = new DatagramPacket(buf,buf.length);<br>//        3，通过socket服务的接收方法将收到的数据存储到数据包中。<br>        ds.receive(dp);//该方法是阻塞式方法。<br>//        4，通过数据包的方法获取数据包中的具体数据内容，比如ip，端口，数据等等。<br>        String ip = dp.getAddress().getHostAddress();<br>        int port = dp.getPort();<br>        String text = new String(dp.getData(),0,dp.getLength());//将字节数组中的有效部分转成字符串。<br>        System.out.println(ip+”:”+port+”—“+text);<br>//        5，关闭资源。<br>        ds.close();<br>    }</p>
-<h2 id="}-25">}</h2><h1 id="TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。">TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。</h1><p>tcp的两个端点：一个是客户端，一个是服务端。<br>客户端：对应的对象，Socket<br>服务端：对应的对象，ServerSocket</p>
-<h2 id="TCP客户端：">TCP客户端：</h2><p>1，建立tcp的socket服务，最好明确具体的地址和端口。这个对象在创建时，就已经可以对指定ip和端口进行连接(三次握手)。<br>2，如果连接成功，就意味着通道建立了，socket流就已经产生了。只要获取到socket流中的读取流和写入流即可，只要通过getInputStream和getOutputStream就可以获取两个流对象。</p>
-<h2 id="3，关闭资源。">3，关闭资源。</h2><p>import java.net.<em>;<br>import java.io.</em>;<br>//需求：客户端给服务器端发送一个数据。<br>class  TcpClient{<br>    public static void main(String[] args) throws Exception{<br>        Socket s = new Socket(“10.1.31.69”,10002);<br>        OutputStream out = s.getOutputStream();//获取了socket流中的输出流对象。<br>        out.write(“tcp演示，哥们又来了!”.getBytes());<br>        s.close();<br>    }</p>
-<h2 id="}-26">}</h2><h2 id="TCP服务端：">TCP服务端：</h2><p>1，创建服务端socket服务，并监听一个端口。<br>2，服务端为了给客户端提供服务，获取客户端的内容，可以通过accept方法获取连接过来的客户端对象。<br>3，可以通过获取到的socket对象中的socket流和具体的客户端进行通讯。</p>
-<h2 id="4，如果通讯结束，关闭资源。注意：要先关客户端，再关服务端。">4，如果通讯结束，关闭资源。注意：要先关客户端，再关服务端。</h2><p>class  TcpServer{<br>    public static void main(String[] args) throws Exception{<br>        ServerSocket ss = new ServerSocket(10002);//建立服务端的socket服务<br>        Socket s = ss.accept();//获取客户端对象<br>        String ip = s.getInetAddress().getHostAddress();<br>        System.out.println(ip+”…..connected”);<br>//        可以通过获取到的socket对象中的socket流和具体的客户端进行通讯。<br>        InputStream in = s.getInputStream();//读取客户端的数据，使用客户端对象的socket读取流<br>        byte[] buf = new byte[1024];<br>        int len = in.read(buf);<br>        String text = new String(buf,0,len);<br>        System.out.println(text);<br>//        如果通讯结束，关闭资源。注意：要先关客户端，在关服务端。<br>        s.close();<br>        ss.close();<br>    }</p>
-<h2 id="}-27">}</h2><h1 id="反射技术：其实就是动态加载一个指定的类，并获取该类中的所有的内容。而且将字节码文件封装成对象，并将字节码文件中的内容都封装成对象，这样便于操作这些成员。简单说：反射技术可以对一个类进行解剖。">反射技术：其实就是动态加载一个指定的类，并获取该类中的所有的内容。而且将字节码文件封装成对象，并将字节码文件中的内容都封装成对象，这样便于操作这些成员。简单说：反射技术可以对一个类进行解剖。</h1><p>反射的好处：大大的增强了程序的扩展性。</p>
-<p>反射的基本步骤：<br>1、获得Class对象，就是获取到指定的名称的字节码文件对象。<br>2、实例化对象，获得类的属性、方法或构造函数。<br>3、访问属性、调用方法、调用构造函数创建对象。</p>
-<p>获取这个Class对象，有三种方式：<br>1：通过每个对象都具备的方法getClass来获取。弊端：必须要创建该类对象，才可以调用getClass方法。<br>2：每一个数据类型(基本数据类型和引用数据类型)都有一个静态的属性class。弊端：必须要先明确该类。<br>     前两种方式不利于程序的扩展，因为都需要在程序使用具体的类来完成。<br>3：使用的Class类中的方法，静态的forName方法。<br>     指定什么类名，就获取什么类字节码文件对象，这种方式的扩展性最强，只要将类名的字符串传入即可。<br>// 1. 根据给定的类名来获得  用于类加载<br>String classname = “cn.itcast.reflect.Person”;// 来自配置文件<br>Class clazz = Class.forName(classname);// 此对象代表Person.class<br>// 2. 如果拿到了对象，不知道是什么类型   用于获得对象的类型<br>Object obj = new Person();<br>Class clazz1 = obj.getClass();// 获得对象具体的类型<br>// 3. 如果是明确地获得某个类的Class对象  主要用于传参<br>Class clazz2 = Person.class;    </p>
-<p>反射的用法：<br>1）、需要获得java类的各个组成部分，首先需要获得类的Class对象，获得Class对象的三种方式：<br>    Class.forName(classname)    用于做类加载<br>    obj.getClass()                用于获得对象的类型<br>    类名.class                用于获得指定的类型，传参用</p>
-<p>2)、反射类的成员方法：<br>    Class clazz = Person.class;<br>    Method method = clazz.getMethod(methodName, new Class[]{paramClazz1, paramClazz2});<br>    method.invoke();</p>
-<p>3)、反射类的构造函数：<br>    Constructor con = clazz.getConstructor(new Class[]{paramClazz1, paramClazz2,…})<br>    con.newInstance(params…)</p>
-<p>4)、反射类的属性：<br>    Field field = clazz.getField(fieldName);<br>    field.setAccessible(true);<br>    field.setObject(value);</p>
-<p>获取了字节码文件对象后，最终都需要创建指定类的对象：<br>创建对象的两种方式(其实就是对象在进行实例化时的初始化方式)：<br>1，调用空参数的构造函数：使用了Class类中的newInstance()方法。<br>2，调用带参数的构造函数：先要获取指定参数列表的构造函数对象，然后通过该构造函数的对象的newInstance(实际参数) 进行对象的初始化。</p>
+<h2 id="udp的发送端：">udp的发送端：</h2><p>1，建立udp的socket服务，创建对象时如果没有明确端口，系统会自动分配一个未被使用的端口。</p>
+<p>2，明确要发送的具体数据。</p>
+<p>3，将数据封装成了数据包。</p>
+<p>4，用socket服务的send方法将数据包发送出去。</p>
+<h2 id="5，关闭资源。">5，关闭资源。</h2><pre><code><span class="keyword">import</span> java.net.*;
+class  UdpSend{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args)<span class="keyword">throws</span> Exception {
+<span class="comment">//        1，建立udp的socket服务。</span>
+        DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">8888</span>);<span class="comment">//指定发送端口，不指定系统会随机分配。</span>
+<span class="comment">//        2，明确要发送的具体数据。</span>
+        <span class="keyword">String</span> <span class="built_in">text</span> = <span class="string">"udp传输演示 哥们来了"</span>;
+        <span class="built_in">byte</span>[] buf = <span class="built_in">text</span>.getBytes();
+<span class="comment">//        3，将数据封装成了数据包。</span>
+        DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(buf,
+buf.length,InetAddress.getByName(<span class="string">"10.1.31.127"</span>),<span class="number">10000</span>);
+<span class="comment">//        4，用socket服务的send方法将数据包发送出去。</span>
+        ds.send(dp);
+<span class="comment">//        5，关闭资源。</span>
+        ds.close();
+    }
+}
+</code></pre><hr>
+<h2 id="udp的接收端：">udp的接收端：</h2><p>1，创建udp的socket服务，必须要明确一个端口，作用在于，只有发送到这个端口的数据才是这个接收端可以处理的数据。</p>
+<p>2，定义数据包，用于存储接收到数据。</p>
+<p>3，通过socket服务的接收方法将收到的数据存储到数据包中。</p>
+<p>4，通过数据包的方法获取数据包中的具体数据内容，比如ip、端口、数据等等。</p>
+<h2 id="5，关闭资源。-1">5，关闭资源。</h2><pre><code>class UdpRece {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> Exception{
+<span class="comment">//        1，创建udp的socket服务。</span>
+        DatagramSocket ds = <span class="keyword">new</span> DatagramSocket(<span class="number">10000</span>);
+<span class="comment">//        2，定义数据包，用于存储接收到数据。先定义字节数组，数据包会把数据存储到字节数组中。</span>
+        <span class="built_in">byte</span>[] buf = <span class="keyword">new</span> <span class="built_in">byte</span>[<span class="number">1024</span>];
+        DatagramPacket dp = <span class="keyword">new</span> DatagramPacket(buf,buf.length);
+<span class="comment">//        3，通过socket服务的接收方法将收到的数据存储到数据包中。</span>
+        ds.receive(dp);<span class="comment">//该方法是阻塞式方法。</span>
+<span class="comment">//        4，通过数据包的方法获取数据包中的具体数据内容，比如ip，端口，数据等等。</span>
+        <span class="keyword">String</span> ip = dp.getAddress().getHostAddress();
+        <span class="built_in">int</span> port = dp.getPort();
+        <span class="keyword">String</span> <span class="built_in">text</span> = <span class="keyword">new</span> <span class="keyword">String</span>(dp.getData(),<span class="number">0</span>,dp.getLength());<span class="comment">//将字节数组中的有效部分转成字符串。</span>
+        System.out.<span class="built_in">println</span>(ip+<span class="string">":"</span>+port+<span class="string">"--"</span>+<span class="built_in">text</span>);
+<span class="comment">//        5，关闭资源。</span>
+        ds.close();
+    }
+}
+</code></pre><hr>
+<h1 id="TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。">TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。</h1><p>tcp的两个端点：一个是客户端，一个是服务端。</p>
+<p>客户端：对应的对象，Socket</p>
+<p>服务端：对应的对象，ServerSocket</p>
+<h2 id="TCP客户端：">TCP客户端：</h2><p>1，建立tcp的socket服务，最好明确具体的地址和端口。这个对象在创建时，就已经可以对指定ip和端口进行连接(三次握手)。</p>
+<p>2，如果连接成功，就意味着通道建立了，socket流就已经产生了。只要获取到socket流中的读取流和写入流即可，只要通过getInputStream和getOutputStream就可以获取两个流对象。</p>
+<h2 id="3，关闭资源。">3，关闭资源。</h2><pre><code><span class="preprocessor"><span class="keyword">import</span> java.net.*;</span>
+<span class="preprocessor"><span class="keyword">import</span> java.io.*;</span>
+<span class="comment">//需求：客户端给服务器端发送一个数据。</span>
+<span class="class"><span class="keyword">class</span>  <span class="title">TcpClient</span></span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) throws Exception{
+        Socket s = <span class="keyword">new</span> Socket(<span class="string">"10.1.31.69"</span>,<span class="number">10002</span>);
+        OutputStream out = s.getOutputStream();<span class="comment">//获取了socket流中的输出流对象。</span>
+        out.write(<span class="string">"tcp演示，哥们又来了!"</span>.getBytes());
+        s.close();
+    }
+}
+</code></pre><hr>
+<h2 id="TCP服务端：">TCP服务端：</h2><p>1，创建服务端socket服务，并监听一个端口。</p>
+<p>2，服务端为了给客户端提供服务，获取客户端的内容，可以通过accept方法获取连接过来的客户端对象。</p>
+<p>3，可以通过获取到的socket对象中的socket流和具体的客户端进行通讯。</p>
+<p>4，如果通讯结束，关闭资源。注意：要先关客户端，再关服务端。</p>
+<hr>
+<pre><code>class  TcpServer{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> Exception{
+        ServerSocket ss = <span class="keyword">new</span> ServerSocket(<span class="number">10002</span>);<span class="comment">//建立服务端的socket服务</span>
+        Socket s = ss.accept();<span class="comment">//获取客户端对象</span>
+        <span class="keyword">String</span> ip = s.getInetAddress().getHostAddress();
+        System.out.<span class="built_in">println</span>(ip+<span class="string">".....connected"</span>);
+<span class="comment">//        可以通过获取到的socket对象中的socket流和具体的客户端进行通讯。</span>
+        InputStream in = s.getInputStream();<span class="comment">//读取客户端的数据，使用客户端对象的socket读取流</span>
+        <span class="built_in">byte</span>[] buf = <span class="keyword">new</span> <span class="built_in">byte</span>[<span class="number">1024</span>];
+        <span class="built_in">int</span> len = in.read(buf);
+        <span class="keyword">String</span> <span class="built_in">text</span> = <span class="keyword">new</span> <span class="keyword">String</span>(buf,<span class="number">0</span>,len);
+        System.out.<span class="built_in">println</span>(<span class="built_in">text</span>);
+<span class="comment">//        如果通讯结束，关闭资源。注意：要先关客户端，在关服务端。</span>
+        s.close();
+        ss.close();
+    }
+}
+</code></pre><hr>
+<h1 id="反射技术：其实就是动态加载一个指定的类，并获取该类中的所有的内容。而且将字节码文件封装成对象，并将字节码文件中的内容都封装成对象，这样便于操作这些成员。简单说：反射技术可以对一个类进行解剖。">反射技术：其实就是动态加载一个指定的类，并获取该类中的所有的内容。而且将字节码文件封装成对象，并将字节码文件中的内容都封装成对象，这样便于操作这些成员。简单说：反射技术可以对一个类进行解剖。</h1><p>反射的好处：大大的增强了程序的扩展性。</p>
+<p>反射的基本步骤：</p>
+<p>1、获得Class对象，就是获取到指定的名称的字节码文件对象。</p>
+<p>2、实例化对象，获得类的属性、方法或构造函数。</p>
+<p>3、访问属性、调用方法、调用构造函数创建对象。</p>
+<p>获取这个Class对象，有三种方式：</p>
+<p>1：通过每个对象都具备的方法getClass来获取。弊端：必须要创建该类对象，才可以调用getClass方法。</p>
+<p>2：每一个数据类型(基本数据类型和引用数据类型)都有一个静态的属性class。弊端：必须要先明确该类。</p>
+<p> 前两种方式不利于程序的扩展，因为都需要在程序使用具体的类来完成。</p>
+<p>3：使用的Class类中的方法，静态的forName方法。</p>
+<p> 指定什么类名，就获取什么类字节码文件对象，这种方式的扩展性最强，只要将类名的字符串传入即可。</p>
+<pre><code>// 1. 根据给定的类名来获得  用于类加载
+String classname = <span class="string">"cn.itcast.reflect.Person"</span>;// 来自配置文件
+Class clazz = Class.forName(classname);// 此对象代表<span class="keyword">Person</span>.class
+// 2. 如果拿到了对象，不知道是什么类型   用于获得对象的类型
+Object obj = new <span class="keyword">Person</span>();
+Class clazz1 = obj.getClass();// 获得对象具体的类型
+// 3. 如果是明确地获得某个类的Class对象  主要用于传参
+Class clazz2 = <span class="keyword">Person</span>.class;    
+</code></pre><p>反射的用法：<br>1）、需要获得java类的各个组成部分，首先需要获得类的Class对象，获得Class对象的三种方式：<br>    Class.forName(classname)    用于做类加载<br>    obj.getClass()                用于获得对象的类型<br>    类名.class                用于获得指定的类型，传参用</p>
+<p>2)、反射类的成员方法：</p>
+<pre><code><span class="keyword">Class</span> clazz = Person.<span class="keyword">class</span>;
+<span class="function"><span class="keyword">Method</span> <span class="title">method</span> = <span class="title">clazz</span>.<span class="title">getMethod</span><span class="params">(methodName, <span class="keyword">new</span> <span class="keyword">Class</span>[]{paramClazz1, paramClazz2})</span>;</span>
+<span class="function"><span class="keyword">method</span>.<span class="title">invoke</span><span class="params">()</span>;</span>
+</code></pre><p>3)、反射类的构造函数：</p>
+<pre><code><span class="function"><span class="keyword">Constructor</span> <span class="title">con</span> = <span class="title">clazz</span>.<span class="title">getConstructor</span><span class="params">(<span class="keyword">new</span> <span class="keyword">Class</span>[]{paramClazz1, paramClazz2,...})</span>
+<span class="title">con</span>.<span class="title">newInstance</span><span class="params">(<span class="keyword">params</span>...)</span></span>
+</code></pre><p>4)、反射类的属性：</p>
+<pre><code><span class="keyword">Field</span> <span class="keyword">field</span> = clazz.getField(fieldName);
+<span class="keyword">field</span>.setAccessible(<span class="literal">true</span>);
+<span class="keyword">field</span>.setObject(value);
+</code></pre><p>获取了字节码文件对象后，最终都需要创建指定类的对象：</p>
+<p>创建对象的两种方式(其实就是对象在进行实例化时的初始化方式)：</p>
+<p>1，调用空参数的构造函数：使用了Class类中的newInstance()方法。</p>
+<p>2，调用带参数的构造函数：先要获取指定参数列表的构造函数对象，然后通过该构造函数的对象的newInstance(实际参数) 进行对象的初始化。</p>
 <h2 id="综上所述，第二种方式，必须要先明确具体的构造函数的参数类型，不便于扩展。所以一般情况下，被反射的类，内部通常都会提供一个公有的空参数的构造函数。">综上所述，第二种方式，必须要先明确具体的构造函数的参数类型，不便于扩展。所以一般情况下，被反射的类，内部通常都会提供一个公有的空参数的构造函数。</h2><pre><code><span class="comment">// 如何生成获取到字节码文件对象的实例对象。</span>
-    <span class="keyword">Class</span> clazz = <span class="keyword">Class</span>.forName(<span class="string">"cn.itcast.bean.Person"</span>);<span class="comment">//类加载</span>
-</code></pre><p>// 直接获得指定的类型<br>        clazz = Person.class;<br>        // 根据对象获得类型<br>        Object obj = new Person(“zhangsan”, 19);<br>        clazz = obj.getClass();</p>
-<pre><code>    <span class="built_in">Object</span> obj = clazz.newInstance();<span class="comment">//该实例化对象的方法调用就是指定类中的空参数构造函数，给创建对象进行初始化。当指定类中没有空参数构造函数时，该如何创建该类对象呢？请看method_2();</span>
+    Class clazz = Class.forName(<span class="string">"cn.itcast.bean.Person"</span>);<span class="comment">//类加载</span>
+<span class="comment">// 直接获得指定的类型</span>
+    clazz = Person.class;
+    <span class="comment">// 根据对象获得类型</span>
+    <span class="built_in">Object</span> obj = <span class="keyword">new</span> Person(<span class="string">"zhangsan"</span>, <span class="number">19</span>);
+    clazz = obj.getClass();
+
+    <span class="built_in">Object</span> obj = clazz.newInstance();<span class="comment">//该实例化对象的方法调用就是指定类中的空参数构造函数，给创建对象进行初始化。当指定类中没有空参数构造函数时，该如何创建该类对象呢？请看method_2();</span>
 <span class="keyword">public</span> static <span class="built_in">void</span> method_2() throws Exception {
     Class clazz = Class.forName(<span class="string">"cn.itcast.bean.Person"</span>);
     <span class="comment">//既然类中没有空参数的构造函数,那么只有获取指定参数的构造函数,用该函数来进行实例化。</span>
@@ -973,15 +1354,32 @@ dis.close();
 <p>反射指定类中的方法：<br>    //获取类中所有的方法。<br>    public static void method_1() throws Exception {<br>        Class clazz = Class.forName(“cn.itcast.bean.Person”);<br>        Method[] methods = clazz.getMethods();//获取的是该类中的公有方法和父类中的公有方法。<br>        methods = clazz.getDeclaredMethods();//获取本类中的方法，包含私有方法。<br>        for(Method method : methods) {<br>            System.out.println(method);<br>        }<br>    }<br>    //获取指定方法；<br>    public static void method_2() throws Exception {<br>        Class clazz = Class.forName(“cn.itcast.bean.Person”);<br>        //获取指定名称的方法。<br>        Method method = clazz.getMethod(“show”, int.class,String.class);<br>        //想要运行指定方法，当然是方法对象最清楚，为了让方法运行，调用方法对象的invoke方法即可，但是方法运行必须要明确所属的对象和具体的实际参数。<br>        Object obj = clazz.newInstance();<br>        method.invoke(obj, 39,”hehehe”);//执行一个方法<br>    }<br>    //想要运行私有方法。<br>    public static void method_3() throws Exception {<br>        Class clazz = Class.forName(“cn.itcast.bean.Person”);<br>        //想要获取私有方法。必须用getDeclearMethod();<br>        Method method = clazz.getDeclaredMethod(“method”, null);<br>        // 私有方法不能直接访问，因为权限不够。非要访问，可以通过暴力的方式。<br>        method.setAccessible(true);//一般很少用，因为私有就是隐藏起来，所以尽量不要访问。<br>    }<br>    //反射静态方法。<br>    public static void method_4() throws Exception {<br>        Class clazz = Class.forName(“cn.itcast.bean.Person”);<br>        Method method = clazz.getMethod(“function”,null);<br>        method.invoke(null,null);</p>
 <pre><code>}
 </code></pre><hr>
-<h1 id="正则表达式：★★★☆，其实是用来操作字符串的一些规则。">正则表达式：★★★☆，其实是用来操作字符串的一些规则。</h1><p>好处：正则的出现，对字符串的复杂操作变得更为简单。<br>特点：将对字符串操作的代码用一些符号来表示。只要使用了指定符号，就可以调用底层的代码对字符串进行操作。符号的出现，简化了代码的书写。<br>弊端：符号的出现虽然简化了书写，但是却降低了阅读性。<br>其实更多是用正则解决字符串操作的问题。</p>
-<p>组：用小括号标示，每定义一个小括号，就是一个组，而且有自动编号，从1开始。<br>    只要使用组，对应的数字就是使用该组的内容。别忘了，数组要加\。<br>    (aaa(wwww(ccc))(eee))技巧，从左括号开始数即可。有几个左括号就是几组。</p>
+<h1 id="正则表达式：★★★☆，其实是用来操作字符串的一些规则。">正则表达式：★★★☆，其实是用来操作字符串的一些规则。</h1><p>好处：正则的出现，对字符串的复杂操作变得更为简单。</p>
+<p>特点：将对字符串操作的代码用一些符号来表示。只要使用了指定符号，就可以调用底层的代码对字符串进行操作。符号的出现，简化了代码的书写。</p>
+<p>弊端：符号的出现虽然简化了书写，但是却降低了阅读性。</p>
+<p>其实更多是用正则解决字符串操作的问题。</p>
+<p>组：用小括号标示，每定义一个小括号，就是一个组，而且有自动编号，从1开始。只要使用组，对应的数字就是使用该组的内容。别忘了，数组要加\。<br>    (aaa(wwww(ccc))(eee))技巧，从左括号开始数即可。有几个左括号就是几组。</p>
 <p>常见操作：</p>
 <p>1，匹配：其实用的就是String类中的matches方法。</p>
 <p>String reg = “[1-9][0-9]{4,14}”;<br>    boolean b = qq.matches(reg);//将正则和字符串关联对字符串进行匹配。</p>
 <p>2，切割：其实用的就是String类中的split方法。</p>
 <p>3，替换：其实用的就是String类中的replaceAll();</p>
-<p>4，获取：<br>    1），先要将正则表达式编译成正则对象。使用的是Pattern中静态方法 compile(regex);<br>    2），通过Pattern对象获取Matcher对象。<br>        Pattern用于描述正则表达式，可以对正则表达式进行解析。<br>        而将规则操作字符串，需要从新封装到匹配器对象Matcher中。<br>        然后使用Matcher对象的方法来操作字符串。<br>        如何获取匹配器对象呢？<br>        通过Pattern对象中的matcher方法。该方法可以正则规则和字符串想关联。并返回匹配器对象。</p>
-<pre><code>3），使用Matcher对象中的方法即可对字符串进行各种正则操作。
+<p>4，获取：</p>
+<pre><code><span class="number">1</span>），先要将正则表达式编译成正则对象。使用的是<span class="built_in">Pattern</span>中静态方法 compile(regex);
+
+<span class="number">2</span>），通过<span class="built_in">Pattern</span>对象获取Matcher对象。
+
+    <span class="built_in">Pattern</span>用于描述正则表达式，可以对正则表达式进行解析。
+
+    而将规则操作字符串，需要从新封装到匹配器对象Matcher中。
+
+    然后使用Matcher对象的方法来操作字符串。
+
+    如何获取匹配器对象呢？
+
+    通过<span class="built_in">Pattern</span>对象中的matcher方法。该方法可以正则规则和字符串想关联。并返回匹配器对象。
+
+<span class="number">3</span>），使用Matcher对象中的方法即可对字符串进行各种正则操作。
 </code></pre><hr>
 
       
