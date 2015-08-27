@@ -383,8 +383,25 @@
 </code></pre><p>函数定义名称是为什么呢？</p>
 <p>答：</p>
 <p>1）、为了对该功能进行标示，方便于调用。<br>    1）、元素类型[] 变量名 = new 元素类型[元素的个数]；<br>    2）、元素类型[] 变量名 = {元素1，元素2…}；</p>
-<h2 id="元素类型[]_变量名_=_new_元素类型[]{元素1，元素2…}；">元素类型[] 变量名 = new 元素类型[]{元素1，元素2…}；</h2><p>//二分查找法。必须有前提：数组中的元素要有序。<br>    public static int halfSeach_2(int[] arr,int key){<br>        int min,max,mid;<br>        min = 0;<br>        max = arr.length-1;<br>        mid = (max+min)&gt;&gt;1; //(max+min)/2;<br>        while(arr[mid]!=key){<br>            if(key&gt;arr[mid]){<br>                min = mid + 1;<br>            }<br>            else if(key<arr[mid]) max="mid" -="" 1;="" if(max<min)="" return="" -1;="" mid="(max+min)">&gt;1;<br>        }<br>        return mid;</arr[mid])></p>
-<pre><code>}
+<p>元素类型[] 变量名 = new 元素类型[]{元素1，元素2…}；</p>
+<pre><code><span class="comment">//二分查找法。必须有前提：数组中的元素要有序。 </span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> halfSeach_2(<span class="built_in">int</span>[] arr,<span class="built_in">int</span> <span class="variable">key</span>){
+    <span class="built_in">int</span> <span class="built_in">min</span>,<span class="built_in">max</span>,mid;
+    <span class="built_in">min</span> = <span class="number">0</span>;
+    <span class="built_in">max</span> = arr.length-<span class="number">1</span>;
+    mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>; <span class="comment">//(max+min)/2;</span>
+    <span class="keyword">while</span>(arr[mid]!=<span class="variable">key</span>){
+        <span class="keyword">if</span>(<span class="variable">key</span>&gt;arr[mid]){
+            <span class="built_in">min</span> = mid + <span class="number">1</span>;
+        }
+        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">key</span>&lt;arr[mid])
+            <span class="built_in">max</span> = mid - <span class="number">1</span>;
+        <span class="keyword">if</span>(<span class="built_in">max</span>&lt;<span class="built_in">min</span>)
+            <span class="keyword">return</span> -<span class="number">1</span>;
+        mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>;    
+    }
+    <span class="keyword">return</span> mid;
+}
 </code></pre><hr>
 <p>java分了5片内存。</p>
 <p>1：寄存器。2：本地方法区。3：方法区。4：栈。5：堆。<br>栈：存储的都是局部变量 ( 函数中定义的变量，函数上的参数，语句中的变量 )；<br>    只要数据运算完成所在的区域结束，该数据就会被释放。<br>堆：用于存储数组和对象，也就是实体。啥是实体啊？就是用于封装多个数据的。<br>1：每一个实体都有内存首地址值。<br>2：堆内存中的变量都有默认初始化值。因为数据类型不同，值也不一样。 </p>
