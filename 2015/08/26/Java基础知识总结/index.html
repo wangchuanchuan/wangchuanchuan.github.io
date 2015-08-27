@@ -244,15 +244,21 @@
 <p>1，该技术是什么？</p>
 <p>2，该技术有什么特点(使用注意)：</p>
 <p>3，该技术怎么使用。demo</p>
-<h2 id="4，该技术什么时候用？test。">4，该技术什么时候用？test。</h2><h1 id="一：java概述：">一：java概述：</h1><p>1991 年Sun公司的James Gosling等人开始开发名称为 Oak 的语言，希望用于控制嵌入在有线电视交换盒、PDA等的微处理器；1994年将Oak语言更名为Java；</p>
+<p>4，该技术什么时候用？test。</p>
 </blockquote>
+<hr>
+<h1 id="一：java概述：">一：java概述：</h1><p>1991 年Sun公司的James Gosling等人开始开发名称为 Oak 的语言，希望用于控制嵌入在有线电视交换盒、PDA等的微处理器；1994年将Oak语言更名为Java；</p>
 <p><strong>Java的三种技术架构:</strong></p>
 <p>JAVAEE：Java Platform Enterprise Edition，开发企业环境下的应用程序，主要针对web程序开发；</p>
 <p>JAVASE：Java Platform Standard Edition，完成桌面应用程序的开发，是其它两者的基础；</p>
 <p>JAVAME：Java Platform Micro Edition，开发电子消费产品和嵌入式设备，如手机中的程序；</p>
+<blockquote>
 <p>1，JDK：Java Development Kit，java的开发和运行环境，java的开发工具和jre。</p>
 <p>2，JRE：Java Runtime Environment，java程序的运行环境，java运行的所需的类库+JVM(java虚拟机)。</p>
-<p>3，配置环境变量：让java jdk\bin目录下的工具，可以在任意目录下运行，原因是，将该工具所在目录告诉了系统，当使用该工具时，由系统帮我们去找指定的目录。<br><a id="more"></a><br><strong>环境变量的配置：</strong></p>
+<p>3，配置环境变量：让java jdk\bin目录下的工具，可以在任意目录下运行，原因是，将该工具所在目录告诉了系统，当使用该工具时，由系统帮我们去找指定的目录。</p>
+<a id="more"></a>
+<p><strong>环境变量的配置：</strong></p>
+</blockquote>
 <pre><code><span class="number">1</span>）：永久配置方式：JAVA_HOME=<span class="envvar">%安装路径%</span>\Java\jdk
                   <span class="built_in">path</span>=<span class="envvar">%JAVA_HOME%</span>\bin
 <span class="number">2</span>）：临时配置方式：<span class="keyword">set</span> <span class="built_in">path</span>=<span class="envvar">%path%</span>;C:\Program Files\Java\jdk\bin
@@ -1207,7 +1213,8 @@ DataOutputStream dos =  new DataOutputStream<span class="params">(new FileOutput
 <p>直接操作udp不可能，对于java语言应该将udp封装成对象，易于我们的使用，这个对象就是DatagramSocket. 封装了udp传输协议的socket对象。</p>
 <p>因为数据包中包含的信息较多，为了操作这些信息方便，也一样会将其封装成对象。这个数据包对象就是：DatagramPacket.通过这个对象中的方法，就可以获取到数据包中的各种信息。</p>
 <p>DatagramSocket具备发送和接受功能，在进行udp传输时，需要明确一个是发送端，一个是接收端。</p>
-<h2 id="udp的发送端：">udp的发送端：</h2><p>1，建立udp的socket服务，创建对象时如果没有明确端口，系统会自动分配一个未被使用的端口。</p>
+<h2 id="udp的发送端：">udp的发送端：</h2><blockquote>
+<p>1，建立udp的socket服务，创建对象时如果没有明确端口，系统会自动分配一个未被使用的端口。</p>
 <p>2，明确要发送的具体数据。</p>
 <p>3，将数据封装成了数据包。</p>
 <p>4，用socket服务的send方法将数据包发送出去。</p>
@@ -1252,10 +1259,12 @@ buf.length,InetAddress.getByName(<span class="string">"10.1.31.127"</span>),<spa
     }
 }
 </code></pre><hr>
-<h1 id="TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。">TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。</h1><p>tcp的两个端点：一个是客户端，一个是服务端。</p>
+<h1 id="TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。">TCP传输：两个端点的建立连接后会有一个传输数据的通道，这通道称为流，而且是建立在网络基础上的流，称之为socket流。该流中既有读取，也有写入。</h1></blockquote>
+<p>tcp的两个端点：一个是客户端，一个是服务端。</p>
 <p>客户端：对应的对象，Socket</p>
 <p>服务端：对应的对象，ServerSocket</p>
-<h2 id="TCP客户端：">TCP客户端：</h2><p>1，建立tcp的socket服务，最好明确具体的地址和端口。这个对象在创建时，就已经可以对指定ip和端口进行连接(三次握手)。</p>
+<h2 id="TCP客户端：">TCP客户端：</h2><blockquote>
+<p>1，建立tcp的socket服务，最好明确具体的地址和端口。这个对象在创建时，就已经可以对指定ip和端口进行连接(三次握手)。</p>
 <p>2，如果连接成功，就意味着通道建立了，socket流就已经产生了。只要获取到socket流中的读取流和写入流即可，只要通过getInputStream和getOutputStream就可以获取两个流对象。</p>
 <h2 id="3，关闭资源。">3，关闭资源。</h2><pre><code><span class="preprocessor"><span class="keyword">import</span> java.net.*;</span>
 <span class="preprocessor"><span class="keyword">import</span> java.io.*;</span>
@@ -1273,6 +1282,7 @@ buf.length,InetAddress.getByName(<span class="string">"10.1.31.127"</span>),<spa
 <p>2，服务端为了给客户端提供服务，获取客户端的内容，可以通过accept方法获取连接过来的客户端对象。</p>
 <p>3，可以通过获取到的socket对象中的socket流和具体的客户端进行通讯。</p>
 <p>4，如果通讯结束，关闭资源。注意：要先关客户端，再关服务端。</p>
+</blockquote>
 <hr>
 <pre><code>class  TcpServer{
     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) <span class="keyword">throws</span> Exception{
@@ -1359,8 +1369,7 @@ Class clazz2 = <span class="keyword">Person</span>.class;
 <p>弊端：符号的出现虽然简化了书写，但是却降低了阅读性。</p>
 <p>其实更多是用正则解决字符串操作的问题。</p>
 <p>组：用小括号标示，每定义一个小括号，就是一个组，而且有自动编号，从1开始。只要使用组，对应的数字就是使用该组的内容。别忘了，数组要加\。<br>    (aaa(wwww(ccc))(eee))技巧，从左括号开始数即可。有几个左括号就是几组。</p>
-<p>常见操作：</p>
-<p>1，匹配：其实用的就是String类中的matches方法。</p>
+<h2 id="常见操作：">常见操作：</h2><p>1，匹配：其实用的就是String类中的matches方法。</p>
 <p>String reg = “[1-9][0-9]{4,14}”;<br>    boolean b = qq.matches(reg);//将正则和字符串关联对字符串进行匹配。</p>
 <p>2，切割：其实用的就是String类中的split方法。</p>
 <p>3，替换：其实用的就是String类中的replaceAll();</p>
