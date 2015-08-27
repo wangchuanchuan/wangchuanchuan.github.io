@@ -333,8 +333,31 @@
         <span class="variable">b =</span> a ^ b;//<span class="variable">b =</span> a ^ b ^ <span class="variable">b =</span> a
         <span class="variable">a =</span> a ^ b;//<span class="variable">a =</span> a ^ b ^ <span class="variable">a =</span> b;
     练习：高效的算出 <span class="number">2</span>*<span class="number">8</span> = <span class="number">2</span>&lt;&lt;<span class="number">3</span>;
-</code></pre><p>5，语句。<br>     If  switch  do while   while  for<br>    这些语句什么时候用？<br>    1）、当判断固定个数的值的时候，可以使用if，也可以使用switch。<br>    但是建议使用switch，效率相对较高。<br>switch(变量){<br>     case 值:要执行的语句;break;<br>     …<br>     default:要执行的语句;<br>}<br> 工作原理：用小括号中的变量的值依次和case后面的值进行对比，和哪个case后面的值相同了<br>           就执行哪个case后面的语句，如果没有相同的则执行default后面的语句；<br> 细节：1）：break是可以省略的，如果省略了就一直执行到遇到break为止；<br>       2）：switch 后面的小括号中的变量应该是byte,char,short,int四种类型中的一种；<br>       3）：default可以写在switch结构中的任意位置；如果将default语句放在了第一行，则不管expression与case中的value是否匹配，程序会从default开始执行直到第一个break出现。<br>    2）、当判断数据范围，获取判断运算结果boolean类型时，需要使用if。<br>    3）、当某些语句需要执行很多次时，就用循环结构。<br>    while和for可以进行互换。<br>    区别在于：如果需要定义变量控制循环次数。建议使用for。因为for循环完毕，变量在内存中释放。</p>
-<p>break:作用于switch ，和循环语句，用于跳出，或者称为结束。</p>
+</code></pre><p>5，语句。</p>
+<pre><code> <span class="keyword">If</span>  <span class="keyword">switch</span>  <span class="keyword">do</span> <span class="keyword">while</span>   <span class="keyword">while</span>  <span class="keyword">for</span>
+
+这些语句什么时候用？
+</code></pre><p>1）、当判断固定个数的值的时候，可以使用if，也可以使用switch。<br>    但是建议使用switch，效率相对较高。</p>
+<pre><code><span class="keyword">switch</span>(变量){
+     <span class="keyword">case</span> 值:要执行的语句;<span class="keyword">break</span>;
+     …
+     <span class="keyword">default</span>:要执行的语句;
+}
+</code></pre><p> 工作原理：用小括号中的变量的值依次和case后面的值进行对比，和哪个case后面的值相同了</p>
+<pre><code>就执行哪个<span class="keyword">case</span>后面的语句，如果没有相同的则执行<span class="default"><span class="keyword">default</span>后面的语句；</span>
+</code></pre><p>细节：</p>
+<pre><code><span class="number">1</span>）：<span class="keyword">break</span>是可以省略的，如果省略了就一直执行到遇到<span class="keyword">break</span>为止；
+
+<span class="number">2</span>）：<span class="keyword">switch</span> 后面的小括号中的变量应该是<span class="keyword">byte</span>,<span class="keyword">char</span>,<span class="keyword">short</span>,<span class="keyword">int</span>四种类型中的一种；
+
+<span class="number">3</span>）：<span class="keyword">default</span>可以写在<span class="keyword">switch</span>结构中的任意位置；如果将<span class="keyword">default</span>语句放在了第一行，则不管expression与
+
+<span class="keyword">case</span>中的<span class="keyword">value</span>是否匹配，程序会从<span class="keyword">default</span>开始执行直到第一个<span class="keyword">break</span>出现。
+</code></pre><p>2）、当判断数据范围，获取判断运算结果boolean类型时，需要使用if。</p>
+<p>3）、当某些语句需要执行很多次时，就用循环结构。</p>
+<pre><code><span class="keyword">while</span>和<span class="keyword">for</span>可以进行互换。
+区别在于：如果需要定义变量控制循环次数。建议使用<span class="keyword">for</span>。因为<span class="keyword">for</span>循环完毕，变量在内存中释放。
+</code></pre><p>break:作用于switch ，和循环语句，用于跳出，或者称为结束。</p>
 <p>break语句单独存在时，下面不要定义其他语句，因为执行不到，编译会失败。当循环嵌套时，break只跳出当前所在循环。要跳出嵌套中的外部循环，只要给循环起名字即可，这个名字称之为标号。</p>
 <p>continue:只作用于循环结构，继续循环用的。</p>
 <p>作用：结束本次循环，继续下次循环。该语句单独存在时，下面不可以定义语句，执行不到。</p>
@@ -350,15 +373,16 @@
 <span class="number">1</span>）、明确该功能的运算完的结果，其实是在明确这个函数的返回值类型。
 <span class="number">2</span>）、在实现该功能的过程中是否有未知内容参与了运算，其实就是在明确这个函数的参数列表<span class="comment">(参数类型&amp;参数个数)</span>。
 </code></pre><p>函数的作用：</p>
-<p>1）、用于定义功能。<br>2）、用于封装代码提高代码的复用性。<br>注意：函数中只能调用函数，不能定义函数。</p>
+<p>1）、用于定义功能。</p>
+<p>2）、用于封装代码提高代码的复用性。</p>
+<p>注意：函数中只能调用函数，不能定义函数。</p>
 <p>主函数：</p>
 <pre><code><span class="number">1</span>）、保证该类的独立运行。
 <span class="number">2</span>）、因为它是程序的入口。
 <span class="number">3</span>）、因为它在被<span class="keyword">jvm</span>调用。
 </code></pre><p>函数定义名称是为什么呢？</p>
-<p>答：1）、为了对该功能进行标示，方便于调用。<br>    2）、为了通过名称就可以明确函数的功能，为了增加代码的阅读性。</p>
-<p>重载的定义是：在一个类中，如果出现了两个或者两个以上的同名函数，只要它们的参数的个数，或者参数的类型不同，即可称之为该函数重载了。<br>如何区分重载：当函数同名时，只看参数列表。和返回值类型没关系。</p>
-<p>7，数 组：用于存储同一类型数据的一个容器。好处：可以对该容器中的数据进行编号，从0开始。数组用于封装数据，就是一个具体的实体。<br>如何在java中表现一个数组呢？两种表现形式。<br>1）、元素类型[] 变量名 = new 元素类型[元素的个数]；<br>2）、元素类型[] 变量名 = {元素1，元素2…}；</p>
+<p>答：</p>
+<p>1）、为了对该功能进行标示，方便于调用。<br>    1）、元素类型[] 变量名 = new 元素类型[元素的个数]；<br>    2）、元素类型[] 变量名 = {元素1，元素2…}；</p>
 <h2 id="元素类型[]_变量名_=_new_元素类型[]{元素1，元素2…}；">元素类型[] 变量名 = new 元素类型[]{元素1，元素2…}；</h2><p>//二分查找法。必须有前提：数组中的元素要有序。<br>    public static int halfSeach_2(int[] arr,int key){<br>        int min,max,mid;<br>        min = 0;<br>        max = arr.length-1;<br>        mid = (max+min)&gt;&gt;1; //(max+min)/2;<br>        while(arr[mid]!=key){<br>            if(key&gt;arr[mid]){<br>                min = mid + 1;<br>            }<br>            else if(key<arr[mid]) max="mid" -="" 1;="" if(max<min)="" return="" -1;="" mid="(max+min)">&gt;1;<br>        }<br>        return mid;</arr[mid])></p>
 <pre><code>}
 </code></pre><hr>
@@ -413,9 +437,27 @@
 <p>如何保证对象唯一性呢？<br>思想：<br>1，不让其他程序创建该类对象。<br>2，在本类中创建一个本类对象。<br>3，对外提供方法，让其他程序获取这个对象。</p>
 <p>步骤：<br>1，因为创建对象都需要构造函数初始化，只要将本类中的构造函数私有化，其他程序就无法再创建该类对象；<br>2，就在类中创建一个本类的对象；<br>3，定义一个方法，返回该对象，让其他程序可以通过方法就得到本类对象。（作用：可控）</p>
 <p>代码体现：<br>1，私有化构造函数；<br>2，创建私有并静态的本类对象；</p>
-<h2 id="3，定义公有并静态的方法，返回该对象。">3，定义公有并静态的方法，返回该对象。</h2><p>//饿汉式<br>class Single{<br>    private Single(){} //私有化构造函数。<br>private static Single s = new Single(); //创建私有并静态的本类对象。<br>    public static Single getInstance(){ //定义公有并静态的方法，返回该对象。<br>        return s;<br>    }</p>
-<h2 id="}">}</h2><p>//懒汉式:延迟加载方式。<br>class Single2{<br>    private Single2(){}<br>private static Single2 s = null;<br>    public static Single2 getInstance(){<br>        if(s==null)<br>            s = new Single2();<br>        return s;<br>    }</p>
-<h2 id="}-1">}</h2><h1 id="继_承（面向对象特征之一）">继 承（面向对象特征之一）</h1><p>好处：<br>1：提高了代码的复用性。<br>2：让类与类之间产生了关系，提供了另一个特征多态的前提。</p>
+<h2 id="3，定义公有并静态的方法，返回该对象。">3，定义公有并静态的方法，返回该对象。</h2><pre><code><span class="comment">//饿汉式</span>
+<span class="keyword">class</span> <span class="title">Single</span>{
+    <span class="function"><span class="keyword">private</span> <span class="title">Single</span>(<span class="params"></span>)</span>{} <span class="comment">//私有化构造函数。</span>
+<span class="keyword">private</span> <span class="keyword">static</span> Single s = <span class="keyword">new</span> Single(); <span class="comment">//创建私有并静态的本类对象。</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span>(<span class="params"></span>)</span>{ <span class="comment">//定义公有并静态的方法，返回该对象。</span>
+        <span class="keyword">return</span> s;
+    }
+}
+---------------------------------------------
+<span class="comment">//懒汉式:延迟加载方式。</span>
+<span class="keyword">class</span> <span class="title">Single2</span>{
+    <span class="function"><span class="keyword">private</span> <span class="title">Single2</span>(<span class="params"></span>)</span>{}
+<span class="keyword">private</span> <span class="keyword">static</span> Single2 s = <span class="keyword">null</span>;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single2 <span class="title">getInstance</span>(<span class="params"></span>)</span>{
+        <span class="keyword">if</span>(s==<span class="keyword">null</span>)
+            s = <span class="keyword">new</span> Single2();
+        <span class="keyword">return</span> s;
+    }
+}
+</code></pre><hr>
+<h1 id="继_承（面向对象特征之一）">继 承（面向对象特征之一）</h1><p>好处：<br>1：提高了代码的复用性。<br>2：让类与类之间产生了关系，提供了另一个特征多态的前提。</p>
 <p>父类的由来：其实是由多个类不断向上抽取共性内容而来的。<br>java中对于继承，java只支持单继承。java虽然不直接支持多继承，但是保留了这种多继承机制，进行改良。</p>
 <p>单继承：一个类只能有一个父类。<br>多继承：一个类可以有多个父类。</p>
 <p>为什么不支持多继承呢？</p>
@@ -435,15 +477,25 @@
 <p>3：构造函数。</p>
 <p>发现子类构造函数运行时，先运行了父类的构造函数。为什么呢?<br>原因：子类的所有构造函数中的第一行，其实都有一条隐身的语句super();<br>super(): 表示父类的构造函数，并会调用于参数相对应的父类中的构造函数。而super():是在调用父类中空参数的构造函数。<br>为什么子类对象初始化时，都需要调用父类中的函数？(为什么要在子类构造函数的第一行加入这个super()?)<br>因为子类继承父类，会继承到父类中的数据，所以必须要看父类是如何对自己的数据进行初始化的。所以子类在进行对象初始化时，先调用父类的构造函数，这就是子类的实例化过程。</p>
 <p>注意：子类中所有的构造函数都会默认访问父类中的空参数的构造函数，因为每一个子类构造内第一行都有默认的语句super();<br>如果父类中没有空参数的构造函数，那么子类的构造函数内，必须通过super语句指定要访问的父类中的构造函数。<br>如果子类构造函数中用this来指定调用子类自己的构造函数，那么被调用的构造函数也一样会访问父类中的构造函数。</p>
-<p>问题：super()和this()是否可以同时出现的构造函数中。<br>两个语句只能有一个定义在第一行，所以只能出现其中一个。</p>
-<p>super()或者this():为什么一定要定义在第一行？<br>因为super()或者this()都是调用构造函数，构造函数用于初始化，所以初始化的动作要先完成。</p>
+<p>问题：super()和this()是否可以同时出现的构造函数中。</p>
+<p>两个语句只能有一个定义在第一行，所以只能出现其中一个。</p>
+<p>super()或者this():为什么一定要定义在第一行？</p>
+<p>因为super()或者this()都是调用构造函数，构造函数用于初始化，所以初始化的动作要先完成。</p>
 <p>继承的细节：</p>
-<p>什么时候使用继承呢？<br>当类与类之间存在着所属关系时，才具备了继承的前提。a是b中的一种。a继承b。狼是犬科中的一种。<br>英文书中，所属关系：” is a “<br>注意：不要仅仅为了获取其他类中的已有成员进行继承。</p>
+<p>什么时候使用继承呢？</p>
+<p>当类与类之间存在着所属关系时，才具备了继承的前提。a是b中的一种。a继承b。狼是犬科中的一种。<br>英文书中，所属关系：” is a “</p>
+<p>注意：不要仅仅为了获取其他类中的已有成员进行继承。</p>
 <p>所以判断所属关系，可以简单看，如果继承后，被继承的类中的功能，都可以被该子类所具备，那么继承成立。如果不是，不可以继承。</p>
 <p>细节二：</p>
-<p>在方法覆盖时，注意两点：<br>1：子类覆盖父类时，必须要保证，子类方法的权限必须大于等于父类方法权限可以实现继承。否则，编译失败。<br>2：覆盖时，要么都静态，要么都不静态。 (静态只能覆盖静态，或者被静态覆盖)</p>
+<p>在方法覆盖时，注意两点：</p>
+<p>1：子类覆盖父类时，必须要保证，子类方法的权限必须大于等于父类方法权限可以实现继承。否则，编译失败。</p>
+<p>2：覆盖时，要么都静态，要么都不静态。 (静态只能覆盖静态，或者被静态覆盖)</p>
 <p>继承的一个弊端：打破了封装性。对于一些类，或者类中功能，是需要被继承，或者复写的。<br>这时如何解决问题呢？介绍一个关键字，final:最终。</p>
-<p>final特点：<br>1：这个关键字是一个修饰符，可以修饰类，方法，变量。<br>2：被final修饰的类是一个最终类，不可以被继承。<br>3：被final修饰的方法是一个最终方法，不可以被覆盖。<br>4：被final修饰的变量是一个常量，只能赋值一次。</p>
+<p>final特点：</p>
+<p>1：这个关键字是一个修饰符，可以修饰类，方法，变量。</p>
+<p>2：被final修饰的类是一个最终类，不可以被继承。</p>
+<p>3：被final修饰的方法是一个最终方法，不可以被覆盖。</p>
+<p>4：被final修饰的变量是一个常量，只能赋值一次。</p>
 <pre><code>其实这样的原因的就是给一些固定的数据起个阅读性较强的名称。
 不加<span class="keyword">final</span>修饰不是也可以使用吗？那么这个值是一个变量，是可以更改的。加了<span class="keyword">final</span>，程序更为严谨。常量名称定义时，有规范，所有字母都大写，如果由多个单词组成，中间用 _ 连接。
 </code></pre><p>抽象类: abstract</p>
@@ -453,9 +505,19 @@
 <p>抽象类的细节：</p>
 <p>1：抽象类中是否有构造函数？有，用于给子类对象进行初始化。<br>2：抽象类中是否可以定义非抽象方法？<br>    可以。其实，抽象类和一般类没有太大的区别，都是在描述事物，只不过抽象类在描述事物时，有些功能不具体。所以抽象类和一般类在定义上，都是需要定义属性和行为的。只不过，比一般类多了一个抽象函数。而且比一般类少了一个创建对象的部分。<br>3：抽象关键字abstract和哪些不可以共存？final ,    private , static </p>
 <h2 id="4：抽象类中可不可以不定义抽象方法？可以。抽象方法目的仅仅为了不让该类创建对象。">4：抽象类中可不可以不定义抽象方法？可以。抽象方法目的仅仅为了不让该类创建对象。</h2><p>模板方法设计模式：</p>
-<p>解决的问题：当功能内部一部分实现时确定，一部分实现是不确定的。这时可以把不确定的部分暴露出去，让子类去实现。<br>abstract class GetTime{<br>    public final void getTime(){ //此功能如果不需要复写，可加final限定<br>        long start = System.currentTimeMillis();<br>        code(); //不确定的功能部分，提取出来，通过抽象方法实现<br>        long end = System.currentTimeMillis();<br>        System.out.println(“毫秒是：”+(end-start));<br>    }<br>    public abstract void code(); //抽象不确定的功能，让子类复写实现<br>}<br>class SubDemo extends GetTime{<br>    public void code(){ //子类复写功能方法<br>        for(int y=0; y&lt;1000; y++){<br>            System.out.println(“y”);<br>        }<br>    }</p>
-<h2 id="}-2">}</h2><h1 id="接_口：★★★★★">接 口：★★★★★</h1><p>1：是用关键字interface定义的。<br>2：接口中包含的成员，最常见的有全局常量、抽象方法。<br>注意：接口中的成员都有固定的修饰符。<br>    成员变量：public static final<br>    成员方法：public abstract<br>interface Inter{<br>    public static final int x = 3;<br>    public abstract void show();<br>}</p>
-<p>3：接口中有抽象方法，说明接口不可以实例化。接口的子类必须实现了接口中所有的抽象方法后，该子类才可以实例化。否则，该子类还是一个抽象类。</p>
+<p>解决的问题：当功能内部一部分实现时确定，一部分实现是不确定的。这时可以把不确定的部分暴露出去，让子类去实现。<br>    abstract class GetTime{<br>        public final void getTime(){ //此功能如果不需要复写，可加final限定<br>            long start = System.currentTimeMillis();<br>            code(); //不确定的功能部分，提取出来，通过抽象方法实现<br>            long end = System.currentTimeMillis();<br>            System.out.println(“毫秒是：”+(end-start));<br>        }<br>        public abstract void code(); //抽象不确定的功能，让子类复写实现<br>    }<br>    class SubDemo extends GetTime{<br>        public void code(){ //子类复写功能方法<br>            for(int y=0; y&lt;1000; y++){<br>                System.out.println(“y”);<br>            }<br>        }</p>
+<pre><code>}
+</code></pre><hr>
+<h1 id="接_口：★★★★★">接 口：★★★★★</h1><p>1：是用关键字interface定义的。</p>
+<p>2：接口中包含的成员，最常见的有全局常量、抽象方法。</p>
+<p>注意：接口中的成员都有固定的修饰符。</p>
+<pre><code>成员变量：<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> 
+成员方法：<span class="keyword">public</span> <span class="keyword">abstract</span> 
+<span class="class"><span class="keyword">interface</span> <span class="title">Inter</span></span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> x = <span class="number">3</span>;
+    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;
+}
+</code></pre><p>3：接口中有抽象方法，说明接口不可以实例化。接口的子类必须实现了接口中所有的抽象方法后，该子类才可以实例化。否则，该子类还是一个抽象类。</p>
 <p>4：类与类之间存在着继承关系，类与接口中间存在的是实现关系。<br>    继承用extends  ；实现用implements ；</p>
 <p>5：接口和类不一样的地方，就是，接口可以被多实现，这就是多继承改良后的结果。java将多继承机制通过多现实来体现。 </p>
 <p>6：一个类在继承另一个类的同时，还可以实现多个接口。所以接口的出现避免了单继承的局限性。还可以将类进行功能的扩展。</p>
@@ -474,14 +536,53 @@
 <hr>
 <h1 id="多_态★★★★★（面向对象特征之一）：函数本身就具备多态性，某一种事物有不同的具体的体现。">多 态★★★★★（面向对象特征之一）：函数本身就具备多态性，某一种事物有不同的具体的体现。</h1><p>体现：父类引用或者接口的引用指向了自己的子类对象。//Animal a = new Cat();<br>多态的好处：提高了程序的扩展性。<br>多态的弊端：当父类引用指向子类对象时，虽然提高了扩展性，但是只能访问父类中具备的方法，不可以访问子类中特有的方法。(前期不能使用后期产生的功能，即访问的局限性)</p>
 <p>多态的前提：<br>    1：必须要有关系，比如继承、或者实现。<br>    2：通常会有覆盖操作。</p>
-<h2 id="多态的出现思想上也做着变化：以前是创建对象并指挥对象做事情。有了多态以后，我们可以找到对象的共性类型，直接操作共性类型做事情即可，这样可以指挥一批对象做事情，即通过操作父类或接口实现。">多态的出现思想上也做着变化：以前是创建对象并指挥对象做事情。有了多态以后，我们可以找到对象的共性类型，直接操作共性类型做事情即可，这样可以指挥一批对象做事情，即通过操作父类或接口实现。</h2><p>class 毕姥爷{<br>    void 讲课(){<br>        System.out.println(“企业管理”);<br>    }<br>    void 钓鱼(){<br>        System.out.println(“钓鱼”);<br>    }<br>}<br>class 毕老师 extends 毕姥爷{<br>    void 讲课(){<br>        System.out.println(“JAVA”);<br>    }<br>    void 看电影(){<br>        System.out.println(“看电影”);<br>    }<br>}<br>class {<br>    public static void main(String[] args) {<br>        毕姥爷 x = new 毕老师(); //毕老师对象被提升为了毕姥爷类型。<br>//        x.讲课();<br>//        x.看电影();  //错误.<br>        毕老师 y = (毕老师)x; //将毕姥爷类型强制转换成毕老师类型。<br>        y.看电影();//在多态中，自始自终都是子类对象在做着类型的变化。<br>    }</p>
-<h2 id="}-3">}</h2><p>如果想用子类对象的特有方法，如何判断对象是哪个具体的子类类型呢？<br>可以可以通过一个关键字 instanceof ;//判断对象是否实现了指定的接口或继承了指定的类</p>
+<h2 id="多态的出现思想上也做着变化：以前是创建对象并指挥对象做事情。有了多态以后，我们可以找到对象的共性类型，直接操作共性类型做事情即可，这样可以指挥一批对象做事情，即通过操作父类或接口实现。">多态的出现思想上也做着变化：以前是创建对象并指挥对象做事情。有了多态以后，我们可以找到对象的共性类型，直接操作共性类型做事情即可，这样可以指挥一批对象做事情，即通过操作父类或接口实现。</h2><pre><code><span class="class"><span class="keyword">class</span> <span class="title">毕姥爷</span>{</span>
+    void 讲课(){
+        <span class="type">System</span>.out.println(<span class="string">"企业管理"</span>);
+    }
+    void 钓鱼(){
+        <span class="type">System</span>.out.println(<span class="string">"钓鱼"</span>);
+    }
+}
+<span class="class"><span class="keyword">class</span> <span class="title">毕老师</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">毕姥爷</span>{</span>
+    void 讲课(){
+        <span class="type">System</span>.out.println(<span class="string">"JAVA"</span>);
+    }
+    void 看电影(){
+        <span class="type">System</span>.out.println(<span class="string">"看电影"</span>);
+    }
+}
+<span class="class"><span class="keyword">class</span> {</span>
+    public static void main(<span class="type">String</span>[] args) {
+        毕姥爷 x = <span class="keyword">new</span> 毕老师(); <span class="comment">//毕老师对象被提升为了毕姥爷类型。 </span>
+<span class="comment">//        x.讲课();</span>
+<span class="comment">//        x.看电影();  //错误.</span>
+        毕老师 y = (毕老师)x; <span class="comment">//将毕姥爷类型强制转换成毕老师类型。 </span>
+        y.看电影();<span class="comment">//在多态中，自始自终都是子类对象在做着类型的变化。</span>
+    }
+}
+</code></pre><hr>
+<p>如果想用子类对象的特有方法，如何判断对象是哪个具体的子类类型呢？<br>可以可以通过一个关键字 instanceof ;//判断对象是否实现了指定的接口或继承了指定的类</p>
 <p>格式：&lt;对象 instanceof 类型&gt; ，判断一个对象是否所属于指定的类型。<br>Student instanceof Person = true;//student继承了person类</p>
 <p>多态在子父类中的成员上的体现的特点：<br>1，成员变量：在多态中，子父类成员变量同名。<br>    在编译时期：参考的是引用型变量所属的类中是否有调用的成员。（编译时不产生对象，只检查语法错误）<br>    运行时期：也是参考引用型变量所属的类中是否有调用的成员。<br>    简单一句话：无论编译和运行，成员变量参考的都是引用变量所属的类中的成员变量。<br>    再说的更容易记忆一些：成员变量 —- 编译运行都看 = 左边。<br>2，成员函数。<br>    编译时期：参考引用型变量所属的类中是否有调用的方法。<br>    运行事情：参考的是对象所属的类中是否有调用的方法。<br>    为什么是这样的呢？因为在子父类中，对于一模一样的成员函数，有一个特性：覆盖。<br>    简单一句：成员函数，编译看引用型变量所属的类，运行看对象所属的类。<br>    更简单：成员函数 —- 编译看 = 左边，运行看 = 右边。<br>3，静态函数。<br>    编译时期：参考的是引用型变量所属的类中是否有调用的成员。<br>    运行时期：也是参考引用型变量所属的类中是否有调用的成员。<br>    为什么是这样的呢？因为静态方法，其实不所属于对象，而是所属于该方法所在的类。<br>    调用静态的方法引用是哪个类的引用调用的就是哪个类中的静态方法。<br>    简单说：静态函数 —- 编译运行都看 = 左边。<br>—————————————————————————————————————————————-java.lang.Object</p>
 <p>Object：所有类的直接或者间接父类，Java认为所有的对象都具备一些基本的共性内容，这些内容可以不断的向上抽取，最终就抽取到了一个最顶层的类中的，该类中定义的就是所有对象都具备的功能。</p>
-<p>具体方法：<br>1，boolean equals(Object obj)：用于比较两个对象是否相等，其实内部比较的就是两个对象地址。<br>而根据对象的属性不同，判断对象是否相同的具体内容也不一样。所以在定义类时，一般都会复写equals方法，建立本类特有的判断对象是否相同的依据。<br>    public boolean equals(Object obj){<br>        if(!(obj instanceof Person))<br>            return false;<br>        Person p = (Person)obj;<br>        return this.age == p.age;<br>    }<br>2，String toString()：将对象变成字符串；默认返回的格式：类名@哈希值 = getClass().getName() + ‘@’ + Integer.toHexString(hashCode())<br>    为了对象对应的字符串内容有意义，可以通过复写，建立该类对象自己特有的字符串表现形式。<br>    public String toString(){<br>        return “person : “+age;<br>    }<br>3，Class getClass()：获取任意对象运行时的所属字节码文件对象。<br>4，int hashCode()：返回该对象的哈希码值。支持此方法是为了提高哈希表的性能。</p>
-<h2 id="通常equals，toString，hashCode，在应用中都会被复写，建立具体对象的特有的内容。">通常equals，toString，hashCode，在应用中都会被复写，建立具体对象的特有的内容。</h2><h2 id="内部类：如果A类需要直接访问B类中的成员，而B类又需要建立A类的对象。这时,为了方便设计和访问，直接将A类定义在B类中。就可以了。A类就称为内部类。内部类可以直接访问外部类中的成员。而外部类想要访问内部类，必须要建立内部类的对象。">内部类：如果A类需要直接访问B类中的成员，而B类又需要建立A类的对象。这时,为了方便设计和访问，直接将A类定义在B类中。就可以了。A类就称为内部类。内部类可以直接访问外部类中的成员。而外部类想要访问内部类，必须要建立内部类的对象。</h2><p>class Outer{<br>    int num = 4;<br>    class  Inner {<br>        void show(){<br>            System.out.println(“inner show run “+num);<br>        }<br>    }<br>    public void method(){<br>        Inner in = new Inner();//创建内部类的对象。<br>        in.show();//调用内部类的方法。<br>    }</p>
-<h2 id="}-4">}</h2><p>当内部类定义在外部类中的成员位置上，可以使用一些成员修饰符修饰 private、static。</p>
+<p>具体方法：<br>1，boolean equals(Object obj)：用于比较两个对象是否相等，其实内部比较的就是两个对象地址。<br>而根据对象的属性不同，判断对象是否相同的具体内容也不一样。所以在定义类时，一般都会复写equals方法，建立本类特有的判断对象是否相同的依据。<br>    public boolean equals(Object obj){<br>        if(!(obj instanceof Person))<br>            return false;<br>        Person p = (Person)obj;<br>        return this.age == p.age;<br>    }<br>2，String toString()：将对象变成字符串；默认返回的格式：类名@哈希值 = getClass().getName() + ‘@’ + Integer.toHexString(hashCode())<br>    为了对象对应的字符串内容有意义，可以通过复写，建立该类对象自己特有的字符串表现形式。<br>    public String toString(){<br>        return “person : “+age;<br>    }</p>
+<p>3，Class getClass()：获取任意对象运行时的所属字节码文件对象。</p>
+<p>4，int hashCode()：返回该对象的哈希码值。支持此方法是为了提高哈希表的性能。</p>
+<h2 id="通常equals，toString，hashCode，在应用中都会被复写，建立具体对象的特有的内容。">通常equals，toString，hashCode，在应用中都会被复写，建立具体对象的特有的内容。</h2><h2 id="内部类：如果A类需要直接访问B类中的成员，而B类又需要建立A类的对象。这时,为了方便设计和访问，直接将A类定义在B类中。就可以了。A类就称为内部类。内部类可以直接访问外部类中的成员。而外部类想要访问内部类，必须要建立内部类的对象。">内部类：如果A类需要直接访问B类中的成员，而B类又需要建立A类的对象。这时,为了方便设计和访问，直接将A类定义在B类中。就可以了。A类就称为内部类。内部类可以直接访问外部类中的成员。而外部类想要访问内部类，必须要建立内部类的对象。</h2><pre><code><span class="keyword">class</span> <span class="title">Outer</span>{
+    <span class="keyword">int</span> num = <span class="number">4</span>;    
+    <span class="keyword">class</span>  <span class="title">Inner</span> {
+        <span class="function"><span class="keyword">void</span> <span class="title">show</span>(<span class="params"></span>)</span>{
+            System.<span class="keyword">out</span>.println(<span class="string">"inner show run "</span>+num);            
+        }
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span>(<span class="params"></span>)</span>{
+        Inner <span class="keyword">in</span> = <span class="keyword">new</span> Inner();<span class="comment">//创建内部类的对象。</span>
+        <span class="keyword">in</span>.show();<span class="comment">//调用内部类的方法。 </span>
+    }
+}
+</code></pre><hr>
+<p>当内部类定义在外部类中的成员位置上，可以使用一些成员修饰符修饰 private、static。</p>
 <p>1：默认修饰符。<br>直接访问内部类格式：外部类名.内部类名 变量名 =  外部类对象.内部类对象;<br>Outer.Inner in = new Outer.new Inner();//这种形式很少用。<br>    但是这种应用不多见，因为内部类之所以定义在内部就是为了封装。想要获取内部类对象通常都通过外部类的方法来获取。这样可以对内部类对象进行控制。</p>
 <p>2：私有修饰符。<br>    通常内部类被封装，都会被私有化，因为封装性不让其他程序直接访问。 </p>
 <p>3：静态修饰符。<br>    如果内部类被静态修饰，相当于外部类，会出现访问局限性，只能访问外部类中的静态成员。<br>    注意；如果内部类中定义了静态成员，那么该内部类必须是静态的。</p>
@@ -498,20 +599,67 @@
 第二个编译失败，因为匿名内部类是一个子类对象，当用<span class="built_in">Object</span>的obj引用指向时，就被提升为了
 <span class="built_in">Object</span>类型，而编译时检查<span class="built_in">Object</span>类中是否有show方法，所以编译失败。
 </code></pre><hr>
-<p>class InnerClassDemo6 {<br>    +（static）class Inner{<br>        void show(){}<br>    }<br>    public void method(){<br>        this.new Inner().show();//可以<br>    }<br>    public static void main(String[] args) {//static不允许this<br>        This.new Inner().show();//错误，Inner类需要定义成static<br>    }</p>
-<h2 id="}-5">}</h2><p>interface Inter{<br>    void show();<br>}<br>class Outer{//通过匿名内部类补足Outer类中的代码。<br>    public static Inter method(){<br>        return new Inter(){<br>            public void show(){}<br>        };<br>    }<br>}<br>class InnerClassDemo7 {<br>    public static void main(String[] args) {<br>        Outer.method().show();<br>    /<em><br>        Outer.method():意思是：Outer中有一个名称为method的方法，而且这个方法是静态的。<br>        Outer.method().show():当Outer类调用静态的method方法运算结束后的结果又调用了show方法，意味着：method()方法运算完一个是对象，而且这个对象是Inter类型的。
-    </em>/<br>        function (new Inter(){<br>            public void show(){}<br>        }); //匿名内部类作为方法的参数进行传递。<br>    }<br>    public static void function(Inter in){<br>        in.show();<br>    }</p>
-<h2 id="}-6">}</h2><h1 id="异_常：★★★★">异 常：★★★★</h1><p>异常：就是不正常。程序在运行时出现的不正常情况。其实就是程序中出现的问题。这个问题按照面向对象思想进行描述，并封装成了对象。因为问题的产生有产生的原因、有问题的名称、有问题的描述等多个属性信息存在。当出现多属性信息最方便的方式就是将这些信息进行封装。异常就是java按照面向对象的思想将问题进行对象封装。这样就方便于操作问题以及处理问题。</p>
+<pre><code><span class="class"><span class="keyword">class</span> <span class="title">InnerClassDemo6</span> </span>{
+    +（<span class="keyword">static</span>）<span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>{
+        <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>{}
+    }
+    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.<span class="keyword">new</span> Inner().show();<span class="comment">//可以</span>
+    }
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{<span class="comment">//static不允许this</span>
+        This.<span class="keyword">new</span> Inner().show();<span class="comment">//错误，Inner类需要定义成static</span>
+    }
+}
+</code></pre><hr>
+<pre><code><span class="keyword">interface</span> <span class="type">Inter</span>{
+    <span class="type">void</span> show();
+}
+class <span class="type">Outer</span>{//通过匿名内部类补足<span class="type">Outer</span>类中的代码。
+    public <span class="keyword">static</span> <span class="type">Inter</span> <span class="keyword">method</span>(){
+        <span class="keyword">return</span> new <span class="type">Inter</span>(){
+            public <span class="type">void</span> show(){}
+        };
+    }
+}
+class <span class="type">InnerClassDemo7</span> {
+    public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) {
+        <span class="type">Outer</span>.<span class="keyword">method</span>().show();
+    /*
+        <span class="type">Outer</span>.<span class="keyword">method</span>():意思是：<span class="type">Outer</span>中有一个名称为<span class="keyword">method</span>的方法，而且这个方法是静态的。
+        <span class="type">Outer</span>.<span class="keyword">method</span>().show():当<span class="type">Outer</span>类调用静态的<span class="keyword">method</span>方法运算结束后的结果又调用了show方法，意味着：<span class="keyword">method</span>()方法运算完一个是对象，而且这个对象是<span class="type">Inter</span>类型的。
+    */
+        function (new <span class="type">Inter</span>(){
+            public <span class="type">void</span> show(){}
+        }); //匿名内部类作为方法的参数进行传递。
+    }
+    public <span class="keyword">static</span> <span class="type">void</span> function(<span class="type">Inter</span> <span class="keyword">in</span>){
+        <span class="keyword">in</span>.show();
+    }
+}
+</code></pre><hr>
+<h1 id="异_常：★★★★">异 常：★★★★</h1><p>异常：就是不正常。程序在运行时出现的不正常情况。其实就是程序中出现的问题。这个问题按照面向对象思想进行描述，并封装成了对象。因为问题的产生有产生的原因、有问题的名称、有问题的描述等多个属性信息存在。当出现多属性信息最方便的方式就是将这些信息进行封装。异常就是java按照面向对象的思想将问题进行对象封装。这样就方便于操作问题以及处理问题。</p>
 <p>出现的问题有很多种，比如角标越界，空指针等都是。就对这些问题进行分类。而且这些问题都有共性内容比如：每一个问题都有名称，同时还有问题描述的信息，问题出现的位置，所以可以不断的向上抽取。形成了异常体系。 </p>
 <p>————java.lang.Throwable：<br>Throwable：可抛出的。<br>    |—Error：错误，一般情况下，不编写针对性的代码进行处理，通常是jvm发生的，需要对程序进行修正。<br>    |—Exception：异常，可以有针对性的处理方式</p>
 <p>无论是错误还是异常，它们都有具体的子类体现每一个问题，它们的子类都有一个共性，就是都以父类名才作为子类的后缀名。</p>
 <p>这个体系中的所有类和对象都具备一个独有的特点；就是可抛性。</p>
-<h2 id="可抛性的体现：就是这个体系中的类和对象都可以被throws和throw两个关键字所操作。">可抛性的体现：就是这个体系中的类和对象都可以被throws和throw两个关键字所操作。</h2><p>class  ExceptionDemo{<br>    public static void main(String[] args) {<br>//        byte[] buf = new byte[1024<em>1024</em>700];//java.lang.OutOfMemoryError内存溢出错误<br>    }</p>
-<h2 id="}-7">}</h2><p>在开发时，如果定义功能时，发现该功能会出现一些问题，应该将问题在定义功能时标示出来，这样调用者就可以在使用这个功能的时候，预先给出处理方式。</p>
+<h2 id="可抛性的体现：就是这个体系中的类和对象都可以被throws和throw两个关键字所操作。">可抛性的体现：就是这个体系中的类和对象都可以被throws和throw两个关键字所操作。</h2><pre><code><span class="keyword">class</span>  <span class="title">ExceptionDemo</span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+<span class="comment">//        byte[] buf = new byte[1024*1024*700];//java.lang.OutOfMemoryError内存溢出错误</span>
+    }
+}
+</code></pre><hr>
+<p>在开发时，如果定义功能时，发现该功能会出现一些问题，应该将问题在定义功能时标示出来，这样调用者就可以在使用这个功能的时候，预先给出处理方式。</p>
 <p>如何标示呢？通过throws关键字完成，格式：throws 异常类名,异常类名…<br>这样标示后，调用者，在使用该功能时，就必须要处理，否则编译失败。</p>
-<p>处理方式有两种：1、捕捉；2、抛出。<br>对于捕捉：java有针对性的语句块进行处理。<br>try {<br>    需要被检测的代码；<br>}<br>catch(异常类 变量名){<br>    异常处理代码；<br>}<br>fianlly{<br>    一定会执行的代码；</p>
-<h2 id="}-8">}</h2><p>catch (Exception e) { //e用于接收try检测到的异常对象。<br>    System.out.println(“message:”+e.getMessage());//获取的是异常的信息。<br>    System.out.println(“toString:”+e.toString());//获取的是异常的名字+异常的信息。<br>    e.printStackTrace();//打印异常在堆栈中信息；异常名称+异常信息+异常的位置。</p>
-<h2 id="}-9">}</h2><p>异常处理原则：功能抛出几个异常，功能调用如果进行try处理，需要与之对应的catch处理代码块，这样的处理有针对性，抛几个就处理几个。</p>
+<p>处理方式有两种：1、捕捉；2、抛出。<br>对于捕捉：java有针对性的语句块进行处理。<br>    try {<br>        需要被检测的代码；<br>    }<br>    catch(异常类 变量名){<br>        异常处理代码；<br>    }<br>    fianlly{<br>        一定会执行的代码；</p>
+<pre><code>}
+--------------------------------------------------------
+catch (Exception <span class="keyword">e</span>) { <span class="comment">//e用于接收try检测到的异常对象。</span>
+    System.<span class="keyword">out</span>.println(<span class="string">"message:"</span>+<span class="keyword">e</span>.getMessage());<span class="comment">//获取的是异常的信息。</span>
+    System.<span class="keyword">out</span>.println(<span class="string">"toString:"</span>+<span class="keyword">e</span>.<span class="keyword">toString</span>());<span class="comment">//获取的是异常的名字+异常的信息。</span>
+    <span class="keyword">e</span>.printStackTrace();<span class="comment">//打印异常在堆栈中信息；异常名称+异常信息+异常的位置。</span>
+}
+</code></pre><hr>
+<p>异常处理原则：功能抛出几个异常，功能调用如果进行try处理，需要与之对应的catch处理代码块，这样的处理有针对性，抛几个就处理几个。</p>
 <p>特殊情况：try对应多个catch时，如果有父类的catch语句块，一定要放在下面。</p>
 <p>throw 和throws关键字的区别：<br>throw用于抛出异常对象，后面跟的是异常对象；throw用在函数内。<br>throws用于抛出异常类，后面跟的异常类名，可以跟多个，用逗号隔开。throws用在函数上。</p>
 <p>通常情况：函数内容如果有throw，抛出异常对象，并没有进行处理，那么函数上一定要声明，否则编译失败。但是也有特殊情况。</p>
@@ -522,9 +670,17 @@
 <p>对于除法运算，0作为除数是不可以的。java中对这种问题用ArithmeticException类进行描述。对于这个功能，在我们项目中，除数除了不可以为0外，还不可以为负数。可是负数的部分java并没有针对描述。所以我们就需要自定义这个异常。</p>
 <p>自定义异常的步骤：<br>1：定义一个子类继承Exception或RuntimeException，让该类具备可抛性。<br>2：通过throw 或者throws进行操作。</p>
 <p>异常的转换思想：当出现的异常是调用者处理不了的，就需要将此异常转换为一个调用者可以处理的异常抛出。</p>
-<p>try  catch  finally的几种结合方式：<br>1，<br>try<br>catch<br>finally</p>
-<p>这种情况，如果出现异常，并不处理，但是资源一定关闭，所以try  finally集合只为关闭资源。<br>记住：finally很有用，主要用户关闭资源。无论是否发生异常，资源都必须进行关闭。<br>System.exit(0); //退出jvm，只有这种情况finally不执行。</p>
-<p>当异常出现后，在子父类进行覆盖时，有了一些新的特点：<br>1：当子类覆盖父类的方法时，如果父类的方法抛出了异常，那么子类的方法要么不抛出异常要么抛出父类异常或者该异常的子类，不能抛出其他异常。<br>2：如果父类抛出了多个异常，那么子类在覆盖时只能抛出父类的异常的子集。</p>
+<p>try  catch  finally的几种结合方式：</p>
+<p>1，</p>
+<p>try </p>
+<p>catch</p>
+<p>finally</p>
+<p>这种情况，如果出现异常，并不处理，但是资源一定关闭，所以try  finally集合只为关闭资源。</p>
+<p>记住：finally很有用，主要用户关闭资源。无论是否发生异常，资源都必须进行关闭。</p>
+<p>System.exit(0); //退出jvm，只有这种情况finally不执行。</p>
+<p>当异常出现后，在子父类进行覆盖时，有了一些新的特点：</p>
+<p>1：当子类覆盖父类的方法时，如果父类的方法抛出了异常，那么子类的方法要么不抛出异常要么抛出父类异常或者该异常的子类，不能抛出其他异常。</p>
+<p>2：如果父类抛出了多个异常，那么子类在覆盖时只能抛出父类的异常的子集。</p>
 <p>注意：<br>如果父类或者接口中的方法没有抛出过异常，那么子类是不可以抛出异常的，如果子类的覆盖的方法中出现了异常，只能try不能throws。<br>如果这个异常子类无法处理，已经影响了子类方法的具体运算，这时可以在子类方法中，通过throw抛出RuntimeException异常或者其子类，这样，子类的方法上是不需要throws声明的。</p>
 <p>常见异常：<br>1、脚标越界异常（IndexOutOfBoundsException）包括数组、字符串；<br>空指针异常（NullPointerException）<br>2、类型转换异常：ClassCastException<br>3、没有这个元素异常：NullPointerException<br>4、不支持操作异常；</p>
 <h2 id="异常要尽量避免，如果避免不了，需要预先给出处理方式。比如家庭备药，比如灭火器。">异常要尽量避免，如果避免不了，需要预先给出处理方式。比如家庭备药，比如灭火器。</h2><p>包：定义包用package关键字。<br>1：对类文件进行分类管理。<br>2：给类文件提供多层名称空间。</p>
@@ -545,7 +701,7 @@
 <p>线程要运行必须要通过类中指定的方法开启。start方法。（启动后，就多了一条执行路径）<br>start方法：1）、启动了线程；2）、让jvm调用了run方法。</p>
 <p>创建线程的第一种方式：继承Thread ，由子类复写run方法。<br>步骤：<br>1，定义类继承Thread类；<br>2，目的是复写run方法，将要让线程运行的代码都存储到run方法中；<br>3，通过创建Thread类的子类对象，创建线程对象；<br>4，调用线程的start方法，开启线程，并执行run方法。</p>
 <p>线程状态：<br>被创建：start()<br>运行：具备执行资格，同时具备执行权；<br>冻结：sleep(time),wait()—notify()唤醒；线程释放了执行权，同时释放执行资格；<br>临时阻塞状态：线程具备cpu的执行资格，没有cpu的执行权；<br>消亡：stop()</p>
-<p>创建线程的第二种方式：实现一个接口Runnable。<br>步骤：<br>1，定义类实现Runnable接口。<br>2，覆盖接口中的run方法（用于封装线程要运行的代码）。<br>3，通过Thread类创建线程对象；<br>4，将实现了Runnable接口的子类对象作为实际参数传递给Thread类中的构造函数。<br>为什么要传递呢？因为要让线程对象明确要运行的run方法所属的对象。<br>5，调用Thread对象的start方法。开启线程，并运行Runnable接口子类中的run方法。<br>Ticket t = new Ticket();<br>        /<em><br>        直接创建Ticket对象，并不是创建线程对象。<br>        因为创建对象只能通过new Thread类，或者new Thread类的子类才可以。<br>        所以最终想要创建线程。既然没有了Thread类的子类，就只能用Thread类。
+<p>创建线程的第二种方式：实现一个接口Runnable。<br>步骤：<br>1，定义类实现Runnable接口。<br>2，覆盖接口中的run方法（用于封装线程要运行的代码）。<br>3，通过Thread类创建线程对象；<br>4，将实现了Runnable接口的子类对象作为实际参数传递给Thread类中的构造函数。<br>为什么要传递呢？因为要让线程对象明确要运行的run方法所属的对象。<br>5，调用Thread对象的start方法。开启线程，并运行Runnable接口子类中的run方法。<br>    Ticket t = new Ticket();<br>        /<em><br>        直接创建Ticket对象，并不是创建线程对象。<br>        因为创建对象只能通过new Thread类，或者new Thread类的子类才可以。<br>        所以最终想要创建线程。既然没有了Thread类的子类，就只能用Thread类。
         </em>/<br>        Thread t1 = new Thread(t); //创建线程。<br>        /<em><br>        只要将t作为Thread类的构造函数的实际参数传入即可完成线程对象和t之间的关联<br>        为什么要将t传给Thread类的构造函数呢？其实就是为了明确线程要运行的代码run方法。
         </em>/<br>        t1.start();</p>
 <h2 id="为什么要有Runnable接口的出现？">为什么要有Runnable接口的出现？</h2><p>1：通过继承Thread类的方式，可以完成多线程的建立。但是这种方式有一个局限性，如果一个类已经有了自己的父类，就不可以继承Thread类，因为java单继承的局限性。</p>
@@ -553,17 +709,14 @@
 <p>只有对该类进行额外的功能扩展，java就提供了一个接口Runnable。这个接口中定义了run方法，其实run方法的定义就是为了存储多线程要运行的代码。</p>
 <p>所以，通常创建线程都用第二种方式。<br>因为实现Runnable接口可以避免单继承的局限性。</p>
 <p>2：其实是将不同类中需要被多线程执行的代码进行抽取。将多线程要运行的代码的位置单独定义到接口中。为其他类进行功能扩展提供了前提。<br>所以Thread类在描述线程时，内部定义的run方法，也来自于Runnable接口。</p>
-<h2 id="实现Runnable接口可以避免单继承的局限性。而且，继承Thread，是可以对Thread类中的方法，进行子类复写的。但是不需要做这个复写动作的话，只为定义线程代码存放位置，实现Runnable接口更方便一些。所以Runnable接口将线程要执行的任务封装成了对象。">实现Runnable接口可以避免单继承的局限性。而且，继承Thread，是可以对Thread类中的方法，进行子类复写的。但是不需要做这个复写动作的话，只为定义线程代码存放位置，实现Runnable接口更方便一些。所以Runnable接口将线程要执行的任务封装成了对象。</h2><p>//面试<br>        new Thread(new Runnable(){  //匿名<br>            public void run(){<br>                System.out.println(“runnable run”);<br>            }<br>        })<br>        {<br>            public void run(){<br>                System.out.println(“subthread run”);<br>            }</p>
-<pre><code>}<span class="class">.start</span>();  <span class="comment">//结果：subthread run</span>
-</code></pre><hr>
-<p>Try {<br>Thread.sleep(10);<br>}catch(InterruptedException e){}// 当刻意让线程稍微停一下，模拟cpu    切换情况。</p>
+<h2 id="实现Runnable接口可以避免单继承的局限性。而且，继承Thread，是可以对Thread类中的方法，进行子类复写的。但是不需要做这个复写动作的话，只为定义线程代码存放位置，实现Runnable接口更方便一些。所以Runnable接口将线程要执行的任务封装成了对象。">实现Runnable接口可以避免单继承的局限性。而且，继承Thread，是可以对Thread类中的方法，进行子类复写的。但是不需要做这个复写动作的话，只为定义线程代码存放位置，实现Runnable接口更方便一些。所以Runnable接口将线程要执行的任务封装成了对象。</h2><p>//面试<br>        new Thread(new Runnable(){  //匿名<br>            public void run(){<br>                System.out.println(“runnable run”);<br>            }<br>        })<br>        {<br>            public void run(){<br>                System.out.println(“subthread run”);<br>            }<br>        }.start();  //结果：subthread run<br>    Try {<br>    Thread.sleep(10);<br>    }catch(InterruptedException e){}// 当刻意让线程稍微停一下，模拟cpu    切换情况。</p>
 <p>多线程安全问题的原因：</p>
 <p>通过图解：发现一个线程在执行多条语句时，并运算同一个数据时，在执行过程中，其他线程参与进来，并操作了这个数据。导致到了错误数据的产生。</p>
 <p>涉及到两个因素：</p>
 <p>1，多个线程在操作共享数据。<br>2，有多条语句对共享数据进行运算。<br>原因：这多条语句，在某一个时刻被一个线程执行时，还没有执行完，就被其他线程执行了。</p>
 <p>解决安全问题的原理：<br>只要将操作共享数据的语句在某一时段让一个线程执行完，在执行过程中，其他线程不能进来执行就可以解决这个问题。</p>
 <p>如何进行多句操作共享数据代码的封装呢？<br>java中提供了一个解决方式：就是同步代码块。<br>格式：<br>synchronized(对象) {  // 任意对象都可以。这个对象就是锁。<br>    需要被同步的代码；</p>
-<h2 id="}-10">}</h2><h1 id="同步：★★★★★">同步：★★★★★</h1><p>好处：解决了线程安全问题。</p>
+<h2 id="}">}</h2><h1 id="同步：★★★★★">同步：★★★★★</h1><p>好处：解决了线程安全问题。</p>
 <p>弊端：相对降低性能，因为判断锁需要消耗资源，产生了死锁。</p>
 <p>定义同步是有前提的：</p>
 <p>1，必须要有两个或者两个以上的线程，才需要同步。<br>2，多个线程必须保证使用的是同一个锁。</p>
@@ -571,8 +724,11 @@
 <p>同步函数是用的哪个锁呢？<br>通过验证，函数都有自己所属的对象this，所以同步函数所使用的锁就是this锁。</p>
 <p>当同步函数被static修饰时，这时的同步用的是哪个锁呢？<br>静态函数在加载时所属于类，这时有可能还没有该类产生的对象，但是该类的字节码文件加载进内存就已经被封装成了对象，这个对象就是该类的字节码文件对象。<br>所以静态加载时，只有一个对象存在，那么静态同步函数就使用的这个对象。<br>这个对象就是 类名.class</p>
 <p>同步代码块和同步函数的区别？<br>同步代码块使用的锁可以是任意对象。<br>同步函数使用的锁是this，静态同步函数的锁是该类的字节码文件对象。</p>
-<h2 id="在一个类中只有一个同步，可以使用同步函数。如果有多同步，必须使用同步代码块，来确定不同的锁。所以同步代码块相对灵活一些。">在一个类中只有一个同步，可以使用同步函数。如果有多同步，必须使用同步代码块，来确定不同的锁。所以同步代码块相对灵活一些。</h2><p>★考点问题：请写一个延迟加载的单例模式？写懒汉式；当出现多线程访问时怎么解决？加同步，解决安全问题；效率高吗？不高；怎样解决？通过双重判断的形式解决。<br>//懒汉式：延迟加载方式。<br>当多线程访问懒汉式时，因为懒汉式的方法内对共性数据进行多条语句的操作。所以容易出现线程安全问题。为了解决，加入同步机制，解决安全问题。但是却带来了效率降低。<br>为了效率问题，通过双重判断的形式解决。<br>class Single{<br>    private static Single s = null;<br>    private Single(){}<br>    public static Single getInstance(){ //锁是谁？字节码文件对象；<br>        if(s == null){<br>            synchronized(Single.class){<br>                if(s == null)<br>                    s = new Single();<br>            }<br>        }<br>        return s;<br>    }</p>
-<h2 id="}-11">}</h2><p>同步死锁：通常只要将同步进行嵌套，就可以看到现象。同步函数中有同步代码块，同步代码块中还有同步函数。</p>
+<h2 id="在一个类中只有一个同步，可以使用同步函数。如果有多同步，必须使用同步代码块，来确定不同的锁。所以同步代码块相对灵活一些。">在一个类中只有一个同步，可以使用同步函数。如果有多同步，必须使用同步代码块，来确定不同的锁。所以同步代码块相对灵活一些。</h2><p>★考点问题：请写一个延迟加载的单例模式？写懒汉式；当出现多线程访问时怎么解决？加同步，解决安全问题；效率高吗？不高；怎样解决？通过双重判断的形式解决。</p>
+<p>//懒汉式：延迟加载方式。<br>当多线程访问懒汉式时，因为懒汉式的方法内对共性数据进行多条语句的操作。所以容易出现线程安全问题。为了解决，加入同步机制，解决安全问题。但是却带来了效率降低。<br>为了效率问题，通过双重判断的形式解决。<br>    class Single{<br>        private static Single s = null;<br>        private Single(){}<br>        public static Single getInstance(){ //锁是谁？字节码文件对象；<br>            if(s == null){<br>                synchronized(Single.class){<br>                    if(s == null)<br>                        s = new Single();<br>                }<br>            }<br>            return s;<br>        }</p>
+<pre><code>}
+</code></pre><hr>
+<p>同步死锁：通常只要将同步进行嵌套，就可以看到现象。同步函数中有同步代码块，同步代码块中还有同步函数。</p>
 <p>线程间通信：思路：多个线程在操作同一个资源，但是操作的动作却不一样。<br>1：将资源封装成对象。<br>2：将线程执行的任务(任务其实就是run方法。)也封装成对象。</p>
 <p>等待唤醒机制：涉及的方法：<br>wait:将同步中的线程处于冻结状态。释放了执行权，释放了资格。同时将线程对象存储到线程池中。<br>notify：唤醒线程池中某一个等待线程。<br>notifyAll:唤醒的是线程池中的所有线程。</p>
 <p>注意：<br>1：这些方法都需要定义在同步中。<br>2：因为这些方法必须要标示所属的锁。<br>    你要知道 A锁上的线程被wait了,那这个线程就相当于处于A锁的线程池中，只能A锁的notify唤醒。<br>3：这三个方法都定义在Object类中。为什么操作线程的方法定义在Object类中？<br>    因为这三个方法都需要定义同步内，并标示所属的同步锁，既然被锁调用，而锁又可以是任意对象，那么能被任意对象调用的方法一定定义在Object类中。</p>
@@ -584,8 +740,44 @@
 <p>所以同步是隐示的锁操作，而Lock对象是显示的锁操作，它的出现就替代了同步。</p>
 <p>在之前的版本中使用Object类中wait、notify、notifyAll的方式来完成的。那是因为同步中的锁是任意对象，所以操作锁的等待唤醒的方法都定义在Object类中。</p>
 <p>而现在锁是指定对象Lock。所以查找等待唤醒机制方式需要通过Lock接口来完成。而Lock接口中并没有直接操作等待唤醒的方法，而是将这些方式又单独封装到了一个对象中。这个对象就是Condition，将Object中的三个方法进行单独的封装。并提供了功能一致的方法 await()、signal()、signalAll()体现新版本对象的好处。</p>
-<h2 id="&lt;_java-util-concurrent-locks_&gt;_Condition接口：await()、signal()、signalAll()；">&lt; java.util.concurrent.locks &gt; Condition接口：await()、signal()、signalAll()；</h2><p>class BoundedBuffer {<br>   final Lock lock = new ReentrantLock();<br>   final Condition notFull  = lock.newCondition();<br>   final Condition notEmpty = lock.newCondition();<br>   final Object[] items = new Object[100];<br>   int putptr, takeptr, count;<br>   public void put(Object x) throws InterruptedException {<br>     lock.lock();<br>     try {<br>       while (count == items.length)<br>         notFull.await();<br>       items[putptr] = x;<br>       if (++putptr == items.length) putptr = 0;<br>       ++count;<br>       notEmpty.signal();<br>     }<br>    finally {<br>       lock.unlock();<br>     }<br>   }<br>   public Object take() throws InterruptedException {<br>     lock.lock();<br>     try {<br>       while (count == 0)<br>         notEmpty.await();<br>       Object x = items[takeptr];<br>       if (++takeptr == items.length) takeptr = 0;<br>       —count;<br>       notFull.signal();<br>       return x;<br>     }<br>finally {<br>       lock.unlock();<br>     }<br>   } </p>
-<h2 id="}-12"> }</h2><h1 id="API：（Application_Programming_Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件的以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。">API：（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件的以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</h1><p>—&lt; java.lang &gt;— String字符串：★★★☆<br>java中用String类进行描述。对字符串进行了对象的封装。这样的好处是可以对字符串这种常见数据进行方便的操作。对象封装后，可以定义N多属性和行为。</p>
+<h2 id="&lt;_java-util-concurrent-locks_&gt;_Condition接口：await()、signal()、signalAll()；">&lt; java.util.concurrent.locks &gt; Condition接口：await()、signal()、signalAll()；</h2><pre><code><span class="keyword">class</span> <span class="title">BoundedBuffer</span> {
+   final Lock <span class="keyword">lock</span> = <span class="keyword">new</span> ReentrantLock();
+   final Condition notFull  = <span class="keyword">lock</span>.newCondition(); 
+   final Condition notEmpty = <span class="keyword">lock</span>.newCondition(); 
+   final Object[] items = <span class="keyword">new</span> Object[<span class="number">100</span>];
+   <span class="keyword">int</span> putptr, takeptr, count;
+   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span>(<span class="params">Object x</span>) throws InterruptedException </span>{
+     <span class="keyword">lock</span>.<span class="keyword">lock</span>();
+     <span class="keyword">try</span> {
+       <span class="keyword">while</span> (count == items.length) 
+         notFull.await();
+       items[putptr] = x; 
+       <span class="keyword">if</span> (++putptr == items.length) putptr = <span class="number">0</span>;
+       ++count;
+       notEmpty.signal();
+     } 
+    <span class="keyword">finally</span> {
+       <span class="keyword">lock</span>.unlock();
+     }
+   }
+   <span class="function"><span class="keyword">public</span> Object <span class="title">take</span>(<span class="params"></span>) throws InterruptedException </span>{
+     <span class="keyword">lock</span>.<span class="keyword">lock</span>();
+     <span class="keyword">try</span> {
+       <span class="keyword">while</span> (count == <span class="number">0</span>) 
+         notEmpty.await();
+       Object x = items[takeptr]; 
+       <span class="keyword">if</span> (++takeptr == items.length) takeptr = <span class="number">0</span>;
+       --count;
+       notFull.signal();
+       <span class="keyword">return</span> x;
+     } 
+<span class="keyword">finally</span> {
+       <span class="keyword">lock</span>.unlock();
+     }
+   } 
+ }
+</code></pre><hr>
+<h1 id="API：（Application_Programming_Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件的以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。">API：（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件的以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</h1><p>—&lt; java.lang &gt;— String字符串：★★★☆<br>java中用String类进行描述。对字符串进行了对象的封装。这样的好处是可以对字符串这种常见数据进行方便的操作。对象封装后，可以定义N多属性和行为。</p>
 <p>如何定义字符串对象呢？String s = “abc”;只要是双引号引起的数据都是字符串对象。</p>
 <h2 id="特点：字符串一旦被初始化，就不可以被改变，存放在方法区中的常量池中。">特点：字符串一旦被初始化，就不可以被改变，存放在方法区中的常量池中。</h2><p>String s1 = “abc”; // s1指向的内存中只有一个对象abc。<br>String s2 = new String(“abc”); // s2指向的内容中有两个对象abc、new 。</p>
 <p>System.out.println(s1==s2);//false</p>
@@ -643,21 +835,29 @@ sb.replace<span class="params">(<span class="number">0</span>,<span class="numbe
 </code></pre><p>//想要使用缓冲区，先要建立对象。<br>        StringBuffer sb = new StringBuffer();<br>        sb.append(12).append(“haha”);//方法调用链。<br>        String s = “abc”+4+’q’;</p>
 <pre><code>s = <span class="built_in">new</span> StringBuffer().<span class="built_in">append</span>(<span class="string">"abc"</span>).<span class="built_in">append</span>(<span class="number">4</span>).<span class="built_in">append</span>(<span class="string">'q'</span>).toString();
 </code></pre><hr>
-<p>class  Test{<br>    public static void main(String[] args) {<br>        String s1 = “java”;<br>        String s2 = “hello”;<br>        method_1(s1,s2);<br>        System.out.println(s1+”….”+s2); //java….hello</p>
-<pre><code>    <span class="keyword">StringBuilder </span><span class="literal">s11</span> = new <span class="keyword">StringBuilder("java");
-</span>    <span class="keyword">StringBuilder </span><span class="literal">s22</span> = new <span class="keyword">StringBuilder("hello");
-</span>    method_2(<span class="literal">s11</span>,<span class="literal">s22</span>)<span class="comment">;</span>
-    System.out.println(<span class="literal">s11</span>+<span class="string">"-----"</span>+<span class="literal">s22</span>)<span class="comment">; //javahello-----hello</span>
+<pre><code><span class="label">class</span>  Test{
+    public static void main(<span class="keyword">String[] </span>args) {
+        <span class="keyword">String </span><span class="literal">s1</span> = <span class="string">"java"</span><span class="comment">;</span>
+        <span class="keyword">String </span><span class="literal">s2</span> = <span class="string">"hello"</span><span class="comment">;</span>
+        method_1(<span class="literal">s1</span>,<span class="literal">s2</span>)<span class="comment">;</span>
+        System.out.println(<span class="literal">s1</span>+<span class="string">"...."</span>+<span class="literal">s2</span>)<span class="comment">; //java....hello</span>
+
+        <span class="keyword">StringBuilder </span><span class="literal">s11</span> = new <span class="keyword">StringBuilder("java");
+</span>        <span class="keyword">StringBuilder </span><span class="literal">s22</span> = new <span class="keyword">StringBuilder("hello");
+</span>        method_2(<span class="literal">s11</span>,<span class="literal">s22</span>)<span class="comment">;</span>
+        System.out.println(<span class="literal">s11</span>+<span class="string">"-----"</span>+<span class="literal">s22</span>)<span class="comment">; //javahello-----hello</span>
+    }
+    public static void method_1(<span class="keyword">String </span><span class="literal">s1</span>,<span class="keyword">String </span><span class="literal">s2</span>){
+        <span class="literal">s1</span>.replace(<span class="string">'a'</span>,<span class="string">'k'</span>)<span class="comment">;</span>
+        <span class="literal">s1</span> = <span class="literal">s2</span><span class="comment">;</span>
+    }
+    public static void method_2(<span class="keyword">StringBuilder </span><span class="literal">s1</span>,<span class="keyword">StringBuilder </span><span class="literal">s2</span>){
+        <span class="literal">s1</span>.append(<span class="literal">s2</span>)<span class="comment">;</span>
+        <span class="literal">s1</span> = <span class="literal">s2</span><span class="comment">;</span>
+    }
 }
-<span class="label">public</span> static void method_1(<span class="keyword">String </span><span class="literal">s1</span>,<span class="keyword">String </span><span class="literal">s2</span>){
-    <span class="literal">s1</span>.replace(<span class="string">'a'</span>,<span class="string">'k'</span>)<span class="comment">;</span>
-    <span class="literal">s1</span> = <span class="literal">s2</span><span class="comment">;</span>
-}
-<span class="label">public</span> static void method_2(<span class="keyword">StringBuilder </span><span class="literal">s1</span>,<span class="keyword">StringBuilder </span><span class="literal">s2</span>){
-    <span class="literal">s1</span>.append(<span class="literal">s2</span>)<span class="comment">;</span>
-    <span class="literal">s1</span> = <span class="literal">s2</span><span class="comment">;</span>
-}
-</code></pre><h2 id="}-13">}</h2><p>基本数据类型对象包装类：是按照面向对象思想将基本数据类型封装成了对象。<br>好处：<br>1：可以通过对象中的属性和行为操作基本数据。<br>2：可以实现基本数据类型和字符串之间的转换。</p>
+</code></pre><hr>
+<p>基本数据类型对象包装类：是按照面向对象思想将基本数据类型封装成了对象。<br>好处：<br>1：可以通过对象中的属性和行为操作基本数据。<br>2：可以实现基本数据类型和字符串之间的转换。</p>
 <p>关键字   对应的类名<br>byte      Byte<br>short      Short     paserShort(numstring);<br>int      Integer   静态方法：parseInt(numstring)<br>long      Long<br>float      Float<br>double    Double<br>char      Character<br>Boolean   Boolean</p>
 <p>基本数据类型对象包装类：都有 XXX parseXXX 方法</p>
 <h2 id="只有一个类型没有parse方法：Character_；">只有一个类型没有parse方法：Character ；</h2><h1 id="Integer对象：_★★★☆">Integer对象： ★★★☆</h1><p>数字格式的字符串转成基本数据类型的方法：</p>
@@ -849,12 +1049,12 @@ iter = entrys.<span class="keyword">iterator</span>(); // <span class="number">2
 <p>泛型技术：其实应用在编译时期，是给编译器使用的技术，到了运行时期，泛型就不存在了。<br>为什么? 因为泛型的擦除：也就是说，编辑器检查了泛型的类型正确后，在生成的类文件中是没有泛型的。<br>在运行时，如何知道获取的元素类型而不用强转呢？<br>泛型的补偿：因为存储的时候，类型已经确定了是同一个类型的元素，所以在运行时，只要获取到该元素的类型，在内部进行一次转换即可，所以使用者不用再做转换动作了。</p>
 <p>什么时候用泛型类呢？</p>
 <h2 id="当类中的操作的引用数据类型不确定的时候，以前用的Object来进行扩展的，现在可以用泛型来表示。这样可以避免强转的麻烦，而且将运行问题转移到的编译时期。">当类中的操作的引用数据类型不确定的时候，以前用的Object来进行扩展的，现在可以用泛型来表示。这样可以避免强转的麻烦，而且将运行问题转移到的编译时期。</h2><p>泛型在程序定义上的体现：<br>//泛型类：将泛型定义在类上。<br>class Tool<q> {<br>    private Q obj;<br>    public  void setObject(Q obj) {<br>        this.obj = obj;<br>    }<br>    public Q getObject() {<br>        return obj;<br>    }<br>}<br>//当方法操作的引用数据类型不确定的时候，可以将泛型定义在方法上。<br>    public <w> void method(W w) {<br>        System.out.println(“method:”+w);<br>    }<br>//静态方法上的泛型：静态方法无法访问类上定义的泛型。如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。<br>    public static <q> void function(Q t) {<br>        System.out.println(“function:”+t);<br>    }<br>//泛型接口.<br>interface Inter<t> {<br>    void show(T t);<br>}<br>class InterImpl<r> implements Inter<r> {<br>    public void show(R r) {<br>        System.out.println(“show:”+r);<br>    }</r></r></t></q></w></q></p>
-<h2 id="}-14">}</h2><p>泛型中的通配符：可以解决当具体类型不确定的时候，这个通配符就是 ?  ；当操作类型时，不需要使用类型的具体功能时，只使用Object类中的功能。那么可以用 ? 通配符来表未知类型。</p>
+<h2 id="}-1">}</h2><p>泛型中的通配符：可以解决当具体类型不确定的时候，这个通配符就是 ?  ；当操作类型时，不需要使用类型的具体功能时，只使用Object类中的功能。那么可以用 ? 通配符来表未知类型。</p>
 <p>泛型限定：<br>    上限：？extends E：可以接收E类型或者E的子类型对象。<br>    下限：？super E：可以接收E类型或者E的父类型对象。</p>
 <p>上限什么时候用：往集合中添加元素时，既可以添加E类型对象，又可以添加E的子类型对象。为什么？因为取的时候，E类型既可以接收E类对象，又可以接收E的子类型对象。</p>
 <p>下限什么时候用：当从集合中获取元素进行操作的时候，可以用当前元素的类型接收，也可以用当前元素的父类型接收。</p>
 <p>泛型的细节：<br>1）、泛型到底代表什么类型取决于调用者传入的类型，如果没传，默认是Object类型；<br>2）、使用带泛型的类创建对象时，等式两边指定的泛型必须一致；<br>    原因：编译器检查对象调用方法时只看变量，然而程序运行期间调用方法时就要考虑对象具体类型了；<br>3）、等式两边可以在任意一边使用泛型，在另一边不使用(考虑向后兼容)；<br>ArrayList<string> al = new ArrayList<object>();  //错<br>//要保证左右两边的泛型具体类型一致就可以了，这样不容易出错。<br>ArrayList&lt;? extends Object&gt; al = new ArrayList<string>();<br>al.add(“aa”);  //错<br>//因为集合具体对象中既可存储String，也可以存储Object的其他子类，所以添加具体的类型对象不合适，类型检查会出现安全问题。 ？extends Object 代表Object的子类型不确定，怎么能添加具体类型的对象呢？<br>public static void method(ArrayList&lt;? extends Object&gt; al) {<br>al.add(“abc”);  //错<br>    //只能对al集合中的元素调用Object类中的方法，具体子类型的方法都不能用，因为子类型不确定。</string></object></string></p>
-<h2 id="}-15">}</h2><p>API—- java.lang.System: 属性和行为都是静态的。<br>long currentTimeMillis(); // 返回当前时间毫秒值<br>exit();  // 退出虚拟机<br>Properties getProperties() ;  // 获取当前系统的属性信息</p>
+<h2 id="}-2">}</h2><p>API—- java.lang.System: 属性和行为都是静态的。<br>long currentTimeMillis(); // 返回当前时间毫秒值<br>exit();  // 退出虚拟机<br>Properties getProperties() ;  // 获取当前系统的属性信息</p>
 <p>Properties prop = System.getProperties(); //获取系统的属性信息，并将这些信息存储到Properties集合中。 </p>
 <p>System.setProperty(“myname”,”毕老师”); //给系统属性信息集添加具体的属性信息<br>//临时设置方式：运行jvm时，可以通过jvm的参数进行系统属性的临时设置，可以在java命令的后面加入 –D<name>=<value>  用法：java –Dmyname=小明 类名。</value></name></p>
 <p>String name = System.getProperty(“os.name”);//获取指定属性的信息</p>
@@ -959,7 +1159,7 @@ iter = entrys.<span class="keyword">iterator</span>(); // <span class="number">2
 <pre><code>}
 </code></pre><hr>
 <p>读取数据的第二种方式：第二种方式较为高效，自定义缓冲区。<br>import java.io.*;<br>class FileReaderDemo2 {<br>    public static void main(String[] args) throws IOException {<br>        FileReader fr = new FileReader(“demo.txt”); //创建读取流对象和指定文件关联。<br>        //因为要使用read(char[])方法，将读取到字符存入数组。所以要创建一个字符数组，一般数组的长度都是1024的整数倍。<br>        char[] buf = new char[1024];<br>        int len = 0;<br>        while(( len=fr.read(buf)) != -1) {<br>            System.out.println(new String(buf,0,len));<br>        }<br>        fr.close();<br>    }</p>
-<h2 id="}-16">}</h2><p>IO中的使用到了一个设计模式：装饰设计模式。<br>装饰设计模式解决：对一组类进行功能的增强。</p>
+<h2 id="}-3">}</h2><p>IO中的使用到了一个设计模式：装饰设计模式。<br>装饰设计模式解决：对一组类进行功能的增强。</p>
 <p>包装：写一个类(包装类)对被包装对象进行包装；</p>
 <ul>
 <li>1、包装类和被包装对象要实现同样的接口；</li>
