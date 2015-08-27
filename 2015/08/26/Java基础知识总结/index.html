@@ -386,19 +386,19 @@
 <p>元素类型[] 变量名 = new 元素类型[]{元素1，元素2…}；</p>
 <pre><code><span class="comment">//二分查找法。必须有前提：数组中的元素要有序。 </span>
 <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> halfSeach_2(<span class="built_in">int</span>[] arr,<span class="built_in">int</span> <span class="variable">key</span>){
-    <span class="built_in">int</span> <span class="built_in">min</span>,<span class="built_in">max</span>,mid;
-    <span class="built_in">min</span> = <span class="number">0</span>;
-    <span class="built_in">max</span> = arr.length-<span class="number">1</span>;
-    mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>; <span class="comment">//(max+min)/2;</span>
-    <span class="keyword">while</span>(arr[mid]!=<span class="variable">key</span>){
-        <span class="keyword">if</span>(<span class="variable">key</span>&gt;arr[mid]){
-            <span class="built_in">min</span> = mid + <span class="number">1</span>;
-        }
-        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">key</span>&lt;arr[mid])
-            <span class="built_in">max</span> = mid - <span class="number">1</span>;
-        <span class="keyword">if</span>(<span class="built_in">max</span>&lt;<span class="built_in">min</span>)
-            <span class="keyword">return</span> -<span class="number">1</span>;
-        mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>;    
+<span class="built_in">int</span> <span class="built_in">min</span>,<span class="built_in">max</span>,mid;
+<span class="built_in">min</span> = <span class="number">0</span>;
+<span class="built_in">max</span> = arr.length-<span class="number">1</span>;
+mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>; <span class="comment">//(max+min)/2;</span>
+<span class="keyword">while</span>(arr[mid]!=<span class="variable">key</span>){
+    <span class="keyword">if</span>(<span class="variable">key</span>&gt;arr[mid]){
+        <span class="built_in">min</span> = mid + <span class="number">1</span>;
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">key</span>&lt;arr[mid])
+        <span class="built_in">max</span> = mid - <span class="number">1</span>;
+    <span class="keyword">if</span>(<span class="built_in">max</span>&lt;<span class="built_in">min</span>)
+        <span class="keyword">return</span> -<span class="number">1</span>;
+    mid = (<span class="built_in">max</span>+<span class="built_in">min</span>)&gt;&gt;<span class="number">1</span>;    
     }
     <span class="keyword">return</span> mid;
 }
