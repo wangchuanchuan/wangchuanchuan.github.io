@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2015 | 王传传</title>
+  <title>2016.8.28华为校园招聘(武汉长沙) | 王传传</title>
   <meta name="author" content="Chuanchuan Wang">
   
   <meta name="description" content="Walk steps step by step">
@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="2016.8.28华为校园招聘(武汉长沙)"/>
   <meta property="og:site_name" content="王传传"/>
 
   
@@ -204,73 +204,245 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2015</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-28T04:33:25.000Z"><a href="/2015/08/28/2016华为校园招聘-武汉长沙机试/">2015-08-28</a></time>
-            
-              <h1 class="title"><a href="/2015/08/28/2016华为校园招聘-武汉长沙机试/">2016.8.28华为校园招聘(武汉长沙)</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-26T11:23:59.000Z"><a href="/2015/08/26/Java基础知识总结/">2015-08-26</a></time>
-            
-              <h1 class="title"><a href="/2015/08/26/Java基础知识总结/">Java基础知识总结</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-25T02:39:00.000Z"><a href="/2015/08/25/开发类简历模板/">2015-08-25</a></time>
-            
-              <h1 class="title"><a href="/2015/08/25/开发类简历模板/">开发类应届生简历模板</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-18T02:39:50.000Z"><a href="/2015/08/18/北京上海互联网企业总汇/">2015-08-18</a></time>
-            
-              <h1 class="title"><a href="/2015/08/18/北京上海互联网企业总汇/">北上广深等地互联网企业总汇</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-16T14:26:22.000Z"><a href="/2015/08/16/排序算法总结/">2015-08-16</a></time>
-            
-              <h1 class="title"><a href="/2015/08/16/排序算法总结/">排序算法总结</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-28T04:33:25.000Z"><a href="/2015/08/28/2016华为校园招聘-武汉长沙机试/">2015-08-28</a></time>
+      
+      
+  
+    <h1 class="title">2016.8.28华为校园招聘(武汉长沙)</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="http://pic.ffsky.net/images/2015/08/28/50c9d01a19870024b7371c8043f79bbe.png" alt=""></p>
+<h1 id="第一题_出租车计费">第一题 出租车计费</h1><p><img src="http://pic.ffsky.net/images/2015/08/28/63e1936d61aeba4077ea87f4c9193930.png" alt=""></p>
+<blockquote>
+<p><strong>C++代码实现如下：</strong></p>
+</blockquote>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;iomanip&gt;</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+
+<span class="function"><span class="keyword">float</span> <span class="title">mile_m</span><span class="params">(<span class="keyword">float</span> mile,<span class="keyword">float</span> money)</span> <span class="comment">//里程计费函数</span>
+</span>{
+    <span class="keyword">if</span>(mile&lt;=<span class="number">7</span>)
+    {
+        <span class="keyword">int</span> n = (mile-<span class="number">2</span>)/<span class="number">0.5</span>;
+        money = <span class="number">6</span> + <span class="number">0.7</span>*n;
+    }
+    <span class="keyword">else</span>
+    {
+        <span class="keyword">int</span> n = (mile-<span class="number">7</span>)/<span class="number">0.5</span> ;
+        money = <span class="number">6</span> + (<span class="number">7.0</span>-<span class="number">2.0</span>)/<span class="number">0.5</span>*<span class="number">0.7</span> + n*<span class="number">0.7</span> + <span class="keyword">int</span>(mile-<span class="number">7</span>)*<span class="number">0.7</span>;    
+    }
+    <span class="keyword">return</span> money;
+}
+
+<span class="function"><span class="keyword">float</span> <span class="title">time_m</span><span class="params">(<span class="keyword">int</span> time,<span class="keyword">float</span> money)</span>  <span class="comment">//时间计费函数</span>
+</span>{
+    <span class="keyword">int</span>  n = ((<span class="keyword">float</span>)(time -<span class="number">10</span>))/<span class="number">3</span>;
+    money = <span class="number">6</span> + <span class="number">1.4</span>*n;
+    <span class="keyword">return</span> money;
+}
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">float</span> Mile;
+    <span class="keyword">int</span> time;
+    <span class="built_in">cin</span>&gt;&gt;Mile;
+    <span class="built_in">cin</span>&gt;&gt;time;
+    <span class="keyword">if</span>(Mile&lt;=<span class="number">2</span>&amp;&amp;time&lt;<span class="number">10</span>)
+    {
+        <span class="built_in">cout</span>&lt;&lt;<span class="string">"6"</span>&lt;&lt;endl;
+    }
+    <span class="keyword">else</span>
+    {
+        <span class="keyword">float</span> m_money=<span class="number">0</span>,t_money=<span class="number">0</span>;
+        m_money = mile_m(Mile,m_money);
+        t_money = time_m(time,t_money);
+        <span class="keyword">if</span>(m_money&gt;t_money)
+        {
+            <span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">1</span>)&lt;&lt;m_money&lt;&lt;endl;
+        }
+        <span class="keyword">else</span>
+            <span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">1</span>)&lt;&lt;t_money&lt;&lt;endl;
+    }
+    system(<span class="string">"pause"</span>);
+}
+</code></pre><blockquote>
+<p><strong>测试结果暑促如下：</strong></p>
+</blockquote>
+<p><img src="http://pic.ffsky.net/images/2015/08/28/ef38a8cc78017d41ce165d7ed8a0bacf.png" alt=""></p>
+<h1 id="第二题_计算单词数目">第二题 计算单词数目</h1><p><img src="http://pic.ffsky.net/images/2015/08/28/ef309f3c3cb4ead706da106ef0deb69f.png" alt=""></p>
+<blockquote>
+<p><strong>C++代码实现如下：</strong></p>
+</blockquote>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
+    <span class="built_in">string</span> s;
+    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;s){
+        <span class="keyword">int</span> cnt=<span class="number">0</span>;
+        <span class="keyword">int</span> n=s.size();
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++){
+            <span class="keyword">if</span>(s[i] == <span class="string">'h'</span>){
+                <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++){
+                    <span class="keyword">if</span>(s[j]==<span class="string">'u'</span>){
+                        <span class="keyword">for</span>(<span class="keyword">int</span> k=j+<span class="number">1</span>;k&lt;n;k++){
+                            <span class="keyword">if</span>(s[k]==<span class="string">'a'</span>)
+                                cnt++;
+                        }
+
+                    }
+                }
+            }
+        }
+        <span class="built_in">cout</span>&lt;&lt;cnt&lt;&lt;endl;
+    }
+}
+</code></pre><blockquote>
+<p><strong>测试结果输出如下：</strong></p>
+</blockquote>
+<p><img src="http://pic.ffsky.net/images/2015/08/28/c8a6a0dea50e411e8f49c63cee00e7c3.png" alt=""></p>
+<h1 id="第三题_字符串大小写转换逆序输出">第三题 字符串大小写转换逆序输出</h1><blockquote>
+<p><strong>描述:</strong>  给定一个只包含字母的字符串，将其大写字母转换成小写字母，小写字母转换成大写字母，最后拼接在一起倒着输出 运行时间限制: 1 Sec 内存限制: 无限制 输入:   输入内容只存在若干个字符串，只包含字<br> 母，每个字符串之间以空格隔开，所有输入内容的总长度不超过255。 </p>
+<p><strong>输出:</strong>   输出一个字符串，开头无空格，结尾换行 </p>
+</blockquote>
+<p> <strong>样例输入:</strong>  UOY EVOL I </p>
+<p> <strong>样例输出:</strong> iloveyou</p>
+<blockquote>
+<p><strong>C代码实现如下：</strong></p>
+</blockquote>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;string.h&gt; </span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;ctype.h&gt;</span>
+<span class="preprocessor">#<span class="keyword">include</span> &lt;malloc.h&gt; </span>
+
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">int</span> i = <span class="number">0</span>;
+    <span class="keyword">int</span> j = <span class="number">0</span>;
+    <span class="keyword">char</span> ss[<span class="number">256</span>] = { <span class="string">'\0'</span> };
+    <span class="keyword">int</span> len;
+    <span class="keyword">char</span> *p; <span class="comment">// char tmp;  </span>
+    gets(ss);
+    len = <span class="built_in">strlen</span>(ss);   <span class="comment">//字符串长度   </span>
+    p = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(len + <span class="number">1</span>);  <span class="comment">//申请空间     </span>
+    <span class="keyword">for</span> (i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)  <span class="comment">//从最后一个开始处理  </span>
+    {
+        <span class="keyword">if</span> (<span class="built_in">isupper</span>(ss[i]))  <span class="comment">//大写字母 </span>
+        {
+            *(p + j) = ss[i] + (<span class="string">'a'</span> - <span class="string">'A'</span>);
+            j++;
+        }
+        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">islower</span>(ss[i]))
+        {
+            *(p + j) = ss[i] - (<span class="string">'a'</span> - <span class="string">'A'</span>);
+            j++;
+        }
+    }
+    *(p + j) = <span class="string">'\0'</span>;
+    <span class="built_in">printf</span>(<span class="string">"%s\r\n"</span>, p);
+    <span class="built_in">free</span>(p);
+}
+</code></pre><blockquote>
+<p><strong>测试结果输出如下：</strong></p>
+</blockquote>
+<p><img src="http://pic.ffsky.net/images/2015/08/28/5d5335e9289ab57e06c496431beb5f31.png" alt=""></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/校园招聘/">校园招聘</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/武汉长沙华为，校园招聘/">武汉长沙华为，校园招聘</a>
+  </div>
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2015/08/26/Java基础知识总结/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+<section id="comment">
+<!-- 多说评论框 start -->
+	<!-- <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div> -->
+	<div class="ds-thread" data-thread-key="post.path" data-title="post.title" data-url="post.permalink"></div> 
+<!-- 多说评论框 end -->
+<ul class="ds-recent-visitors"></ul>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wangchuanchuan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
