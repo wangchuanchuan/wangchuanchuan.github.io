@@ -1,3 +1,2 @@
-# wangchuanchuan.github.io
 
-##My persional blog.
+My personal blog.
