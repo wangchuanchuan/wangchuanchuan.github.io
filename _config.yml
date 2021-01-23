@@ -270,18 +270,18 @@ comments_provider: gitalk
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 disqus:
-  username: fuzhengwei
+  username: wangchuanchuan
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-  owner: fuzhengwei
-  repo: fuzhengwei.github.io
+  owner: wangchuanchuan
+  repo: wangchuanchuan.github.io
   oauth:
     client_id: df8beab2190bec20352a
     client_secret: 7eeeb4369d699c933f02a026ae8bb1e2a9c80e90
 # https://github.com/gitalk/gitalk#install
 gitalk:
-  owner: fuzhengwei
-  repo: fuzhengwei.github.io
+  owner: wangchuanchuan
+  repo: wangchuanchuan.github.io
   clientID: df8beab2190bec20352a
   clientSecret: 7eeeb4369d699c933f02a026ae8bb1e2a9c80e90
 # 在使用其它评论组件时可点击显示 Disqus
