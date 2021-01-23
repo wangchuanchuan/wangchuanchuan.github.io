@@ -94,39 +94,120 @@ navs:
         subLabel: Drools·规则引擎
   -
     href: /itstack-demo-netty/itstack-demo-netty.html
-    label: Netty4.x专题
+    label: Linux后台工程师专题
     target: _self
     subnav:
       -
         subHref: /itstack-demo-netty/itstack-demo-netty-1.html
-        subLabel: 基础入门篇
+        subLabel: 算法设计专题
       -
         subHref: /itstack-demo-netty/itstack-demo-netty-2.html
-        subLabel: 中级拓展篇
+        subLabel: 后台组件编程
       -
         subHref: /itstack-demo-netty/itstack-demo-netty-3.html
-        subLabel: 高级应用篇
+        subLabel: 代码工程优化
       -
         subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: 源码分析篇
+        subLabel: 网络服务专题
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: 开源框架专题
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: 性能测试专题
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: Linux系统专题
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: 互联网云盘实战
 
   -
     href: /
-    label: 架构师专题
+    label: Linux高级互联网架构师
     target: _self
     subnav:
       -
         subHref: /itstack-ark-middleware/itstack-ark-middleware.html
-        subLabel: 中间件开发
+        subLabel: 源码分析专题
       -
         subHref: /itstack-demo-agent/itstack-demo-agent.html
-        subLabel: 调用链路监控
+        subLabel: 中间件开发专题
       -
         subHref: /itstack-demo-ddd/itstack-demo-ddd.html
-        subLabel: 领域驱动设计
+        subLabel: 集群开发专题
       -
         subHref: /itstack-demo-frame/itstack-demo-frame.html
-        subLabel: 架构框架搭建
+        subLabel: 性能测试专题
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 运维统计专题
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 分布式架构专题
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: IM实时流媒体实战
+        -
+        
+    href: /
+    label: 挑战网络性能极限DPDK专栏
+    target: _self
+    subnav:
+      -
+        subHref: /itstack-ark-middleware/itstack-ark-middleware.html
+        subLabel: 认知DPDK
+      -
+        subHref: /itstack-demo-agent/itstack-demo-agent.html
+        subLabel: Cache和内存
+      -
+        subHref: /itstack-demo-ddd/itstack-demo-ddd.html
+        subLabel: 并行计算
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 同步互斥机制
+        -
+    href: /
+    label: 全方位分析Linux内核
+    target: _self
+    subnav:
+      -
+        subHref: /itstack-ark-middleware/itstack-ark-middleware.html
+        subLabel: 进程管理和调度
+      -
+        subHref: /itstack-demo-agent/itstack-demo-agent.html
+        subLabel: 内存管理
+      -
+        subHref: /itstack-demo-ddd/itstack-demo-ddd.html
+        subLabel: 进程虚拟内存
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 设备驱动程序
+      -
+        subHref: /itstack-demo-ddd/itstack-demo-ddd.html
+        subLabel: 系统调用
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 页面回收和页面交互
+        href: /
+    label: 音视频技术专题
+    target: _self
+    subnav:
+      -
+        subHref: /itstack-ark-middleware/itstack-ark-middleware.html
+        subLabel: 音视频基础入门
+      -
+        subHref: /itstack-demo-agent/itstack-demo-agent.html
+        subLabel: FFMPEG命令实战
+      -
+        subHref: /itstack-demo-ddd/itstack-demo-ddd.html
+        subLabel: FFMPEG编程实战
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: 流媒体实战
+      -
+        subHref: /itstack-demo-frame/itstack-demo-frame.html
+        subLabel: WEBRTC实战
 
   -
     href: /archives.html
