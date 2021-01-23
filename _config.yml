@@ -6,19 +6,19 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title:  bugstack虫洞栈 v1.5.7 | 沉淀、分享、成长，让自己和他人都能有所收获
+title:  高性能服务架构 v1.0.0 | 沉淀、分享、成长，让自己和他人都能有所收获
 subtitle: 沉淀、分享、成长，让自己和他人都能有所收获
-name: bugstack虫洞栈
-email: 184172133@qq.com
+name: 高性能服务架构
+email: wchuanc@126.com
 description: 沉淀、分享、成长，专注于原创专题案例，以最易学习编程的方式分享知识，让自己和他人都能有所收获。目前已完成的专题有；Netty4.x实战专题案例、用Java实现JVM、基于JavaAgent的全链路监控、手写RPC框架、DDD专题案例等。
 keywords: Java,Java教程,程序人生,程序员,前端,Web,全栈
 encoding: "utf-8"
 favicon: favicon.ico 
 
-repository: fuzhengwei/fuzhengwei.github.io
-github_url: https://github.com/fuzhengwei
-url: https://bugstack.cn
-enforce_ssl: bugstack.cn
+repository: wangchuanchuan/wangchuanchuan.github.io
+github_url: https://github.com/wangchuanchuan
+url: https://wchuanc.cn
+enforce_ssl: wchuanc.cn
 
 ## Gem
 plugins:
@@ -79,7 +79,7 @@ navs:
     label: 首页
 
   - href: /
-    label: Java/Spring
+    label: C/C++/GO
     target: _self
     subnav:
       - subHref: /itstack-demo-any/itstack-demo-any.html
