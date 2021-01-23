@@ -85,13 +85,13 @@ navs:
       - subHref: /itstack-demo-any/itstack-demo-any.html
         subLabel: 编程基础
       - subHref: /itstack-demo-algorithm/itstack-demo-algorithm.html
-        subLabel: 野路子搞算法
+        subLabel: 算法与数据结构
       - subHref: /itstack-demo-springcloud/itstack-demo-springcloud.html
-        subLabel: Spring Cloud
+        subLabel: C++ 11
       - subHref: /itstack-demo-jvm/itstack-demo-jvm.html
         subLabel: 用Java实现JVM
       - subHref: /itstack-demo-drools/itstack-demo-drools.html
-        subLabel: Drools·规则引擎
+        subLabel: Golang DevOps项目
   -
     href: /itstack-demo-netty/itstack-demo-netty.html
     label: Linux后台工程师专题
@@ -231,12 +231,12 @@ classes:
 
   -
     href: /itstack-demo-netty/itstack-demo-netty.html
-    name: Netty4.x专题案例
+    name: IM实时流媒体案例
     describe: 跟着案例学Netty，Netty4.x案例从简单入门到应用实战，全篇35节优秀案例+实战源码[基础篇(13)、中级篇(13)、高级篇(3章+)、源码分析篇]。
 
   -
     href: /itstack-demo-jvm/itstack-demo-jvm.html
-    name: 用Java实现JVM虚拟机
+    name: Janus服务源码分析
     describe: 本专题通过Java代码来实现JVM的基础功能（搜索解析class文件、字节码命令、运行时数据区等），从而让java程序员通过最熟知的java程序，学习JVM是如何将java程序一步步跑起来的。
 
 # ---------------- #
