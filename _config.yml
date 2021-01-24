@@ -83,53 +83,28 @@ navs:
     target: _self
     subnav:
       - subHref: /itstack-demo-any/itstack-demo-any.html
-        subLabel: 编程基础
+        subLabel: 算法设计专题
       - subHref: /itstack-demo-algorithm/itstack-demo-algorithm.html
-        subLabel: 算法与数据结构
+        subLabel: 代码工程优化
       - subHref: /itstack-demo-springcloud/itstack-demo-springcloud.html
         subLabel: C++ 11/14/20
       - subHref: /itstack-demo-jvm/itstack-demo-jvm.html
-        subLabel: 用Java实现JVM
+        subLabel: 后台组件编程
+      - subHref: /itstack-demo-jvm/itstack-demo-jvm.html
+        subLabel: 开源框架专题
       - subHref: /itstack-demo-drools/itstack-demo-drools.html
         subLabel: Golang DevOps项目
-  -
-    href: /itstack-demo-netty/itstack-demo-netty.html
-    label: Linux后台工程师专题
-    target: _self
-    subnav:
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-1.html
-        subLabel: 算法设计专题
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-2.html
-        subLabel: 后台组件编程
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-3.html
-        subLabel: 代码工程优化
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: 网络服务专题
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: 开源框架专题
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: 性能测试专题
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: Linux系统内核
-      -
-        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
-        subLabel: 互联网云盘实战
-
-  -
+  -  
     href: /
-    label: 高级互联网架构师
+    label: Linux高级互联网架构师
     target: _self
     subnav:
       -
         subHref: /itstack-ark-middleware/itstack-ark-middleware.html
-        subLabel: 源码分析专题
+        subLabel: Linux内核专题
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: 网络服务专题
       -
         subHref: /itstack-demo-agent/itstack-demo-agent.html
         subLabel: 中间件开发专题
@@ -151,6 +126,9 @@ navs:
       -
         subHref: /itstack-demo-frame/itstack-demo-frame.html
         subLabel: 网络性能极限DPDK
+      -
+        subHref: /itstack-demo-netty/itstack-demo-netty-4.html
+        subLabel: 互联网云盘实战
   -
     href: /
     label: 音视频技术专题
