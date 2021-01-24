@@ -33,10 +33,10 @@ permalink: /link
 
 ## 个人链接
 
-- [bugstack虫洞栈](https://bugstack.com) - 个人独立博客
-- [Github](https://github.com/fuzhengwei) -  我分享代码的地方
-- [知乎](https://www.zhihu.com/people/fuzhengwei) - 个人知乎地址，回答一些问题
-- [CSDN](https://bugstack.blog.csdn.net)  - 博客专家
+- [bugstack虫洞栈](https://wchuanc.com) - 个人独立博客
+- [Github](https://github.com/wangchuanchuan) -  我分享代码的地方
+- [知乎](https://www.zhihu.com/people/wchuanc) - 个人知乎地址，回答一些问题
+- [CSDN](https://wchuanc.blog.csdn.net)  - 博客专家
 - [掘金](https://juejin.im/user/5d1dd872f265da1bb31c569b) - 掘金优秀博客
 - [简书](https://www.jianshu.com/u/6277de401399) - 优质创作社区
 
