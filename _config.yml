@@ -148,7 +148,7 @@ navs:
       -
         subHref: /itstack-demo-frame/itstack-demo-frame.html
         subLabel: IM实时流媒体实战
-        -
+  -
         
     href: /
     label: 挑战网络性能极限DPDK专栏
@@ -166,7 +166,7 @@ navs:
       -
         subHref: /itstack-demo-frame/itstack-demo-frame.html
         subLabel: 同步互斥机制
-        -
+  -
     href: /
     label: 全方位分析Linux内核
     target: _self
@@ -189,7 +189,8 @@ navs:
       -
         subHref: /itstack-demo-frame/itstack-demo-frame.html
         subLabel: 页面回收和页面交互
-        href: /
+  -
+    href: /
     label: 音视频技术专题
     target: _self
     subnav:
